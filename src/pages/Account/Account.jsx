@@ -59,7 +59,7 @@ const Account = () => {
           </div>
         </div>
 
-        <div className="profile__right">
+        <div className="account__right">
           <img src={account} alt="image of user account" />
         </div>
       </div>

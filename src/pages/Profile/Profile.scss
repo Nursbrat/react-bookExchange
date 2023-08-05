@@ -24,7 +24,6 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
 }
 .profile__left-user {
   display: flex;
@@ -54,7 +53,8 @@
 .profile-blog {
   border-radius: 3rem;
   padding: 0 1rem;
-  width: 50rem;
+  width: 40vw;
+  min-width: 40rem;
   height: 5rem;
   border: 1px solid #666666;
   display: flex;
@@ -66,4 +66,28 @@
 
 .profile__right {
   width: 40%;
+}
+
+@media screen and (max-width: 992px) {
+  .profile__right {
+    width: 50%;
+    padding-top: 3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profile-container {
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    gap: 3rem;
+  }
+  .profile__left {
+    justify-content: center;
+    align-items: center;
+  }
+  .profile__right {
+    width: 100%;
+    padding: 2rem 3rem;
+  }
 }
