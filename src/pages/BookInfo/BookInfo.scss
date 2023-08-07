@@ -1,0 +1,6 @@
+@import '../../style/_global.scss';
+
+
+.book__info__button{
+    @include defaultButton()
+}

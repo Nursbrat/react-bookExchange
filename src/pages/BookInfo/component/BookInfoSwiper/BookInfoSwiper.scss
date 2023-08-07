@@ -1,0 +1,102 @@
+.bookinfo__swiper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  transition: 0.25s;
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-width: 600px;
+  gap: 5px;
+  width: calc(100% - 100px);
+  height: 400px;
+}
+
+.option {
+  min-width: 40px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: 0.5s cubic-bezier(0.83, -0.42, 0.17, 1.29);
+  flex-grow: 1;
+
+  &.active {
+    flex-grow: 660;
+    transform: scale(1);
+    max-width: 800px;
+    margin: 0px;
+    border-radius: 40px;
+    background-size: cover;
+  }
+
+  &:not(.active) {
+    flex-grow: 1;
+    border-radius: 30px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .options {
+    max-width: 600px;
+    .option {
+      min-width: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .options {
+    max-width: 400px;
+    height: 300px;
+    gap: 5px;
+  }
+
+  .option {
+    min-width: 30px;
+    min-height: 30px;
+  }
+
+  .option.active {
+    max-width: 400px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .bookinfo__swiper {
+    .options {
+      min-width: 150px;
+    }
+
+    .option {
+      min-width: 20px;
+    }
+
+    .option.active {
+      border-radius: 20px;
+      min-height: 200px;
+    }
+  }
+}
+@media screen and (max-width: 530px) {
+  .bookinfo__swiper {
+    .options {
+      min-width: 150px;
+      gap: 1px;
+    }
+
+    .option {
+      min-width: 10px;
+    }
+
+    .option.active {
+      border-radius: 20px;
+      min-height: 200px;
+    }
+  }
+}

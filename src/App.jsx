@@ -1,14 +1,14 @@
+import "./App.scss";
+// import './index.scss'
+import BookInfo from "./pages/bookInfo/BookInfo";
 
-import './App.css'
 
 function App() {
-  
-
   return (
     <>
-    
+      <BookInfo/>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

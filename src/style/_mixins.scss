@@ -1,0 +1,11 @@
+
+@mixin defaultButton() {
+  border-radius: 90px;
+  background: $buttonColor;
+  display: inline-flex;
+  padding: 10px 108px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+}
+
