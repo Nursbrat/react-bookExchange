@@ -1,6 +1,6 @@
-@import '../../style/_global.scss';
+@use "../../style/global.scss" as *;
 
-
-.book__info__button{
-    @include defaultButton()
+.book__info__button {
+  @include defaultButton();
+  margin-top: 80px;
 }

@@ -9,18 +9,21 @@ const BookInfoSwiper = () => {
         "https://66.media.tumblr.com/6fb397d822f4f9f4596dff2085b18f2e/tumblr_nzsvb4p6xS1qho82wo1_1280.jpg",
     },
     {
-        backgroundUrl:
-          "https://66.media.tumblr.com/6fb397d822f4f9f4596dff2085b18f2e/tumblr_nzsvb4p6xS1qho82wo1_1280.jpg",
-      },  {
-        backgroundUrl:
-          "https://66.media.tumblr.com/6fb397d822f4f9f4596dff2085b18f2e/tumblr_nzsvb4p6xS1qho82wo1_1280.jpg",
-      },  {
-        backgroundUrl:
-          "https://66.media.tumblr.com/6fb397d822f4f9f4596dff2085b18f2e/tumblr_nzsvb4p6xS1qho82wo1_1280.jpg",
-      },  {
-        backgroundUrl:
-          "https://66.media.tumblr.com/6fb397d822f4f9f4596dff2085b18f2e/tumblr_nzsvb4p6xS1qho82wo1_1280.jpg",
-      },
+      backgroundUrl:
+        "https://66.media.tumblr.com/6fb397d822f4f9f4596dff2085b18f2e/tumblr_nzsvb4p6xS1qho82wo1_1280.jpg",
+    },
+    {
+      backgroundUrl:
+        "https://66.media.tumblr.com/6fb397d822f4f9f4596dff2085b18f2e/tumblr_nzsvb4p6xS1qho82wo1_1280.jpg",
+    },
+    {
+      backgroundUrl:
+        "https://66.media.tumblr.com/6fb397d822f4f9f4596dff2085b18f2e/tumblr_nzsvb4p6xS1qho82wo1_1280.jpg",
+    },
+    {
+      backgroundUrl:
+        "https://66.media.tumblr.com/6fb397d822f4f9f4596dff2085b18f2e/tumblr_nzsvb4p6xS1qho82wo1_1280.jpg",
+    },
     {
       backgroundUrl:
         "https://66.media.tumblr.com/6fb397d822f4f9f4596dff2085b18f2e/tumblr_nzsvb4p6xS1qho82wo1_1280.jpg",
@@ -40,21 +43,18 @@ const BookInfoSwiper = () => {
   };
 
   return (
-    <div className="container">
-      <div className="bookinfo__swiper">
-        <div className="options">
-          {options.map((option, index) => (
-            <div
-              key={index}
-              className={`option ${index === activeOption ? "active" : ""} `}
-              style={{ backgroundImage: `url(${option.backgroundUrl})` }}
-              onClick={() => handleOptionClick(index)}
-            ></div>
-          ))}
-        </div>
+    <div className="bookinfo__swiper">
+      <div className="options">
+        {options.map((option, index) => (
+          <div
+            key={index}
+            className={`option ${index === activeOption ? "active" : ""} `}
+            style={{ backgroundImage: `url(${option.backgroundUrl})` }}
+            onClick={() => handleOptionClick(index)}
+          ></div>
+        ))}
       </div>
     </div>
-
   );
 };
 

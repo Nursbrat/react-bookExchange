@@ -1,7 +1,8 @@
+@forward "./style/reset.scss";
+@forward "./style/fonts.scss";
+@forward "./style/class.scss";
+@forward "./style/global.scss";
 
-@import "./style/global.scss";
-
-@import "./style/reset.scss";
-@import "./style/fonts.scss";
-@import "./style/class.scss";
-
+@use "./style/mixins.scss" ;
+@use "./style/variables.scss" ;
+  

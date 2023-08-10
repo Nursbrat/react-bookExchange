@@ -1,3 +1,7 @@
+@use '../../../../style/global' as *;
+
+
+
 .book__info__header {
   margin-top: 32.5px;
   display: flex;
@@ -5,11 +9,6 @@
   align-items: center;
 
   &-name {
-    color: #000;
-    font-family: Lora;
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+   @include title($lightModeTextColor)
   }
 }

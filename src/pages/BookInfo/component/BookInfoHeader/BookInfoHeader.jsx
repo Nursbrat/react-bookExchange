@@ -4,7 +4,7 @@ import '../BookInfoHeader/BookInfoHeader.scss'
 const BookInfoHeader = () => {
   return (
     <div className="book__info__header">
-      <h2 className="book__info__header-name"></h2>
+      <h2 className="book__info__header-name">Богатый папа, Бедный Папа</h2>
       <svg
         width="46"
         height="46"
