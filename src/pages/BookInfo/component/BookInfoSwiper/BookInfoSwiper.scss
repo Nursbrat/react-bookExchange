@@ -1,0 +1,103 @@
+.bookinfo__swiper {
+  display: flex;
+  flex-direction: row;
+  // justify-content: center;
+  align-items: center;
+  margin-top: 20px
+
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-width: 744x;
+  gap: 5px;
+  width: 100%;
+  height: 600px;
+}
+
+.option {
+  min-width: 40px;
+  max-width: 60px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: .5s cubic-bezier(0.83, -0.42, 0.17, 1.29);
+  margin: 0;
+  border-radius: 50px;
+
+
+  &.active {
+    flex-grow: 66;
+    max-width: 600px;
+    margin: 0px;
+   
+  }
+
+  &:not(.active) {
+    border-radius: 50px;
+    min-width: 50px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .options {
+    max-width: 600px;
+    .option {
+      min-width: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .options {
+    max-width: 400px;
+    height: 300px;
+    gap: 5px;
+  }
+
+  .option {
+    min-width: 10px;
+    
+  }
+
+  .option.active {
+    min-width: 300px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .bookinfo__swiper {
+    .options {
+      min-width: 150px;
+    }
+
+    .option {
+      min-width: 20px;
+    }
+
+    .option.active {
+      border-radius: 20px;
+      min-height: 200px;
+    }
+  }
+}
+@media screen and (max-width: 530px) {
+  .bookinfo__swiper {
+    .options {
+      min-width: 350px;
+      gap: 1px;
+    }
+
+    .option {
+      min-width: 10px;
+    }
+
+    .option.active {
+      border-radius: 20px;
+      min-height: 200px;
+    }
+  }
+}

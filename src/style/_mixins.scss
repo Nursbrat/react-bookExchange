@@ -1,0 +1,28 @@
+@mixin title($color) {
+  color: $color;
+  font-family: "Lora";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+@mixin defaultButton() {
+  border-radius: 90px;
+  background: $buttonColor;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  min-width: 400px;
+  max-width: 500px;
+  height: 71px;
+  padding: 21px 0px 19px 0px;
+  color: $buttonTextColor;
+  text-align: center;
+  font-family: Lora;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}

@@ -1,0 +1,124 @@
+@use "../../../../style/global.scss" as *;
+
+.bookinfo__description {
+  margin-top: 2.5rem;
+  .bookinfo__description__title {
+    color: $lightModeTextColor;
+    font-family: Lora;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .bookinfo__description__details {
+    margin-top: 20px;
+    color: $lightModeTextColor;
+    font-family: Montserrat;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 45px;
+    max-width: 1648px;
+  }
+  .bookinfo__extrainfo__block {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 50px;
+    gap: 40px;
+    
+    .bookinfo__description__user-info {
+      display: inline-flex;
+      padding: 20px 150px 20px 50px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      border-radius: 30px;
+      border: 1px solid $borderColor;
+      background: $lightModeBackground;
+    }
+    .bookinfo__description__user-info__title {
+      color: $lightModeTextColor;
+      font-family: Lora;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    .bookinfo__description__user-info__name {
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+
+      h6 {
+        color: $lightModeTextColor;
+        font-family: Lora;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+      p {
+        color: $lightModeTextColor;
+        font-family: Lora;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+    }
+    .bookinfo__description__user-info__rate {
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+
+      h6 {
+        color: $lightModeTextColor;
+        font-family: Lora;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+      p {
+        color: $lightModeTextColor;
+        font-family: Lora;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+    }
+
+    .bookinfo__description__data {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding-left: 50px;
+
+      .bookinfo__description__data__cell {
+        display: flex;
+        align-items: center;
+
+        h6 {
+          color: $lightModeTextColor;
+          font-family: Lora;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+        }
+        p {
+          color: $bookDetailsTextColor;
+          font-family: Lora;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+      }
+    }
+  }
+}
