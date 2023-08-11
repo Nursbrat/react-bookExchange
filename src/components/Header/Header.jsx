@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header-container">
-        <div className="header__logo">Logo</div>
+        <div className="header__logo">BookShop</div>
         <div className="header__search">
           <form>
             <input
@@ -21,6 +21,7 @@ const Header = () => {
           <div className="header__navbar-menu">
             <BiMenu className="header-icons menu" />
           </div>
+
           <div className="header__navbar-user">
             <BiSolidUser className="header-icons profile" />
           </div>

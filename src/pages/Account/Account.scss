@@ -51,7 +51,10 @@
     align-items: center;
   }
   .account__right {
-    width: 100%;
-    padding: 5rem 3.5rem;
+    display: none;
+  }
+  .blog-field {
+    height: 3.8rem;
+    font-size: 1.6rem;
   }
 }

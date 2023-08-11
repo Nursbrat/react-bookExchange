@@ -2,11 +2,10 @@
   height: 9rem;
   width: 100%;
   border-bottom: 1px solid #666;
-
   padding-top: 3.5rem;
 }
 .header-container {
-  padding: 0 10rem;
+  padding: 0 3rem;
   height: 80%;
   display: flex;
   justify-content: space-between;
@@ -14,7 +13,7 @@
 }
 .header__logo {
   font-size: 36px;
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-weight: 600;
 }
 
