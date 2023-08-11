@@ -1,4 +1,5 @@
 import "./App.scss";
+
 // import './index.scss'
 import BookInfo from "./pages/bookInfo/BookInfo";
 
@@ -8,7 +9,6 @@ function App() {
     <>
       <BookInfo/>
     </>
-  );
-}
+  )}
 
 export default App;

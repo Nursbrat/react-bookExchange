@@ -1,0 +1,52 @@
+.request-model {
+  width: 100vw;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 60rem));
+  grid-gap: 2rem;
+  justify-content: space-around;
+}
+.request-model-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: rgb(236, 238, 238);
+  border-radius: 3rem;
+  padding: 1rem;
+}
+.request-model__img {
+  max-width: 20rem;
+
+  img {
+    border-radius: 1.5rem;
+  }
+}
+.request-model__content {
+  max-width: 40rem;
+}
+
+.request-model__content-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.request-btn {
+  width: 40%;
+  height: 3.5rem;
+  border: none;
+  border-radius: 2rem;
+  color: #ffffff;
+  font-size: 2rem;
+  padding: 0.8rem;
+}
+.request-btn.accept {
+  background-color: green;
+}
+.request-btn.reject {
+  background-color: red;
+}
+
+@media screen and (max-width: 768px) {
+  .request-btn {
+    height: 2.8rem;
+  }
+}

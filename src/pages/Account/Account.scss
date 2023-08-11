@@ -1,0 +1,60 @@
+.account-container {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.file {
+  display: none;
+}
+.account form {
+  padding-top: 1rem;
+  display: block;
+  text-decoration: underline;
+}
+.account-info {
+  font-size: 1.8rem;
+}
+.blog-field {
+  border-radius: 3rem;
+  padding: 0 1rem;
+  width: 40vw;
+  min-width: 40rem;
+  height: 5rem;
+  border: 1px solid #666666;
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+  font-size: 1.6rem;
+}
+.account__right {
+  width: 40%;
+}
+
+@media screen and (max-width: 992px) {
+  .account__right {
+    width: 50%;
+    padding-top: 3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .account-container {
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    gap: 3rem;
+  }
+  .account__left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .account__right {
+    display: none;
+  }
+  .blog-field {
+    height: 3.8rem;
+    font-size: 1.6rem;
+  }
+}
