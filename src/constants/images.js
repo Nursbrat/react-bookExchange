@@ -2,6 +2,7 @@ import account from '../../public/assets/account.png';
 import addbook from '../../public/assets/addbook.png';
 import book from '../../public/assets/book.jpg';
 import cabinet from '../../public/assets/cabinet.png';
+import caret from '../../public/assets/icon/caret.svg';
 import drama from '../../public/assets/images/main-page/drama.png';
 import fantasy from '../../public/assets/images/main-page/fantasy.png';
 import finance from '../../public/assets/images/main-page/finance.png';
@@ -32,4 +33,5 @@ export default {
   triller,
   horror,
   poem,
+  caret
 };

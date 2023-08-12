@@ -2,10 +2,11 @@ import './App.scss';
 
 import SubMainPage from './pages/SubMainPage/SubMainPage';
 
-const App=()=> {
+const App = () => {
   return (
-    <>
-      <SubMainPage />
+    <>   
+       <SubMainPage/>
+       {/* <MainPage/> */}
     </>
   );
 }

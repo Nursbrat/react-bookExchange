@@ -1,0 +1,41 @@
+.books {
+  margin-top: clamp(15.5px, 4vw, 40px);
+  &__genere--text {
+    color: #000;
+    font-family: Lora;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  &__content {
+    margin-top: clamp(9px, 4vw, 20px);
+  }
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: clamp(9px, 4vw, 20px);
+    row-gap: clamp(12px, 4vw, 30px);
+  }
+  &__item {
+    display: flex;
+    width: clamp(161px, 4vw, 258px);
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      color: #272827;
+      font-family: Lora;
+      max-width: 358px;
+      font-size: (13px, 4vw, 22px);
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+img{
+    border-radius: 10px;
+}
+}
