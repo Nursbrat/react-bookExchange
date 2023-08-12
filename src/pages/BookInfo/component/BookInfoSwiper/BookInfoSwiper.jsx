@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import "../BookInfoSwiper/BookInfoSwiper.scss";
+import '../BookInfoSwiper/BookInfoSwiper.scss';
+
+import React, { useState } from 'react';
 
 const BookInfoSwiper = () => {
   const [activeOption, setActiveOption] = useState(0);

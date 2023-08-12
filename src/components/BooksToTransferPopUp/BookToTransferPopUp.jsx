@@ -1,6 +1,8 @@
-import React from "react";
-import book from "../../assets/book.png";
-import "../BooksToTransferPopUp/BooksToTransferPopUp.scss";
+import '../BooksToTransferPopUp/BooksToTransferPopUp.scss';
+
+import React from 'react';
+
+import book from '../../../public/assets/images/book.png';
 
 const BookToTransferPopUp = () => {
   return (

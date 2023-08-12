@@ -1,14 +1,13 @@
-import "./App.scss";
+import './App.scss';
 
-// import './index.scss'
-import BookInfo from "./pages/bookInfo/BookInfo";
+import SubMainPage from './pages/SubMainPage/SubMainPage';
 
-
-function App() {
+const App=()=> {
   return (
     <>
-      <BookInfo/>
+      <SubMainPage />
     </>
-  )}
+  );
+}
 
 export default App;
