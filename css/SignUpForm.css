@@ -1,0 +1,83 @@
+.signup__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.signup__content form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(10px, 4vw, 20px);
+}
+.signup__content form input {
+  padding: 12.026px 160.934px 12.24px 16.4px;
+  border-radius: 49.2px;
+  border: 0.547px solid #666;
+  background: transparent;
+}
+.signup__content form input::-moz-placeholder {
+  color: #282728;
+}
+.signup__content form input::placeholder {
+  color: #282728;
+}
+.signup__content form button {
+  border-radius: 90px;
+  background: #93F;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(200px + 10vw);
+  height: 71px;
+  padding: clamp(15px, 4vw, 20px) 0;
+  color: #FFF;
+  text-align: center;
+  font-family: Lora;
+  font-size: clamp(15px, 5vw, 24px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.signup__divider {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.signup__divider p {
+  color: #000;
+  text-align: center;
+  font-family: Lora;
+  font-size: clamp(10px, 4vw, 16px);
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding-right: 19px;
+  padding-left: 19px;
+  position: relative;
+}
+.signup__divider p::before, .signup__divider p::after {
+  content: "";
+  background-color: #666;
+  width: calc(100px + 2.5vw);
+  height: 1.5px;
+  position: absolute;
+  z-index: 2;
+}
+.signup__divider p::before {
+  top: 50%;
+  left: 0%;
+  transform: translate(-100%, -50%);
+}
+.signup__divider p::after {
+  top: 50%;
+  left: 100%;
+  transform: translate(0%, -50%);
+}
+.signup__img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}/*# sourceMappingURL=SignUpForm.css.map */

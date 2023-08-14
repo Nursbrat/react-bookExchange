@@ -1,12 +1,17 @@
 import './App.scss';
+import Auth from './pages/Auth/Auth';
+import './pages/Auth/Auth.scss'
 
-import SubMainPage from './pages/SubMainPage/SubMainPage';
+
+
+
 
 const App = () => {
   return (
-    <>   
-       <SubMainPage/>
-       {/* <MainPage/> */}
+    <>
+   
+      <Auth />
+  
     </>
   );
 }

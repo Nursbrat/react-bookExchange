@@ -1,0 +1,41 @@
+.books {
+  margin-top: clamp(15.5px, 4vw, 40px);
+}
+.books__genere--text {
+  color: #000;
+  font-family: Lora;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.books__content {
+  margin-top: clamp(9px, 4vw, 20px);
+}
+.books__items {
+  display: flex;
+  flex-wrap: wrap;
+  -moz-column-gap: clamp(9px, 4vw, 20px);
+       column-gap: clamp(9px, 4vw, 20px);
+  row-gap: clamp(12px, 4vw, 30px);
+}
+.books__item {
+  display: flex;
+  width: clamp(161px, 4vw, 258px);
+  height: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.books__item p {
+  color: #272827;
+  font-family: Lora;
+  max-width: 358px;
+  font-size: 13px, 4vw, 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.books img {
+  border-radius: 10px;
+}/*# sourceMappingURL=Books.css.map */

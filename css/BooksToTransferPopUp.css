@@ -1,0 +1,48 @@
+.booktotransfer__popup__books {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1092px;
+  gap: 20px;
+  margin-top: clamp(9px, 6vw, 20px);
+}
+.booktotransfer__popup__book p {
+  color: #000;
+  font-family: Lora;
+  font-size: clamp(9.039px, 4vw, 22px);
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  max-width: 256px;
+}
+.booktotransfer__popup__img {
+  max-width: 258px;
+  max-height: 350px;
+  min-width: 106px;
+  min-height: 143px;
+}
+.booktotransfer__popup .booktotransfer__popup__content h2 {
+  color: #000;
+  font-family: Lora;
+  font-size: clamp(11px, 4vw, 36px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.booktotransfer__popup button {
+  border-radius: 90px;
+  background: #93F;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(200px + 10vw);
+  height: 71px;
+  padding: clamp(15px, 4vw, 20px) 0;
+  color: #FFF;
+  text-align: center;
+  font-family: Lora;
+  font-size: clamp(15px, 5vw, 24px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: clamp(28.41px, 4vw, 80px);
+}/*# sourceMappingURL=BooksToTransferPopUp.css.map */

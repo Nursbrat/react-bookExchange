@@ -1,10 +1,22 @@
-.book__info__button {
+.bookinfo {
+  position: relative;
+}
+
+.bookinfo__button {
   border-radius: 90px;
   background: #93F;
-  display: inline-flex;
-  padding: 10px 108px;
+  display: flex;
   justify-content: center;
-  align-items: flex-start;
-  cursor: pointer;
-  gap: 10px;
+  align-items: center;
+  width: calc(200px + 10vw);
+  height: 71px;
+  padding: clamp(15px, 4vw, 20px) 0;
+  color: #FFF;
+  text-align: center;
+  font-family: Lora;
+  font-size: clamp(15px, 5vw, 24px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: 80px;
 }/*# sourceMappingURL=BookInfo.css.map */

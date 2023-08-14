@@ -13,14 +13,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: calc(200px + 20vw);
+  width: calc(200px + 10vw);
   height: 71px;
-  padding: 21px 0px 19px 0px;
+  padding: clamp( 15px,4vw,20px ) 0;
   color: $buttonTextColor;
   text-align: center;
   font-family: Lora;
-  font-size: clamp(11px, 3vw, 24px);
+  font-size: clamp(15px, 5vw, 24px);
   font-style: normal;
   font-weight: 600;
-  line-height: normal;
+  line-height: 1.2;
 }

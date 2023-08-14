@@ -1,0 +1,73 @@
+@use "../../../../style/global" as *;
+
+.login {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(10px, 4vw, 20px);
+      input {
+        padding: clamp(6px, 1.5vw, 12.026px) clamp(8px, 2vw, 160.934px) clamp(6px, 1.5vw, 12.24px) clamp(8px, 2vw, 16.4px);
+        border-radius: 49.2px;
+        border: 0.547px solid $borderColor;
+        background: transparent;
+        &::placeholder {
+          color: #282728;
+        }
+      }
+
+      button {
+        @include defaultButton();
+      }
+    }
+  }
+  &__divider {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    p {
+      color: $lightModeTextColor;
+      text-align: center;
+      font-family: Lora;
+      font-size: clamp(10px, 4vw, 16px);
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      padding-right: 19px;
+      padding-left: 19px;
+
+      position: relative;
+      &::before,
+      &::after {
+        content: "";
+        background-color: $borderColor;
+        width: clamp(150px, 4vw, 205px);
+        height: 1.5px;
+        position: absolute;
+        z-index: 2;
+      }
+      &::before {
+        top: 50%;
+        left: 0%;
+        transform: translate(-100%, -50%);
+      }
+
+      &::after {
+        top: 50%;
+        left: 100%;
+        transform: translate(0%, -50%);
+      }
+    }
+  }
+  &__img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+}

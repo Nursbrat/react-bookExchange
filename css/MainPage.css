@@ -1,0 +1,66 @@
+.main__hero {
+  display: flex;
+  justify-content: baseline;
+  align-items: end;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw -1px;
+  height: 60vh;
+  border-radius: 10px;
+  padding: 14px 12px;
+  gap: 10px;
+}
+.main__hero h1 {
+  color: #fff;
+  font-family: Lora;
+  font-size: clamp(13px, 4vw, 64px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  max-width: 620px;
+}
+.main__hero button {
+  border-radius: 90px;
+  background: #93F;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(200px + 10vw);
+  height: 71px;
+  padding: clamp(15px, 4vw, 20px) 0;
+  color: #FFF;
+  text-align: center;
+  font-family: Lora;
+  font-size: clamp(15px, 5vw, 24px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.2;
+  padding: 3.979px 37.5px 4.021px 38.5px;
+  margin-top: 10px;
+}
+.main__genres {
+  margin-top: clamp(16px, 4vw, 24px);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(8px, 4vw, 20px);
+}
+.main__genre {
+  width: calc(106px + 20vw);
+}
+
+@media screen and (max-width: 1054px) {
+  .main__hero {
+    max-width: 1000px;
+    height: 50vh;
+    background-size: 100qmax;
+  }
+}
+@media screen and (max-width: 723px) {
+  .main__hero {
+    max-width: 700px;
+    height: 40vh;
+    background-size: 200qmax;
+  }
+}/*# sourceMappingURL=MainPage.css.map */

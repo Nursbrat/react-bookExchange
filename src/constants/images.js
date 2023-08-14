@@ -15,6 +15,9 @@ import triller from '../../public/assets/images/main-page/triller.png';
 import img from '../../public/assets/img.png';
 import notfound from '../../public/assets/notfound.png';
 import profile from '../../public/assets/profile.png';
+import logo from '../../public/assets/images/logo.png'
+import authBackground from '../../public/assets/images/auth/darkacademia.png'
+import google from '../../public/assets/icon/google.svg'
 
 export default {
   notfound,
@@ -33,5 +36,8 @@ export default {
   triller,
   horror,
   poem,
-  caret
+  caret,
+  logo,
+  authBackground,
+  google
 };

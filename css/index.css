@@ -70,6 +70,10 @@ section {
 
 body {
   line-height: 1;
+  font-family: "Lora", serif;
+  font-size: 1.6rem;
+  margin: 0;
+  padding: 0;
 }
 
 ol,
@@ -100,13 +104,20 @@ table {
 }
 
 img {
-  display: inline-block;
+  display: inline-flex;
   vertical-align: middle;
   border-style: none;
   max-width: 100%;
   height: auto;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  background: none;
 }
 
 .container {
