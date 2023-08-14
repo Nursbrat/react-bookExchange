@@ -17,7 +17,7 @@ const Addbook2 = () => {
             <div className="addBook2__cover">
               <p className="label">Добавьте фото</p>
               <div className="add-picture">
-                <label for="add-picture">
+                <label htmlFor="add-picture">
                   <img src={images.img} />
                   <p>Загрузите фотографии</p>
                 </label>
