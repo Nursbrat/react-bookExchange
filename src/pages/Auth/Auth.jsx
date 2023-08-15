@@ -1,6 +1,11 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-// import LoginForm from "./components/LoginForm/LoginForm";
+import {
+  NavLink,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+} from "react-router-dom";
+import LoginForm from "./components/LoginForm/LoginForm";
 import SignUpForm from "./components/SignUpForm/SignUpForm";
 import images from "../../constants/images";
 
@@ -17,8 +22,13 @@ const Auth = () => {
 
         <nav className="auth__nav">
           <NavLink to="/login">Войти</NavLink>
-          <NavLink to="/signup">Регистрация</NavLink>
+          <NavLink to="/sign-up">Регистрация</NavLink>
         </nav>
+
+        <Routes>
+          <Route path="/login" element={LoginForm} />
+          <Route path="/sign-up" element={SignUpForm} />
+        </Routes>
 
         <SignUpForm />
       </div>

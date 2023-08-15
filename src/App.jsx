@@ -14,6 +14,20 @@ import Addbook from "./pages/Addbook/Addbook";
 import Addbook2 from "./pages/Addbook2/Addbook2";
 import BookInfo from "./pages/BookInfo/BookInfo";
 import SubMainPage from "./pages/SubMainPage/SubMainPage";
+import { Suspense, useEffect, useState } from "react";
+
+const FakeAsyncComponent = ({ children }) => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return loading ? <div>Загрузка...</div> : children;
+};
 
 const App = () => {
   const ROUTES = [
@@ -33,13 +47,17 @@ const App = () => {
   ];
 
   return (
-    <>
+    <Suspense fallback={<div>Загрузка...</div>}>
       <Routes>
         {ROUTES.map((page) => (
-          <Route path={page.link} element={page.element} key={page.id} />
+          <Route
+            path={page.link}
+            element={<FakeAsyncComponent>{page.element}</FakeAsyncComponent>}
+            key={page.id}
+          />
         ))}
       </Routes>
-    </>
+    </Suspense>
   );
 };
 
