@@ -7,6 +7,7 @@ import { IoMdNotifications } from "react-icons/io";
 import { MdBook } from "react-icons/md";
 import { AiFillFolderAdd } from "react-icons/ai";
 import Profcontainer from "../../components/Profcontainer/Profcontainer";
+import { NavLink } from "react-router-dom";
 
 const Profile = () => {
   return (
@@ -23,30 +24,42 @@ const Profile = () => {
         </div>
         <div className="profile-container">
           <div className="profile__left">
-            <div className="profile__left-account profile-blog">
+            <NavLink
+              to="/account"
+              className="profile__left-account profile-blog"
+            >
               <BiSolidUser />
               <p>Аккаунт</p>
-            </div>
-            <div className="profile__left-request profile-blog">
+            </NavLink>
+            <NavLink
+              to="/requests"
+              className="profile__left-request profile-blog"
+            >
               <GoGitPullRequest />
               <p>Запросы на обмен</p>
-            </div>
-            <div className="profile__left-notification profile-blog">
+            </NavLink>
+            <NavLink className="profile__left-notification profile-blog">
               <IoMdNotifications />
               <p>Уведомления</p>
-            </div>
-            <div className="profile__left-upload profile-blog">
+            </NavLink>
+            <NavLink
+              to="/add-book"
+              className="profile__left-upload profile-blog"
+            >
               <AiFillFolderAdd />
-              <p>Дабваить свою книгу</p>
-            </div>
-            <div className="profile__left-book-collections profile-blog">
+              <p>Добавить свою книгу</p>
+            </NavLink>
+            <NavLink
+              to="/my-books"
+              className="profile__left-book-collections profile-blog"
+            >
               <MdBook />
               <p>Мои книги</p>
-            </div>
-            <div className="profile__left-library profile-blog">
+            </NavLink>
+            <NavLink className="profile__left-library profile-blog">
               <BiSolidBookReader />
               <p>Библиотека</p>
-            </div>
+            </NavLink>
           </div>
 
           <div className="profile__right">
