@@ -21,6 +21,19 @@
   height: 15rem;
   padding: 0 3rem 2.8rem;
 }
+
+.profile-blog {
+  color: inherit; /* Наследование цвета */
+  text-decoration: none; /* Убираем подчеркивание текста */
+  outline: none; /* Убираем контур при фокусе */
+  transition: 0.2s;
+}
+
+.profile-blog:hover {
+  color: #551a8b; /* Верните цвет по умолчанию */
+  transition: 0.2s;
+}
+
 .user-img {
   width: 13rem;
 }
