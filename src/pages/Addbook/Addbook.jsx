@@ -15,7 +15,7 @@ const Addbook = () => {
         <div className="addBook">
           <div className="addBook-container">
             <form className="addBook__left">
-              <label for="book-name">Название</label>
+              <label htmlFor="book-name">Название</label>
               <input
                 type="text"
                 name="book-name"
@@ -23,7 +23,7 @@ const Addbook = () => {
                 placeholder="Введите название книги"
                 required
               />
-              <label for="book-author">Автор</label>
+              <label htmlFor="book-author">Автор</label>
               <input
                 type="text"
                 name="book-author"
@@ -31,7 +31,7 @@ const Addbook = () => {
                 placeholder="Введите имя автора книги"
                 required
               />
-              <label for="book-genre">Жанр</label>
+              <label htmlFor="book-genre">Жанр</label>
               <input
                 type="text"
                 name="book-genre"
@@ -39,7 +39,7 @@ const Addbook = () => {
                 placeholder="Введите жанр книги"
                 required
               />
-              <label for="book-published-year">Год издания</label>
+              <label htmlFor="book-published-year">Год издания</label>
               <input
                 type="text"
                 name="book-published-year"
@@ -47,7 +47,7 @@ const Addbook = () => {
                 placeholder="Введите год издания книги"
                 required
               />
-              <label for="book-language">Язык</label>
+              <label htmlFor="book-language">Язык</label>
               <input
                 type="text"
                 name="book-language"
@@ -55,14 +55,14 @@ const Addbook = () => {
                 placeholder="Введите на каком языке книги"
                 required
               />
-              <label for="book-condition">Сосотояние</label>
+              <label htmlFor="book-condition">Состояние</label>
               <select id="book-condition" name="book-condition">
                 <option value=" " selected>
-                  Выберете сосотояние
+                  Выберите состояние
                 </option>
-                <option value="good">хорошое сосотояние</option>
-                <option value="satisfactory">средннее сосотояние</option>
-                <option value="bad">плохое сосотояние</option>
+                <option value="good">хорошее состояние</option>
+                <option value="satisfactory">среднее состояние</option>
+                <option value="bad">плохое состояние</option>
               </select>
             </form>
             <div className="addBook__right">

@@ -14,7 +14,7 @@ const Account = () => {
                 <img src={images.profile} alt="icon of user medium size" />
               </div>
               <form>
-                <label for="profile-picture">
+                <label htmlFor="profile-picture">
                   Изменить фото
                   <input
                     id="profile-picture"
