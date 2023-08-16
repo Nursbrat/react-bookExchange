@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Outlet, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import Auth from "./pages/Auth/Auth";
 import "./pages/Auth/Auth.scss";
@@ -15,6 +15,7 @@ import Addbook2 from "./pages/Addbook2/Addbook2";
 import BookInfo from "./pages/BookInfo/BookInfo";
 import SubMainPage from "./pages/SubMainPage/SubMainPage";
 import { Suspense, useEffect, useState } from "react";
+import Header from "./components/Header/Header";
 
 const FakeAsyncComponent = ({ children }) => {
   const [loading, setLoading] = useState(true);
@@ -49,13 +50,24 @@ const App = () => {
   return (
     <Suspense fallback={<div>Загрузка...</div>}>
       <Routes>
-        {ROUTES.map((page) => (
-          <Route
-            path={page.link}
-            element={<FakeAsyncComponent>{page.element}</FakeAsyncComponent>}
-            key={page.id}
-          />
-        ))}
+        {ROUTES.map((page) =>
+          page.link === "/auth" ? (
+            <Route
+              path={page.link}
+              element={<FakeAsyncComponent>{page.element}</FakeAsyncComponent>}
+              key={page.id}
+            >
+              <Route path="login" element={<LoginForm />} />
+              <Route path="sign-up" element={<SignUpForm />} />
+            </Route>
+          ) : (
+            <Route
+              path={page.link}
+              element={<FakeAsyncComponent>{page.element}</FakeAsyncComponent>}
+              key={page.id}
+            />
+          )
+        )}
       </Routes>
     </Suspense>
   );
