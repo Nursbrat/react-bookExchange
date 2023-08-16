@@ -8,7 +8,7 @@ const Auth = () => {
     return (
 
         <div className="auth" style={{ backgroundImage: `url(${images.authBackground})` }}>
-       
+
             <div className="auth__content">
                 <div className="auth__logo">
                     <img src={images.logo} alt="logo" />
@@ -21,16 +21,16 @@ const Auth = () => {
                 </nav>
 
                 <Routes>
-                            <Route path='/login' element={LoginForm} />
-                            <Route path='/signup' element={SignUpForm} />
+                    <Route path='/login' element={LoginForm} />
+                    <Route path='/signup' element={SignUpForm} />
 
-                        </Routes>
+                </Routes>
 
                 <SignUpForm />
 
             </div>
 
-      
+
         </div>
 
     )

@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import '../SignUpForm/SignUpForm.scss'
 import images from '../../../../constants/images';
 
 const SignUpForm = () => {
+    const [password,setPassword]=useState()
+    const togglePassword=(e)=>{
+        setPassword(e.value)
+    }
     return (
         <div className='signup'>
 
@@ -11,7 +15,8 @@ const SignUpForm = () => {
                 <form>
                     <input type="text" placeholder="Имя" required />
                     <input type="email" placeholder="Введите эл. почту" required />
-                    <input type="password" placeholder="Пароль" required />
+                    <input type="password" placeholder="Пароль" required value={password} onChange={togglePassword} />
+                   
                     <div className="signup__divider">
                         <p>Или</p>
                     </div>

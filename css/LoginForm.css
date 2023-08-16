@@ -27,9 +27,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: calc(200px + 10vw);
-  height: 71px;
-  padding: clamp(15px, 4vw, 20px) 0;
+  width: calc(190px + 10vw);
+  height: calc(50px + 1vw);
+  padding: clamp(13px, 4vw, 19px) 0;
   color: #FFF;
   text-align: center;
   font-family: Lora;
