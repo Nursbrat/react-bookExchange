@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   NavLink,
+  Outlet,
   Route,
   BrowserRouter as Router,
   Routes,
@@ -10,6 +11,8 @@ import SignUpForm from "./components/SignUpForm/SignUpForm";
 import images from "../../constants/images";
 
 const Auth = () => {
+  const pathname = window.location.pathname;
+
   return (
     <div
       className="auth"
@@ -21,16 +24,19 @@ const Auth = () => {
         </div>
 
         <nav className="auth__nav">
-          <NavLink to="/login">Войти</NavLink>
-          <NavLink to="/sign-up">Регистрация</NavLink>
+          <NavLink to="login" onClick={() => window.location.reload()}>
+            Войти
+          </NavLink>
+          <NavLink to="sign-up" onClick={() => window.location.reload()}>
+            Регистрация
+          </NavLink>
         </nav>
 
-        <Routes>
-          <Route path="/login" element={LoginForm} />
-          <Route path="/sign-up" element={SignUpForm} />
-        </Routes>
+        <Outlet />
 
-        <SignUpForm />
+        {pathname === "/auth/login" || pathname === "/auth/sign-up" ? null : (
+          <SignUpForm />
+        )}
       </div>
     </div>
   );
