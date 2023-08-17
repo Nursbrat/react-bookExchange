@@ -10,7 +10,7 @@ import MainPage from "../pages/MainPage/MainPage";
 import MyBooks from "../pages/MyBooks/MyBooks";
 import Profile from "../pages/Profile/Profile";
 import Requests from "../pages/Requests/Requests";
-// import SubMainPage from "../pages/SubMainPage/SubMainPage";
+import SubMainPage from "../pages/SubMainPage/SubMainPage";
 
 export const ROUTES = [
   { link: "/", component: MainPage, id: 1 },
@@ -24,6 +24,6 @@ export const ROUTES = [
   { link: "/add-book", component: Addbook, id: 9 },
   { link: "/add-book-two", component: Addbook2, id: 10 },
   { link: "/book-info", component: BookInfo, id: 11 },
-  //   { link: "/submain-page", component: SubMainPage, id: 12 },
+  { link: "/submain-page", component: SubMainPage, id: 12 },
   { link: "/profile", component: Profile, id: 13 },
 ];
