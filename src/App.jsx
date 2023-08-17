@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import "./App.scss";import { Route, Routes } from "react-router-dom";
 import "./App.scss";
 import "./pages/Auth/Auth.scss";
 import SignUpForm from "./pages/Auth/components/SignUpForm/SignUpForm";

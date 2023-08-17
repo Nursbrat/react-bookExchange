@@ -2,7 +2,7 @@ import React from "react";
 import Profcontainer from "../../components/Profcontainer/Profcontainer";
 import { images } from "../../constants";
 import "./Addbook.scss";
-import { PiCaretLeftBold, PiCaretRightBold } from "react-icons/pi";
+import { PiCaretRightBold } from "react-icons/pi";
 
 const Addbook = () => {
   return (
@@ -14,8 +14,27 @@ const Addbook = () => {
       >
         <div className="addBook">
           <div className="addBook-container">
-            <form className="addBook__left">
-              <label htmlFor="book-name">Название</label>
+
+            <form className="addBook__form">
+              <div className="addBook__cover">
+                <p className="label">Добавьте фото</p>
+                <div className="add-picture">
+                  <label for="add-picture">
+                    <img src={images.img} />
+                    <p>Загрузите фотографии</p>
+                  </label>
+                  <input type="file" id="add-picture" className="add-file" />
+                </div>
+              </div>
+              <div className="addBook__description">
+                <label className="label">Добавьте описание</label>
+                <textarea
+                  placeholder="Введите описание книги"
+                  className="addBook2__description-input"
+                ></textarea>
+              </div>
+
+              <label for="book-name">Название</label>
               <input
                 type="text"
                 name="book-name"
@@ -65,21 +84,13 @@ const Addbook = () => {
                 <option value="bad">плохое состояние</option>
               </select>
             </form>
-            <div className="addBook__right">
-              <img src={images.addbook} />
+
+            <div className="step-btn">
+              <button className="next-link">
+                Продолжить
+                <PiCaretRightBold className="next-icon" />
+              </button>
             </div>
-          </div>
-          <div className="steps-btn">
-            <div className="back-link">
-              <a>
-                <PiCaretLeftBold className="back-icon" />
-              </a>
-              <p>Назад</p>
-            </div>
-            <button className="next-link">
-              Продолжить
-              <PiCaretRightBold className="next-icon" />
-            </button>
           </div>
         </div>
       </Profcontainer>

@@ -1,3 +1,4 @@
+
 import account from '../../public/assets/account.png';
 import addbook from '../../public/assets/addbook.png';
 import book from '../../public/assets/book.jpg';
@@ -40,4 +41,5 @@ export default {
   logo,
   authBackground,
   google
+
 };

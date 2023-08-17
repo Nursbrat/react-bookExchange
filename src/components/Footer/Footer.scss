@@ -1,0 +1,42 @@
+.footer {
+  padding: 1rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #666666;
+  font-size: 1.8rem;
+}
+
+.footer__blog {
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    font-weight: 600;
+  }
+  li {
+    padding-bottom: 0.7rem;
+  }
+}
+.phone {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-logo {
+  padding-top: 2rem;
+  width: 9rem;
+}
+@media screen and (max-width: 768px) {
+  .footer {
+    font-size: 1.5rem;
+  }
+  .footer__blog li {
+    padding-bottom: 0.5rem;
+  }
+  .footer-logo {
+    width: 7rem;
+  }
+  .footer__blog h3 {
+    font-weight: 500;
+  }
+}
