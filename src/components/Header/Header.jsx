@@ -1,11 +1,16 @@
-import React from "react";
+import { React, useState } from "react";
 import "./Header.scss";
-import { BiSearchAlt2, BiMenu, BiSolidUser } from "react-icons/bi";
+import { BiSearchAlt2, BiMenu } from "react-icons/bi";
+import { AiOutlineClose } from "react-icons/ai";
+import { images } from "../../constants";
 const Header = () => {
+  const [toggleMenu, setToggleMenu] = useState(true);
   return (
     <div className="header">
       <div className="header-container">
-        <div className="header__logo">BookShop</div>
+        <div className="header__logo">
+          <img src={images.logo} />
+        </div>
         <div className="header__search">
           <form>
             <input
@@ -17,16 +22,31 @@ const Header = () => {
             </button>
           </form>
         </div>
-        <div className="header__navbar">
-          <div className="header__navbar-menu">
-            <BiMenu className="header-icons menu" />
-          </div>
 
-          <div className="header__navbar-user">
-            <BiSolidUser className="header-icons profile" />
-          </div>
+        <div className="header__navbar-user">
+          {toggleMenu ? (
+            <AiOutlineClose
+              className="header-icons profile"
+              onClick={() => setToggleMenu(false)}
+            />
+          ) : (
+            <BiMenu
+              className="header-icons profile"
+              onClick={() => setToggleMenu(true)}
+            />
+          )}
         </div>
       </div>
+
+      {toggleMenu && (
+        <div className="header__navbar">
+          <ul>
+            <li>Home</li>
+            <li>Home</li>
+            <li>Home</li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,19 +1,16 @@
 .addBook {
-  padding: 1rem;
-  .back-link {
-    opacity: 0;
-  }
+  padding: 1rem 0;
 }
 
 .addBook-container {
   width: 95%;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 2rem;
+  padding: 2rem 0;
 }
-.addBook__left {
+.addBook__form {
+  .add-file {
+    display: none;
+  }
   flex: 1;
   display: flex;
   gap: 1.5rem;
@@ -44,18 +41,46 @@
   }
 }
 
-.select-container {
+.addBook__cover,
+.addBook__description {
+  width: 100%;
+  padding-bottom: 3rem;
+}
+.label {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 0.5rem;
+}
+.add-picture {
+  text-align: center;
+  border-radius: 2rem;
+  width: 100%;
+  height: 40rem;
+  min-height: 15rem;
+  border: 1px solid #666;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
+  img {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+.addBook__description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  textarea {
+    height: 25rem;
+    border-radius: 2rem;
+    padding: 2rem;
+    font-size: 1.8rem;
+  }
 }
 
-.addBook__right {
-  flex: 1;
-}
-
-.steps-btn {
-  padding: 2rem 2.5rem 5rem 0;
+.select-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -79,18 +104,20 @@
   }
 }
 
-@media screen and (max-width: 992px) {
-  .addBook-container {
-    align-items: center;
-  }
-  .addBook__right {
-    width: 50%;
-  }
+.step-btn {
+  padding: 3rem 0;
+  display: flex;
+  justify-content: end;
 }
+
 @media screen and (max-width: 992px) {
   .addBook-title,
   .addBook-subtitle {
     padding-left: 2.3rem;
+  }
+  .addBook__form input,
+  .addBook__form select {
+    width: 100%;
   }
 }
 @media screen and (max-width: 768px) {
@@ -100,15 +127,22 @@
     margin: 0 auto;
     padding: 3rem;
   }
-  .addBook__left {
+  .addBook__form {
     input,
     select {
       height: 3.8rem;
-
       font-size: 1.6rem;
     }
   }
-  .addBook__right {
-    display: none;
+
+  .add-picture {
+    height: 20rem;
+    img {
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+  .addBook__description textarea {
+    height: 12rem;
   }
 }

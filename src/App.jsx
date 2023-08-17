@@ -4,7 +4,7 @@ import Profile from "./pages/Profile/Profile";
 import Account from "./pages/Account/Account";
 import Requests from "./pages/Requests/Requests";
 import Addbook from "./pages/Addbook/Addbook";
-import Addbook2 from "./pages/Addbook2/Addbook2";
+import Footer from "./components/Footer/Footer";
 import MyBooks from "./pages/MyBooks/MyBooks";
 
 function App() {
@@ -15,8 +15,8 @@ function App() {
       <Account />
       <Requests />
       <Addbook />
-      <Addbook2 />
       <MyBooks />
+      <Footer />
     </div>
   );
 }
