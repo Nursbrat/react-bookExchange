@@ -15,7 +15,7 @@ const FakeAsyncComponent = ({ children }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 4000);
+    }, 2100);
     return () => clearTimeout(timer);
   }, []);
 
@@ -29,6 +29,8 @@ const FakeAsyncComponent = ({ children }) => {
 };
 
 const App = () => {
+  const pathName = window.location.pathname;
+
   return (
     <Suspense
       fallback={
@@ -37,32 +39,35 @@ const App = () => {
         </div>
       }
     >
-      <Header />
-      <Routes>
-        {ROUTES.map((page) =>
-          page.link === "/auth" ? (
-            <Route
-              path={page.link}
-              element={
-                <FakeAsyncComponent>{<page.component />}</FakeAsyncComponent>
-              }
-              key={page.id}
-            >
-              <Route path="login" element={<LoginForm />} />
-              <Route path="sign-up" element={<SignUpForm />} />
-            </Route>
-          ) : (
-            <Route
-              path={page.link}
-              element={
-                <FakeAsyncComponent>{<page.component />}</FakeAsyncComponent>
-              }
-              key={page.id}
-            />
-          )
+      <FakeAsyncComponent>
+        {pathName === "/auth/login" || pathName === "/auth/sign-up" ? null : (
+          <Header />
         )}
-      </Routes>
-      <Footer />
+        <Routes>
+          {ROUTES.map((page) =>
+            page.link === "/auth" ? (
+              <Route
+                path={page.link}
+                element={<page.component />}
+                key={page.id}
+              >
+                <Route path="login" element={<LoginForm />} />
+                <Route path="sign-up" element={<SignUpForm />} />
+              </Route>
+            ) : (
+              <Route
+                path={page.link}
+                element={<page.component />}
+                key={page.id}
+              />
+            )
+          )}
+        </Routes>
+
+        {pathName === "/auth/login" || pathName === "/auth/sign-up" ? null : (
+          <Footer />
+        )}
+      </FakeAsyncComponent>
     </Suspense>
   );
 };
