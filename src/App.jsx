@@ -1,11 +1,13 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.scss";import { Route, Routes } from "react-router-dom";
 import "./App.scss";
 import "./pages/Auth/Auth.scss";
 import SignUpForm from "./pages/Auth/components/SignUpForm/SignUpForm";
 import LoginForm from "./pages/Auth/components/LoginForm/LoginForm";
 import { Suspense, useEffect, useState } from "react";
 import { ROUTES } from "./constants/routes";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import PageLoader from "./components/PageLoader/PageLoader";
 
 const FakeAsyncComponent = ({ children }) => {
   const [loading, setLoading] = useState(true);
@@ -13,16 +15,29 @@ const FakeAsyncComponent = ({ children }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 4000);
     return () => clearTimeout(timer);
   }, []);
 
-  return loading ? <div>Загрузка...</div> : children;
+  return loading ? (
+    <div className="loader">
+      <PageLoader />
+    </div>
+  ) : (
+    children
+  );
 };
 
 const App = () => {
   return (
-    <Suspense fallback={<div>Загрузка...</div>}>
+    <Suspense
+      fallback={
+        <div className="loader">
+          <PageLoader />
+        </div>
+      }
+    >
+      <Header />
       <Routes>
         {ROUTES.map((page) =>
           page.link === "/auth" ? (
@@ -47,6 +62,7 @@ const App = () => {
           )
         )}
       </Routes>
+      <Footer />
     </Suspense>
   );
 };

@@ -1,5 +1,4 @@
 import React from "react";
-import "./Addbook2.scss";
 import Profcontainer from "../../components/Profcontainer/Profcontainer";
 import { images } from "../../constants";
 import { PiCaretLeftBold, PiCaretRightBold } from "react-icons/pi";
