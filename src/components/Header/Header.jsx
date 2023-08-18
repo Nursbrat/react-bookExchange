@@ -4,7 +4,7 @@ import { BiSearchAlt2, BiMenu } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import { images } from "../../constants";
 const Header = () => {
-  const [toggleMenu, setToggleMenu] = useState(true);
+  const [toggleMenu, setToggleMenu] = useState(false);
   return (
     <div className="header">
       <div className="header-container">
