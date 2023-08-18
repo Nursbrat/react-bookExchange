@@ -1,0 +1,40 @@
+.back-link {
+  padding: 3rem 2rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  gap: 0.5rem;
+  justify-content: baseline;
+}
+
+.back-icon {
+  padding-top: 0.5rem;
+  font-size: 3rem;
+}
+
+.addBook-title,
+.addBook-subtitle {
+  padding-left: 3rem;
+}
+
+.addBook-title {
+  font-size: 3rem;
+}
+
+.addBook-subtitle {
+  color: #888888;
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .addBook-title,
+  .addBook-subtitle {
+    padding-left: 5.5rem;
+  }
+  .addBook-subtitle {
+    font-size: 1.8rem;
+  }
+  .addBook-title {
+    font-size: 2.6rem;
+  }
+}/*# sourceMappingURL=Profcontainer.css.map */

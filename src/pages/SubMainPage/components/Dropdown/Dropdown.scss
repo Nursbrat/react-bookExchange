@@ -1,0 +1,74 @@
+@use "../../../../style/global" as *;
+
+.dropdown {
+  &__toggle__btn {
+    display: flex;
+    padding: 5px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 60px;
+    border: 1px solid $borderColor;
+  }
+  &__list {
+    position: relative;
+  }
+  &__items {
+    position: absolute;
+    bottom: 110;
+    max-height: 0;
+    overflow: hidden;
+    border-radius: 30px;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  .open {
+    max-height: 600px;
+    opacity: 1;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+  &__item {
+    width: auto;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    background-color: $lightModeBackground;
+    gap: 20px;
+    color: #282728;
+    font-family: Lora;
+    font-size: clamp(18px, 4vw, 24px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    position: relative;
+   transition:  transform .3s ease-in-out;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 5%;
+      width: 90%;
+      height: 1px;
+      background-color: $borderColor;
+    }
+    &:last-child::after {
+      background-color: transparent;
+    }
+    &:hover {
+      background-color: blue;
+    }
+  }
+  .active {
+    // background-color: red;
+  }
+  .rotated{
+    transform: rotate(180deg);
+  }
+}

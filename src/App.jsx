@@ -1,24 +1,75 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.scss";
+import "./pages/Auth/Auth.scss";
+import SignUpForm from "./pages/Auth/components/SignUpForm/SignUpForm";
+import LoginForm from "./pages/Auth/components/LoginForm/LoginForm";
+import { Suspense, useEffect, useState } from "react";
+import { ROUTES } from "./constants/routes";
 import Header from "./components/Header/Header";
-import Profile from "./pages/Profile/Profile";
-import Account from "./pages/Account/Account";
-import Requests from "./pages/Requests/Requests";
-import Addbook from "./pages/Addbook/Addbook";
 import Footer from "./components/Footer/Footer";
-import MyBooks from "./pages/MyBooks/MyBooks";
+import PageLoader from "./components/PageLoader/PageLoader";
 
-function App() {
-  return (
-    <div className="app">
-      <Header />
-      <Profile />
-      <Account />
-      <Requests />
-      <Addbook />
-      <MyBooks />
-      <Footer />
+const FakeAsyncComponent = ({ children }) => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return loading ? (
+    <div className="loader">
+      <PageLoader />
     </div>
+  ) : (
+    children
   );
-}
+};
+
+const App = () => {
+  const pathName = window.location.pathname;
+
+  return (
+    <Suspense
+      fallback={
+        <div className="loader">
+          <PageLoader />
+        </div>
+      }
+    >
+      <FakeAsyncComponent>
+        {pathName === "/auth/login" || pathName === "/auth/sign-up" ? null : (
+          <Header />
+        )}
+        <Routes>
+          {ROUTES.map((page) =>
+            page.link === "/auth" ? (
+              <Route
+                path={page.link}
+                element={<page.component />}
+                key={page.id}
+              >
+                <Route path="login" element={<LoginForm />} />
+                <Route path="sign-up" element={<SignUpForm />} />
+              </Route>
+            ) : (
+              <Route
+                path={page.link}
+                element={<page.component />}
+                key={page.id}
+              />
+            )
+          )}
+        </Routes>
+
+        {pathName === "/auth/login" || pathName === "/auth/sign-up" ? null : (
+          <Footer />
+        )}
+      </FakeAsyncComponent>
+    </Suspense>
+  );
+};
 
 export default App;

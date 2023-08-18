@@ -1,0 +1,113 @@
+.addBook {
+  padding: 1rem;
+}
+.addBook .back-link {
+  opacity: 0;
+}
+
+.addBook-container {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.addBook__left {
+  flex: 1;
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.addBook__left input,
+.addBook__left select {
+  border-radius: 3rem;
+  padding: 0 1rem;
+  width: 40vw;
+  min-width: 40rem;
+  height: 5rem;
+  border: 1px solid #666666;
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+  font-size: 1.8rem;
+  outline: none;
+}
+.addBook__left select {
+  font-size: 1.8rem;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-image: url(../../../public/assets/icon/navigation/down.png);
+  background-repeat: no-repeat;
+  background-position: 97%;
+  background-size: scale-down;
+}
+
+.select-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.addBook__right {
+  flex: 1;
+}
+
+.steps-btn {
+  padding: 2rem 2.5rem 5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.next-link {
+  padding: 2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.6rem;
+  border: none;
+  background: var(--unnamed, #93f);
+  height: 1.8rem;
+  border-radius: 2rem;
+  color: #ffffff;
+}
+.next-link .next-icon {
+  color: #ffffff;
+  padding: 0.3rem;
+  font-size: 2.5rem;
+}
+
+@media screen and (max-width: 992px) {
+  .addBook-container {
+    align-items: center;
+  }
+  .addBook__right {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 992px) {
+  .addBook-title,
+  .addBook-subtitle {
+    padding-left: 2.3rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .addBook-container {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    padding: 3rem;
+  }
+  .addBook__left input,
+  .addBook__left select {
+    height: 3.8rem;
+    font-size: 1.6rem;
+  }
+  .addBook__right {
+    display: none;
+  }
+}/*# sourceMappingURL=Addbook.css.map */

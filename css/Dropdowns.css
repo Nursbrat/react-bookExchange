@@ -1,0 +1,12 @@
+.dropdowns__content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(9px, 4vw, 30px);
+}
+
+@media screen and (max-width: 607px) {
+  .dropdowns__content {
+    align-items: center;
+    justify-content: center;
+  }
+}/*# sourceMappingURL=Dropdowns.css.map */
