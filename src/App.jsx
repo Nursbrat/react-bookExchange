@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.scss";
 import "./pages/Auth/Auth.scss";
 import SignUpForm from "./pages/Auth/components/SignUpForm/SignUpForm";
@@ -29,7 +29,12 @@ const FakeAsyncComponent = ({ children }) => {
 };
 
 const App = () => {
-  const pathName = window.location.pathname;
+  const location = useLocation();
+
+  const filteredRoutes = ROUTES.filter((route) => route.link !== "*");
+  const isRouteExists = filteredRoutes.some(
+    (route) => route.link === location.pathname
+  );
 
   return (
     <Suspense
@@ -40,9 +45,8 @@ const App = () => {
       }
     >
       <FakeAsyncComponent>
-        {pathName === "/auth/login" || pathName === "/auth/sign-up" ? null : (
-          <Header />
-        )}
+        {isRouteExists && <Header />}
+
         <Routes>
           {ROUTES.map((page) =>
             page.link === "/auth" ? (
@@ -64,9 +68,7 @@ const App = () => {
           )}
         </Routes>
 
-        {pathName === "/auth/login" || pathName === "/auth/sign-up" ? null : (
-          <Footer />
-        )}
+        {isRouteExists && <Footer />}
       </FakeAsyncComponent>
     </Suspense>
   );
