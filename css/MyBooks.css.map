@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"MyBooks.css"}
+{"version":3,"sources":["../src/pages/MyBooks/MyBooks.scss","MyBooks.css"],"names":[],"mappings":"AAAA;EACE,eAAA;ACCF","file":"MyBooks.css"}

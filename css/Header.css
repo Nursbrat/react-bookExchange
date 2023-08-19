@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   height: 9rem;
   width: 100%;
   border-bottom: 1px solid #666;
@@ -14,9 +15,13 @@
 }
 
 .header__logo {
-  font-size: 36px;
+  width: 7rem;
   text-transform: capitalize;
   font-weight: 600;
+}
+
+.header__logo > img {
+  cursor: pointer;
 }
 
 .header__search {
@@ -52,11 +57,12 @@
   font-size: 1.6rem;
 }
 
-.header__navbar {
+.header__navbar-user {
   border: 1px solid #666666;
-  height: 6vh;
+  width: 3.5rem;
+  height: 3.5rem;
   border-radius: 3rem;
-  width: 9rem;
+  transition: all 1s ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,11 +70,31 @@
 }
 
 .header-icons {
-  font-size: 3rem;
   background: none;
   border: none;
+  font-size: 2.5rem;
+  transition: all 1s ease-in-out;
 }
 
-.header-icons.profile {
-  font-size: 2.5rem;
+.header__navbar {
+  background-color: #e67e22;
+  position: absolute;
+  right: 1%;
+  width: 30rem;
+  border-radius: 2rem;
+}
+
+.header__navbar ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  transition: all 1s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  .header__logo {
+    font-size: 2rem;
+  }
 }/*# sourceMappingURL=Header.css.map */
