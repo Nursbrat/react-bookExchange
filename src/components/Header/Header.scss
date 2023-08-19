@@ -19,6 +19,10 @@
   font-weight: 600;
 }
 
+.header__logo > img {
+  cursor: pointer;
+}
+
 .header__search {
   border: 1px solid #666666;
   width: 40vw;

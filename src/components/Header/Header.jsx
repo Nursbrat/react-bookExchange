@@ -3,13 +3,16 @@ import "./Header.scss";
 import { BiSearchAlt2, BiMenu } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import { images } from "../../constants";
+import { useNavigate } from "react-router-dom";
 const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const navigate = useNavigate();
+
   return (
     <div className="header">
       <div className="header-container">
         <div className="header__logo">
-          <img src={images.logo} />
+          <img src={images.logo} onClick={() => navigate("/")} />
         </div>
         <div className="header__search">
           <form>

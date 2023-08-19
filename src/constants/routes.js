@@ -8,6 +8,7 @@ import BookInfo from "../pages/BookInfo/BookInfo";
 import Home from "../pages/Home/Home";
 import MainPage from "../pages/MainPage/MainPage";
 import MyBooks from "../pages/MyBooks/MyBooks";
+import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import Profile from "../pages/Profile/Profile";
 import Requests from "../pages/Requests/Requests";
 import SubMainPage from "../pages/SubMainPage/SubMainPage";
@@ -26,4 +27,5 @@ export const ROUTES = [
   { link: "/book-info", component: BookInfo, id: 11 },
   { link: "/submain-page", component: SubMainPage, id: 12 },
   { link: "/profile", component: Profile, id: 13 },
+  { link: "*", component: NotFoundPage, id: 14 },
 ];
