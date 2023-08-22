@@ -18,8 +18,8 @@ const Profile = () => {
             <img src={images.profile} alt="icon of user medium size" />
           </div>
           <div className="user-name">
-            <h4>Ник</h4>
-            <p>Почта или номер</p>
+            <h4>Максим</h4>
+            <p>+996 (555) 55-55-55git</p>
           </div>
         </div>
         <div className="profile-container">
