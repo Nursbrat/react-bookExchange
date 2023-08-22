@@ -1,6 +1,5 @@
 import Account from "../pages/Account/Account";
 import Addbook from "../pages/Addbook/Addbook";
-import Addbook2 from "../pages/Addbook2/Addbook2";
 import Auth from "../pages/Auth/Auth";
 import LoginForm from "../pages/Auth/components/LoginForm/LoginForm";
 import SignUpForm from "../pages/Auth/components/SignUpForm/SignUpForm";
@@ -23,9 +22,8 @@ export const ROUTES = [
   { link: "/requests", component: Requests, id: 7 },
   { link: "/account", component: Account, id: 8 },
   { link: "/add-book", component: Addbook, id: 9 },
-  { link: "/add-book-two", component: Addbook2, id: 10 },
-  { link: "/book-info", component: BookInfo, id: 11 },
-  { link: "/submain-page", component: SubMainPage, id: 12 },
-  { link: "/profile", component: Profile, id: 13 },
-  { link: "*", component: NotFoundPage, id: 14 },
+  { link: "/book-info", component: BookInfo, id: 10 },
+  { link: "/submain-page", component: SubMainPage, id: 11 },
+  { link: "/profile", component: Profile, id: 12 },
+  { link: "*", component: NotFoundPage, id: 13 },
 ];
