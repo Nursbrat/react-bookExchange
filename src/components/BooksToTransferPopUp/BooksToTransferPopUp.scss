@@ -20,7 +20,7 @@
   }
   &__book {
     p {
-      color: $lightModeTextColor;
+      color: $textColor;
       font-family: Lora;
       font-size: clamp(9.039px, 4vw, 22px);
       font-style: normal;
@@ -51,7 +51,7 @@
     // transition: all 0.5s ease-in-out;
 
     h2 {
-      color: $lightModeTextColor;
+      color: $textColor;
       font-family: Lora;
       font-size: clamp(11px, 4vw, 36px);
       font-style: normal;

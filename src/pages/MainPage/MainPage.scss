@@ -2,6 +2,7 @@
 
 .main {
   &__content {
+
   }
     &__hero {
       display: flex;
@@ -17,7 +18,12 @@
       padding: 14px 12px;
       gap: 10px;
 
-
+      &__content {
+        background-color: transparent;
+        h1{
+          background-color:transparent;
+        }
+      }
     
         h1 {
           color: #fff;

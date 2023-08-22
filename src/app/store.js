@@ -1,8 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { darkModeToggleReducer } from "../features/themeToggle/themeToggleSlice";
+import themeToggleSliceReducer from "../features/themeToggle/themeToggleSlice";
 
-export const store = configureStore({
+
+const store = configureStore({
   reducer: {
-    darkMode: darkModeToggleReducer,
+    theme: themeToggleSliceReducer,
   },
 });
+
+export default store

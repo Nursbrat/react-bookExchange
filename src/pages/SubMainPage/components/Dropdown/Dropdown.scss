@@ -1,9 +1,10 @@
 @use "../../../../style/global" as *;
 
 .dropdown {
+  cursor: pointer;
   &__toggle__btn {
     display: flex;
-    padding: 5px 20px;
+    padding: 5px 40px;
     justify-content: center;
     align-items: center;
     gap: 5px;
@@ -30,8 +31,7 @@
   .open {
     max-height: 600px;
     opacity: 1;
-
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px $textColor;
     cursor: pointer;
   }
   &__item {
@@ -39,9 +39,9 @@
     display: flex;
     padding: 20px;
     flex-direction: column;
-    background-color: $lightModeBackground;
+    background-color: $background;
     gap: 20px;
-    color: #282728;
+    color: $textColor;
     font-family: Lora;
     font-size: clamp(18px, 4vw, 24px);
     font-style: normal;
@@ -62,12 +62,10 @@
       background-color: transparent;
     }
     &:hover {
-      background-color: blue;
+      color:red;
     }
   }
-  .active {
-    // background-color: red;
-  }
+ 
   .rotated{
     transform: rotate(180deg);
   }

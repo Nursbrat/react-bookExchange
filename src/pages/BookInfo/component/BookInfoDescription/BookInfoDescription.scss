@@ -3,7 +3,7 @@
 .bookinfo__description {
   margin-top: 2.5rem;
   .bookinfo__description__title {
-    color: $lightModeTextColor;
+    color: $textColor;
     font-family: Lora;
     font-size: clamp(14px, 4vw, 36px);
     font-style: normal;
@@ -12,7 +12,7 @@
   }
   .bookinfo__description__details {
     margin-top: clamp(9px, 4vw, 20px);
-    color: $lightModeTextColor;
+    color: $textColor;
     font-family: Montserrat;
     font-size: clamp(14px, 4vw, 32px);
     font-style: normal;
@@ -36,11 +36,11 @@
       gap: clamp(5px,4vw,12px);
       border-radius: 30px;
       border: 1px solid $borderColor;
-      background: $lightModeBackground;
+      background: $background;
       margin-top: 10px;
     }
     .bookinfo__description__user-info__title {
-      color: $lightModeTextColor;
+      color: $textColor;
       font-family: Lora;
       font-size: clamp(20px,4vw,30px);
 
@@ -54,7 +54,7 @@
       align-items: center;
 
       h6 {
-        color: $lightModeTextColor;
+        color: $textColor;
         font-family: Lora;
         font-size: clamp(14px, 4vw, 24px);
         font-style: normal;
@@ -62,7 +62,7 @@
         line-height: normal;
       }
       p {
-        color: $lightModeTextColor;
+        color: $textColor;
         font-family: Lora;
         font-size: clamp(14px, 4vw, 24px);
         font-style: normal;
@@ -76,7 +76,7 @@
       align-items: center;
 
       h6 {
-        color: $lightModeTextColor;
+        color: $textColor;
         font-family: Lora;
         font-size: clamp(14px, 4vw, 24px);
         font-style: normal;
@@ -84,7 +84,7 @@
         line-height: normal;
       }
       p {
-        color: $lightModeTextColor;
+        color: $textColor;
         font-family: Lora;
         font-size: clamp(14px, 4vw, 24px);
         font-style: normal;
@@ -105,7 +105,7 @@
         align-items: center;
 
         h6 {
-          color: $lightModeTextColor;
+          color: $textColor;
           font-family: Lora;
           font-size: clamp(14px, 4vw, 24px);
           font-style: normal;
