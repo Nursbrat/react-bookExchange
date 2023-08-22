@@ -1,0 +1,65 @@
+@use "./global.scss" as *;
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+footer,
+header,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+input,
+textarea,
+select,
+option{
+  background-color: $background;
+  transition: 0.3s;
+}
+::selection {
+  background-color: $buttonColor;
+  color: $textColor;
+}
+
+textarea {
+  border: 2px solid $borderColor;
+}
+
+button:hover,
+select:hover,
+input:hover,
+textarea:hover {
+  border: 1px solid $buttonColor;
+}

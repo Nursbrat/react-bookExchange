@@ -7,11 +7,11 @@ export const booksApi = createApi({
       query: () => "/books",
     }),
     getBook: builder.query({
-      query: (product) => `books/search?q=${search}`,
+      query: (search) => `books/search?q=${search}`,
     }),
     addBook: builder.mutation({
       query: (book) => ({
-        url: "/urlof book post",
+        url: "/",
         method: "POST",
         body: book,
       }),
