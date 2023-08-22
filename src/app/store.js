@@ -1,14 +1,21 @@
 import { configureStore } from "@reduxjs/toolkit";
-// import { darkModeToggleReducer } from "../features/themeToggle/themeToggleSlice";
+import { booksApi } from "./services/booksApi";
+import themeToggleSliceReducer from "../features/themeToggle/themeToggleSlice";
 import { apiSlice } from "../api/apiSlice";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
 
-export const store = configureStore({
+
+
+const store = configureStore({
   reducer: {
-    // darkMode: darkModeToggleReducer,
+    [booksApi.reducerPath]: booksApi.reducer,
     [apiSlice.reducerPath]: apiSlice.reducer,
+    theme: themeToggleSliceReducer,
+ 
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(apiSlice.middleware),
 });
+export default store
 setupListeners(store.dispatch);
+

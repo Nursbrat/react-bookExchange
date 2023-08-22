@@ -1,7 +1,9 @@
+@use "../../../../style/global" as *;
 .books {
+  background-color: $background;
   margin-top: clamp(15.5px, 4vw, 40px);
   &__genere-text {
-    color: #000;
+    color: $textColor;
     font-family: Lora;
     font-size: 30px;
     font-style: normal;
@@ -29,7 +31,7 @@
     padding-bottom: 1rem;
 
     p {
-      color: #272827;
+      color: $textColor;
       font-family: Lora;
       max-width: 358px;
       // font-size: (13px, 4vw, 22px);
@@ -44,5 +46,15 @@
     border-radius: 15px;
     height: 240px;
     max-height: 240px;
+    border-radius: 10px;
+  }
+
+  &__genere-text {
+    color: $textColor;
+    font-family: Lora;
+    font-size: clamp(14px, 4vw, 40px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
   }
 }

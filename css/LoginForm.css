@@ -1,36 +1,54 @@
+:root {
+  --text-color: #000;
+  --book-request-background: #d9d9d9;
+  --background: #f5f6fa;
+}
+
+[data-theme=dark] {
+  --text-color: #f5f6fa;
+  --book-request-background: #2e2e2e;
+  --background: #282728;
+}
+
+.login {
+  background-color: transparent;
+}
 .login__content {
+  background-color: transparent;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .login__content form {
+  background-color: transparent;
   display: flex;
   flex-direction: column;
   gap: clamp(10px, 4vw, 20px);
 }
 .login__content form input {
+  background-color: transparent;
   padding: clamp(6px, 1.5vw, 12.026px) clamp(8px, 2vw, 160.934px) clamp(6px, 1.5vw, 12.24px) clamp(8px, 2vw, 16.4px);
   border-radius: 49.2px;
   border: 0.547px solid #666;
   background: transparent;
 }
 .login__content form input::-moz-placeholder {
-  color: #282728;
+  color: var(--text-color);
 }
 .login__content form input::placeholder {
-  color: #282728;
+  color: var(--text-color);
 }
 .login__content form button {
   border-radius: 90px;
-  background: #93F;
+  background: #93f;
   display: flex;
   justify-content: center;
   align-items: center;
   width: calc(190px + 10vw);
   height: calc(50px + 1vw);
   padding: clamp(13px, 4vw, 19px) 0;
-  color: #FFF;
+  color: #fff;
   text-align: center;
   font-family: Lora;
   font-size: clamp(15px, 5vw, 24px);
@@ -42,9 +60,11 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  background-color: transparent;
 }
 .login__divider p {
-  color: #000;
+  background-color: transparent;
+  color: var(--text-color);
   text-align: center;
   font-family: Lora;
   font-size: clamp(10px, 4vw, 16px);
@@ -78,4 +98,5 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  background-color: transparent;
 }/*# sourceMappingURL=LoginForm.css.map */

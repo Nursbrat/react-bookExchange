@@ -11,6 +11,8 @@ const SignUpForm = () => {
           <input type="text" placeholder="Имя" required />
           <input type="email" placeholder="Введите эл. почту" required />
           <input type="password" placeholder="Пароль" required />
+          <input type="password" placeholder="Потвердить пароль" required />
+
           <div className="signup__divider">
             <p>Или</p>
           </div>

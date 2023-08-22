@@ -2,7 +2,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 100vw;
+  width: calc(100vw - 50px);
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -22,10 +22,15 @@
     width: auto;
   }
   &__nav{
-    
     display: flex;
     justify-content: center;
     align-items: center;
     gap:calc(50px + 5vw) ;
+    &__logo{
+      background-color: none;
+    }
+}
+nav{
+  background-color: transparent;
 }
 }

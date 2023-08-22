@@ -1,8 +1,21 @@
+:root {
+  --text-color: #000;
+  --book-request-background: #d9d9d9;
+  --background: #f5f6fa;
+}
+
+[data-theme=dark] {
+  --text-color: #f5f6fa;
+  --book-request-background: #2e2e2e;
+  --background: #282728;
+}
+
 .books {
+  background-color: var(--background);
   margin-top: clamp(15.5px, 4vw, 40px);
 }
 .books__genere--text {
-  color: #000;
+  color: var(--text-color);
   font-family: Lora;
   font-size: 30px;
   font-style: normal;
@@ -28,14 +41,22 @@
   align-items: center;
 }
 .books__item p {
-  color: #272827;
+  color: var(--text-color);
   font-family: Lora;
   max-width: 358px;
-  font-size: 13px, 4vw, 22px;
+  font-size: clamp(13px, 4vw, 22px);
   font-style: normal;
   font-weight: 500;
   line-height: normal;
 }
 .books img {
   border-radius: 10px;
+}
+.books__genere--text {
+  color: var(--text-color);
+  font-family: Lora;
+  font-size: clamp(14px, 4vw, 40px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }/*# sourceMappingURL=Books.css.map */

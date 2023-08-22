@@ -19,10 +19,10 @@ const Dropdown = ({ options }) => {
 
     return (
         <div className="dropdown">
-            <button className="dropdown__toggle__btn" onClick={handleToggleDropdown}>
+            <div className="dropdown__toggle__btn" onClick={handleToggleDropdown}>
                 {options.name}
                 <img src={images.caret} alt="" className={`${isOpen ? 'rotated' : ''}`} />
-            </button>
+            </div>
             <div className="dropdown__list">
                 <ul className={`dropdown__items ${isOpen ? 'open' : ''}`}>
                     {options.options.map((option, index) => (
