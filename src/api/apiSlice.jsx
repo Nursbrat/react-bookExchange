@@ -18,9 +18,6 @@ export const apiSlice = createApi({
         url: "/books/",
         method: "POST",
         body: newBook,
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
       }),
       invalidatesTags: ["Books"],
     }),
