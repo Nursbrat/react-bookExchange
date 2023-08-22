@@ -9,6 +9,9 @@
   align-items: center;
 
   &-name {
-   @include title($lightModeTextColor)
+   @include title($textColor)
+  }
+  svg{
+    cursor: pointer;
   }
 }

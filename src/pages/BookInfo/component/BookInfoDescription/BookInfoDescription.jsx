@@ -19,21 +19,8 @@ const BookInfoDescription = () => {
         </p>
 
         <div className="bookinfo__extrainfo__block">
-          <div className="bookinfo__description__user-info">
-            <h5 className="bookinfo__description__user-info__title">
-              Данные владельца книги
-            </h5>
-            <div className="bookinfo__description__user-info__name">
-              <h6>Имя:</h6>
-              <p>Максим</p>
-            </div>
-            <div className="bookinfo__description__user-info__rate">
-              <h6>Рейтинг:</h6>
-              <p>5 звезд</p>
-            </div>
-          </div>
 
-          <div className="bookinfo__description__data">
+        <div className="bookinfo__description__data">
             <div className="bookinfo__description__data__cell author">
               <h6>Автор: </h6>
               <p>Роберт Кийосаки</p>
@@ -55,6 +42,21 @@ const BookInfoDescription = () => {
               <p>Новый</p>
             </div>
           </div>
+          <div className="bookinfo__description__user-info">
+            <h5 className="bookinfo__description__user-info__title">
+              Данные владельца книги
+            </h5>
+            <div className="bookinfo__description__user-info__name">
+              <h6>Имя:</h6>
+              <p>Максим</p>
+            </div>
+            <div className="bookinfo__description__user-info__rate">
+              <h6>Рейтинг:</h6>
+              <p>5 звезд</p>
+            </div>
+          </div>
+
+          
         </div>
       </div>
     </>

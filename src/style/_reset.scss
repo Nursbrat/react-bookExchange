@@ -1,3 +1,7 @@
+
+@use "../style/global.scss" as *;
+
+
 html {
   box-sizing: border-box;
   font-size: 62.5%;
@@ -44,13 +48,15 @@ nav,
 output,
 ruby,
 section,
-summary {
+summary,
+input {
   margin: 0;
   padding: 0;
   border: 0;
   font-size: 16px;
   font-family: inherit;
   vertical-align: baseline;
+  background-color: $background;
 }
 
 article,
@@ -94,10 +100,7 @@ q:after {
   content: none;
 }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
+
 
 img {
   display: inline-flex;

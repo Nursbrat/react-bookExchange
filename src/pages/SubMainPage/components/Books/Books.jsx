@@ -1,21 +1,31 @@
 import "../Books/Books.scss";
 
 import images from "../../../../constants/images";
-// import { useSelector } from "@reduxjs/toolkit";
+import { useSelector ,useDispatch} from "react-redux";
+import  {toggleTheme} from "../../../../features/themeToggle/themeToggleSlice";
+
+
+
 
 const Books = () => {
-  // const dispatch = useDispatch()
-//   const isDarkMode = useSelector((state) => state.darkMode);
+  const dispatch = useDispatch()
+  const isDarkMode = useSelector((state) => state.theme);
 
   const books = [
     { img: images.book, title: "Book Title 1" },
     { img: images.book, title: "Book Title 2" },
   ];
+  
+const handleChangeTheme = () => {
+  dispatch(toggleTheme());
+  console.log(isDarkMode)
+};
+
   return (
     <div className="books">
       <div className="container">
         <div
-          className={`'books__genere--text'${isDarkMode ? "dark-mode" : ""}`}
+          className="books__genere--text"
         >
           Поэзия
         </div>
@@ -24,7 +34,7 @@ const Books = () => {
             {books.map((book, index) => (
               <div key={index} className="books__item">
                 <img src={book.img} alt="" />
-                <p className={`'${isDarkMode ? "dark-mode" : ""}`}>
+                <p >
                   {book.title}
                 </p>
               </div>
@@ -32,6 +42,7 @@ const Books = () => {
           </div>
         </div>
       </div>
+      <button onClick={handleChangeTheme}>tochageColor</button>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 @mixin title($color) {
   color: $color;
   font-family: "Lora";
-  font-size: 36px;
+  font-size: clamp(12px,4vw,36px);
   font-style: normal;
   font-weight: 600;
   line-height: normal;

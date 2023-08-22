@@ -1,28 +1,25 @@
 .addBook {
-  padding: 1rem;
-}
-.addBook .back-link {
-  opacity: 0;
+  padding: 1rem 0;
 }
 
 .addBook-container {
   width: 95%;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 2rem;
+  padding: 2rem 0;
 }
 
-.addBook__left {
+.addBook__form {
   flex: 1;
   display: flex;
   gap: 1.5rem;
   flex-direction: column;
   justify-content: space-around;
 }
-.addBook__left input,
-.addBook__left select {
+.addBook__form .add-file {
+  display: none;
+}
+.addBook__form input,
+.addBook__form select {
   border-radius: 3rem;
   padding: 0 1rem;
   width: 40vw;
@@ -35,7 +32,7 @@
   font-size: 1.8rem;
   outline: none;
 }
-.addBook__left select {
+.addBook__form select {
   font-size: 1.8rem;
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -46,18 +43,49 @@
   background-size: scale-down;
 }
 
-.select-container {
+.addBook__cover,
+.addBook__description {
+  width: 100%;
+  padding-bottom: 3rem;
+}
+
+.label {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 0.5rem;
+}
+
+.add-picture {
+  text-align: center;
+  border-radius: 2rem;
+  width: 100%;
+  height: 40rem;
+  min-height: 15rem;
+  border: 1px solid #666;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
+}
+.add-picture img {
+  width: 10rem;
+  height: 10rem;
 }
 
-.addBook__right {
-  flex: 1;
+.addBook__description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+.addBook__description textarea {
+  height: 25rem;
+  border-radius: 2rem;
+  padding: 2rem;
+  font-size: 1.8rem;
 }
 
-.steps-btn {
-  padding: 2rem 2.5rem 5rem 0;
+.select-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -81,18 +109,20 @@
   font-size: 2.5rem;
 }
 
-@media screen and (max-width: 992px) {
-  .addBook-container {
-    align-items: center;
-  }
-  .addBook__right {
-    width: 50%;
-  }
+.step-btn {
+  padding: 3rem 0;
+  display: flex;
+  justify-content: end;
 }
+
 @media screen and (max-width: 992px) {
   .addBook-title,
   .addBook-subtitle {
     padding-left: 2.3rem;
+  }
+  .addBook__form input,
+  .addBook__form select {
+    width: 100%;
   }
 }
 @media screen and (max-width: 768px) {
@@ -102,12 +132,19 @@
     margin: 0 auto;
     padding: 3rem;
   }
-  .addBook__left input,
-  .addBook__left select {
+  .addBook__form input,
+  .addBook__form select {
     height: 3.8rem;
     font-size: 1.6rem;
   }
-  .addBook__right {
-    display: none;
+  .add-picture {
+    height: 20rem;
+  }
+  .add-picture img {
+    width: 5rem;
+    height: 5rem;
+  }
+  .addBook__description textarea {
+    height: 12rem;
   }
 }/*# sourceMappingURL=Addbook.css.map */

@@ -7,8 +7,11 @@
 .book__info__header-name {
   color: #000;
   font-family: "Lora";
-  font-size: 36px;
+  font-size: clamp(12px, 4vw, 36px);
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+}
+.book__info__header svg {
+  cursor: pointer;
 }/*# sourceMappingURL=BookInfoHeader.css.map */
