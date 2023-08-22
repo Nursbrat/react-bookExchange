@@ -35,7 +35,10 @@ const Books = () => {
           <div className="books__items">
             {books.map((book, index) => (
               <div key={index} className="books__item">
-                <img src={book.img ? book.img : images.book} alt={book.title} />
+                <img
+                  src={book.covers[0] ? book.covers[0] : images.book}
+                  alt={book.title}
+                />
                 <p>{book.title}</p>
               </div>
             ))}

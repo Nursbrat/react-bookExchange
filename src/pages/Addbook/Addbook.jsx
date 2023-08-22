@@ -230,6 +230,7 @@ const Addbook = () => {
                 <option value="biography">Биография</option>
                 <option value="self-help">Саморазвитие</option>
                 <option value="travel">Путешествия</option>
+                <option value="fiction">Фикшн</option>
               </select>
               <label htmlFor="book-condition">Состояние</label>
               <select
