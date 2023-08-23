@@ -37,7 +37,6 @@ const Addbook = () => {
     publishedYear: "",
     language: "",
     condition: "",
-    // user: "",
   });
 
   const handleInputChange = (e) => {
@@ -56,19 +55,45 @@ const Addbook = () => {
     }));
   };
 
-  const handleFileChange = (e) => {
+  const handleFileChange = async (e) => {
     const files = e.target.files;
-    if (files && files.length > 0) {
-      const selectedCovers = Array.from(files).slice(0, 7); // Ограничение до 7 файлов
-      setBookData((prevData) => ({
-        ...prevData,
-        covers: selectedCovers,
-      }));
+
+    if (files) {
+      const filesArray = [];
+
+      for (const file of files) {
+        const reader = new FileReader();
+
+        reader.onload = async () => {
+          // Прочитать содержимое файла как base64 строку
+          const fileContentBase64 = reader.result.split(",")[1];
+
+          filesArray.push({
+            name: file.name,
+            size: file.size,
+            type: file.type,
+            content: fileContentBase64,
+          });
+
+          // Если все файлы обработаны, обновить состояние
+          if (filesArray.length === files.length) {
+            setBookData((prevData) => ({
+              ...prevData,
+              covers: filesArray,
+            }));
+          }
+        };
+
+        reader.readAsDataURL(file);
+      }
     }
   };
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+
     if (
+      !bookData.covers.length ||
       !bookData.description ||
       !bookData.title ||
       !bookData.author ||
@@ -82,7 +107,7 @@ const Addbook = () => {
     }
 
     const newBook = {
-      covers: [...bookData.covers],
+      covers: bookData.covers,
       description: bookData.description,
       title: bookData.title,
       author: bookData.author,
@@ -90,7 +115,6 @@ const Addbook = () => {
       publishedYear: bookData.publishedYear,
       language: bookData.language,
       condition: bookData.condition,
-      // user: user,
     };
 
     try {
@@ -135,11 +159,15 @@ const Addbook = () => {
                   ) : null}
                 </p>
 
+                {/* {bookData.covers.length > 0 && (
+                  <img src={URL.createObjectURL(bookData.covers[0])} alt="" />
+                )} */}
                 <label htmlFor="add-picture">
                   <div className="add-picture">
                     <img src={images.img} />
                     <p className="add-picture__descr">Загрузите фотографии</p>
                     <input
+                      name="covers"
                       type="file"
                       id="add-picture"
                       className="add-file"
@@ -200,13 +228,13 @@ const Addbook = () => {
                 onChange={handleInputChange}
               >
                 <option value="">Выберите язык</option>
-                <option value="eng">Английский</option>
-                <option value="rus">Русский</option>
-                <option value="kg">Кыргызский</option>
-                <option value="tr">Турецкий</option>
-                <option value="kz">Казахский</option>
-                <option value="it">Итальянский</option>
-                <option value="ger">Немецкий</option>
+                <option value="Английский">Английский</option>
+                <option value="Русский">Русский</option>
+                <option value="Кыргызский">Кыргызский</option>
+                <option value="Турецкий">Турецкий</option>
+                <option value="Казахский">Казахский</option>
+                <option value="Итальянский">Итальянский</option>
+                <option value="Немецкий">Немецкий</option>
               </select>
 
               <label htmlFor="book-genre">Жанр</label>
@@ -217,20 +245,18 @@ const Addbook = () => {
                 onChange={handleSelectChange}
               >
                 <option value="">Выберите жанр</option>
-                <option value="roman">Роман</option>
-                <option value="fantasy">Фэнтези</option>
-                <option value="adventure">Приключение</option>
-                <option value="mystery">Детектив</option>
-                <option value="sci-fi">Научная фантастика</option>
-                <option value="thriller">Триллер</option>
-                <option value="horror">Ужасы</option>
-                <option value="historical">Исторический</option>
-                <option value="comedy">Комедия</option>
-                <option value="drama">Драма</option>
-                <option value="biography">Биография</option>
-                <option value="self-help">Саморазвитие</option>
-                <option value="travel">Путешествия</option>
-                <option value="fiction">Фикшн</option>
+                <option value="Роман">Роман</option>
+                <option value="Фэнтези">Фэнтези</option>
+                <option value="Приключение">Приключение</option>
+                <option value="Детектив">Детектив</option>
+                <option value="Научная фантастика">Научная фантастика</option>
+                <option value="Ужасы">Ужасы</option>
+                <option value="Исторический">Исторический</option>
+                <option value="Комедия">Комедия</option>
+                <option value="Драма">Драма</option>
+                <option value="Биография">Биография</option>
+                <option value="Саморазвитие">Саморазвитие</option>
+                <option value="Фикшн">Фикшн</option>
               </select>
               <label htmlFor="book-condition">Состояние</label>
               <select
@@ -240,9 +266,9 @@ const Addbook = () => {
                 onChange={handleSelectChange}
               >
                 <option value="">Выберите состояние</option>
-                <option value="good">Хорошее состояние</option>
-                <option value="satisfactory">Среднее состояние</option>
-                <option value="bad">Плохое состояние</option>
+                <option value="Хорошее">Хорошее состояние</option>
+                <option value="Среднее">Среднее состояние</option>
+                <option value="Плохое">Плохое состояние</option>
               </select>
 
               <div className="step-btn">

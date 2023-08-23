@@ -10,6 +10,7 @@
     gap: 5px;
     border-radius: 60px;
     border: 1px solid $borderColor;
+    font-size: 20px;
   }
   &__list {
     position: relative;
@@ -27,13 +28,29 @@
     align-items: center;
     z-index: 10;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    &::-webkit-scrollbar {
+      width: 15px; // Ширина скролл-бара
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: gray; // Цвет ползунка скролл-бара
+      border-radius: 10px; // Скругление углов ползунка
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent; // Цвет трека скролл-бара
+    }
   }
+
   .open {
-    max-height: 600px;
+    overflow: auto;
+    max-height: 800px;
     opacity: 1;
     box-shadow: 0 4px 10px $textColor;
     cursor: pointer;
   }
+
   &__item {
     width: auto;
     display: flex;
@@ -43,12 +60,12 @@
     gap: 20px;
     color: $textColor;
     font-family: Lora;
-    font-size: clamp(18px, 4vw, 24px);
+    font-size: clamp(17px, 3vw, 22px);
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     position: relative;
-   transition:  transform .3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
     &::after {
       content: "";
       position: absolute;
@@ -62,11 +79,11 @@
       background-color: transparent;
     }
     &:hover {
-      color:red;
+      color: red;
     }
   }
- 
-  .rotated{
+
+  .rotated {
     transform: rotate(180deg);
   }
 }
