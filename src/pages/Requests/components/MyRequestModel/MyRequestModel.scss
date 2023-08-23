@@ -1,0 +1,96 @@
+@use "../../../../style/global.scss" as *;
+.myrequest-model {
+  width: calc(100vw - 10vw);
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 60rem));
+  grid-gap: 2rem;
+  justify-content: space-around;
+}
+.myrequest-model-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: $bookRequestBackground;
+  border-radius: 3rem;
+  padding: 1rem;
+}
+.myrequest-model__img {
+  max-width: 20rem;
+  background-color: transparent;
+
+  img {
+    border-radius: 1.5rem;
+  }
+}
+.myrequest-model__content {
+  background-color: transparent;
+  max-width: 40rem;
+}
+
+.myrequest-model__content-buttons {
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  margin-top: clamp(16px, 4vw, 40px);
+}
+.myrequest-btn {
+  width: 40%;
+  height: 3.5rem;
+  border: none;
+  border-radius: 2rem;
+  color: #ffffff;
+  font-size: 2rem;
+  padding: 0.8rem;
+}
+.myrequest-btn.accept {
+  background-color: green;
+}
+.myrequest-btn.reject {
+  background-color: red;
+}
+.myrequest-model__content-text {
+  background-color: transparent;
+  h3 {
+    background-color: transparent;
+    color: $textColor;
+    font-family: Lora;
+    font-size: clamp(16px,4vw,24px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  p {
+    background-color: transparent;
+    color: $textColor;
+    font-family: Lora;
+    font-size: clamp(10px,4vw,20px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+}
+
+@media screen and (max-width: 942px) {
+  .myrequest-btn {
+    height: 2.8rem;
+  }
+  .myrequest-model {
+    grid-template-columns: 1fr; 
+    grid-gap: 1rem; 
+  }
+
+  .myrequest-model-card {
+    flex-direction: column; 
+    padding: 1rem; 
+  }
+
+  .myrequest-model__img {
+    max-width: 100%; 
+    margin-bottom: 1rem; 
+  }
+
+  .myrequest-model__content {
+    max-width: 80%; 
+  }
+}

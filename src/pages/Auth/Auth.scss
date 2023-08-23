@@ -27,7 +27,8 @@
     align-items: center;
     gap:calc(50px + 5vw) ;
     &__logo{
-      background-color: none;
+
+      background-color: transparent;
     }
 }
 nav{

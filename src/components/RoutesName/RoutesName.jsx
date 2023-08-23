@@ -24,7 +24,7 @@ const RoutesName = () => {
         Главная {">"} Богатый папа, Бедный папа
       </h3>
 
-      {/* search */}
+      {/* search
       <div className="search-sort">
         <input
           type="text"
@@ -39,7 +39,7 @@ const RoutesName = () => {
           <option value="asc">По возрастанию</option>
           <option value="desc">По убыванию</option>
         </select>
-      </div>
+      </div> */}
     </div>
   );
 };

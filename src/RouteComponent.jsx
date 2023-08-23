@@ -9,10 +9,12 @@ import PageLoader from "./components/PageLoader/PageLoader";
 import { useTheme } from "./hooks/useTheme";
 import { Route, Routes, useLocation } from "react-router-dom";
 import "./pages/Auth/Auth.scss";
+import RequestModel from './pages/Requests/components/RequestModel/RequestModel';
+import MyRequestModel from './pages/Requests/components/MyRequestModel/MyRequestModel';
 
 const routeComponent = () => {
     const location = useLocation();
-    const theme = useTheme()
+
 
 
     const FakeAsyncComponent = ({ children }) => {
@@ -33,15 +35,13 @@ const routeComponent = () => {
             children
         );
     };
-    useEffect(() => {
-        console.log(theme)
-    }, [])
+   
     const filteredRoutes = ROUTES.filter((route) => route.link !== "*");
     const isRouteExists = filteredRoutes.some(
         (route) => route.link === location.pathname
     );
     return (
-        <div data-theme={theme}>
+        <div >
             <Suspense
                 fallback={
                     <div className="loader">
@@ -54,7 +54,7 @@ const routeComponent = () => {
 
                     <Routes className={''}>
                         {ROUTES.map((page) =>
-                            page.link === "/auth" ? (
+                            (page.link === "/auth") ? (
                                 <Route
                                     path={page.link}
                                     element={<page.component />}
@@ -63,7 +63,17 @@ const routeComponent = () => {
                                     <Route path="login" element={<LoginForm />} />
                                     <Route path="sign-up" element={<SignUpForm />} />
                                 </Route>
-                            ) : (
+                            ) :
+                            (page.link==='/reqeusts')?(
+                                <Route
+                                    path={page.link}
+                                    element={<page.component />}
+                                    key={page.id}
+                                >
+                                    <Route path="request-model" element={<RequestModel />} />
+                                    <Route path="myrequest-model" element={<MyRequestModel />} />
+                                </Route>
+                            ): (
                                 <Route
                                     path={page.link}
                                     element={<page.component />}

@@ -29,7 +29,7 @@
   gap: calc(50px + 5vw);
 }
 .auth__nav__logo {
-  background-color: none;
+  background-color: transparent;
 }
 .auth nav {
   background-color: transparent;

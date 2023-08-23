@@ -1,1 +1,33 @@
-/*# sourceMappingURL=Requests.css.map */
+:root {
+  --text-color: #000;
+  --book-request-background: #d9d9d9;
+  --background: #f5f6fa;
+}
+
+[data-theme=dark] {
+  --text-color: #f5f6fa;
+  --book-request-background: #2e2e2e;
+  --background: #282728;
+}
+
+.requests__nav {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: clamp(40px, 4vw, 50px);
+}
+.requests__nav a {
+  display: inline-flex;
+  padding: clamp(3px, 4vw, 5px) clamp(20px, 4vw, 40px);
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #666;
+  border-radius: 28.235px;
+  background: transparent;
+  color: var(--text-color);
+}
+.requests__nav a .active-link {
+  background: #93f;
+}/*# sourceMappingURL=Requests.css.map */
