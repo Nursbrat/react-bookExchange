@@ -10,6 +10,9 @@ import MyBooks from "../pages/MyBooks/MyBooks";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import Profile from "../pages/Profile/Profile";
 import Requests from "../pages/Requests/Requests";
+import RequestModel from "../pages/Requests/components/RequestModel/RequestModel";
+import MyRequestModel from "../pages/Requests/components/MyRequestModel/MyRequestModel";
+
 import SubMainPage from "../pages/SubMainPage/SubMainPage";
 
 export const ROUTES = [
@@ -26,4 +29,6 @@ export const ROUTES = [
   { link: "/submain-page", component: SubMainPage, id: 11 },
   { link: "/profile", component: Profile, id: 12 },
   { link: "*", component: NotFoundPage, id: 13 },
+  { link: "/requests-model", component: RequestModel, id: 14 }, 
+  { link: "/myrequests-model", component: MyRequestModel, id: 15 },
 ];

@@ -46,11 +46,16 @@ textarea,
 select,
 option{
   background-color: $background;
+  color: $textColor;
   transition: 0.3s;
 }
 ::selection {
   background-color: $buttonColor;
   color: $textColor;
+}
+
+::placeholder{
+    font-size: clamp(10px,4vw,16px);
 }
 
 textarea {
@@ -62,4 +67,7 @@ select:hover,
 input:hover,
 textarea:hover {
   border: 1px solid $buttonColor;
+}
+img{
+  background-color: transparent;
 }

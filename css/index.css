@@ -92,12 +92,14 @@ body {
 }
 
 ol,
-ul {
+ul,
+li {
   list-style: none;
 }
 
 a {
   text-decoration: none;
+  text-decoration: initial;
 }
 
 blockquote,
@@ -182,6 +184,7 @@ textarea,
 select,
 option {
   background-color: var(--background);
+  color: var(--text-color);
   transition: 0.3s;
 }
 
@@ -195,6 +198,14 @@ option {
   color: var(--text-color);
 }
 
+::-moz-placeholder {
+  font-size: clamp(10px, 4vw, 16px);
+}
+
+::placeholder {
+  font-size: clamp(10px, 4vw, 16px);
+}
+
 textarea {
   border: 2px solid #666;
 }
@@ -204,6 +215,10 @@ select:hover,
 input:hover,
 textarea:hover {
   border: 1px solid #93f;
+}
+
+img {
+  background-color: transparent;
 }
 
 :root {
