@@ -15,7 +15,8 @@
       gap: clamp(10px, 4vw, 20px);
       input {
         background-color: transparent;
-        padding: clamp(6px, 1.5vw, 12.026px) clamp(8px, 2vw, 160.934px) clamp(6px, 1.5vw, 12.24px) clamp(8px, 2vw, 16.4px);
+        padding: clamp(6px, 1.5vw, 12.026px) clamp(8px, 2vw, 160.934px)
+          clamp(6px, 1.5vw, 12.24px) clamp(8px, 2vw, 16.4px);
         border-radius: 49.2px;
         border: 0.547px solid $borderColor;
         background: transparent;
@@ -52,7 +53,7 @@
       &::after {
         content: "";
         background-color: $borderColor;
-        width: clamp(150px, 4vw, 205px);
+        width:calc(70px + 2.5vw);
         height: 1.5px;
         position: absolute;
         z-index: 2;
@@ -70,11 +71,14 @@
       }
     }
   }
-  &__img{
+  &__img {
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     background-color: transparent;
+    img{
+      width: 20%;
+    }
   }
 }

@@ -92,12 +92,14 @@ body {
 }
 
 ol,
-ul {
+ul,
+li {
   list-style: none;
 }
 
 a {
   text-decoration: none;
+  text-decoration: initial;
 }
 
 blockquote,
@@ -193,6 +195,14 @@ option {
 ::selection {
   background-color: #93f;
   color: var(--text-color);
+}
+
+::-moz-placeholder {
+  font-size: clamp(10px, 4vw, 12px);
+}
+
+::placeholder {
+  font-size: clamp(10px, 4vw, 12px);
 }
 
 textarea {

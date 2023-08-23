@@ -2,7 +2,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: calc(100vw - 50px);
+  width: 99.9vw;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -19,7 +19,7 @@
   align-items: center;
   flex-direction: column;
   gap: clamp(10px, 4vw, 20px);
-  padding: clmap(10px, 4vw, 22px) 30px;
+  padding: clamp(13px, 4vw, 14px) 30px;
   width: auto;
 }
 .auth__nav {
@@ -33,4 +33,7 @@
 }
 .auth nav {
   background-color: transparent;
+}
+.auth nav a {
+  font-size: clamp(16px, 4vw, 18px);
 }/*# sourceMappingURL=Auth.css.map */

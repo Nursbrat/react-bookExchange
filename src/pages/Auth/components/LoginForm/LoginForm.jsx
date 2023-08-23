@@ -14,7 +14,7 @@ const LoginForm = () => {
           </div>
 
           <div className="login__img">
-            <img src={images.google} alt="" />
+            <img src={images.google} alt="google" />
           </div>
 
           <button type="submit">Войти</button>

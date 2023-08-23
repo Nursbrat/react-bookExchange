@@ -18,7 +18,7 @@ const SignUpForm = () => {
           </div>
 
           <div className="signup__img">
-            <img src={images.google} alt="" />
+            <img src={images.google} alt="google" />
           </div>
 
           <button type="submit">Войти</button>

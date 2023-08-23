@@ -78,7 +78,7 @@
 .login__divider p::before, .login__divider p::after {
   content: "";
   background-color: #666;
-  width: clamp(150px, 4vw, 205px);
+  width: calc(70px + 2.5vw);
   height: 1.5px;
   position: absolute;
   z-index: 2;
@@ -99,4 +99,7 @@
   align-items: center;
   cursor: pointer;
   background-color: transparent;
+}
+.login__img img {
+  width: 20%;
 }/*# sourceMappingURL=LoginForm.css.map */

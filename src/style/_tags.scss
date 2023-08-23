@@ -53,6 +53,10 @@ option{
   color: $textColor;
 }
 
+::placeholder{
+    font-size: clamp(10px,4vw,12px);
+}
+
 textarea {
   border: 2px solid $borderColor;
 }
