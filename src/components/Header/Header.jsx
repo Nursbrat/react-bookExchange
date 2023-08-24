@@ -9,7 +9,7 @@ const Header = () => {
     <div className="header">
       <div className="header-container">
         <div className="header__logo">
-          <img src={images.logo} />
+          <img src={images.logo} alt="Logo" />
         </div>
         <div className="header__search">
           <form>
