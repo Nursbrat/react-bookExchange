@@ -32,8 +32,11 @@
   width: 7rem;
 }
 @media screen and (max-width: 768px) {
+  .footer {
+    padding: 1rem;
+  }
   .footer-content {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 400;
   }
 
@@ -41,15 +44,16 @@
     padding-bottom: 0.5rem;
   }
   .footer-logo {
-    width: 5rem;
+    width: 4.5rem;
+    padding-right: 1rem;
   }
   .footer__blog h3 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   .phone {
     flex-direction: column;
   }
   .footer p {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 }

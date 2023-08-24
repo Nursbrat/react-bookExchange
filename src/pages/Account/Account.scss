@@ -51,6 +51,12 @@
   }
 }
 
+@media screen and (max-width: 950px) {
+  .account__right {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .account-container {
     flex-direction: column;
@@ -69,11 +75,23 @@
   .account-info {
     font-size: 1.4rem;
   }
-  .account__right {
-    display: none;
-  }
+
   .blog-field {
     border-radius: 2rem;
     font-size: 1rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .account-container {
+    .user-img {
+      width: 5rem;
+    }
+  }
+  .blog-field {
+    border-radius: 1.7rem;
+    padding: 0 0.5rem;
+    min-width: 20rem;
+    font-size: 1rem;
+    max-height: 2.5rem;
   }
 }
