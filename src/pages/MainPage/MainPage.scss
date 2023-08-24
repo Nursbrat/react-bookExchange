@@ -2,44 +2,42 @@
 
 .main {
   &__content {
-
   }
-    &__hero {
-      display: flex;
-      justify-content: baseline;
-      align-items: end;
+  &__hero {
+    display: flex;
+    justify-content: baseline;
+    align-items: end;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw -1px;
+    height: 60vh;
+    border-radius: 10px;
+    padding: 14px 12px;
+    gap: 10px;
 
-      background-size: cover ;
-      background-position: center;
-      background-repeat: no-repeat;
-      width: 100vw -1px;
-      height:60vh;
-      border-radius: 10px;
-      padding: 14px 12px;
-      gap: 10px;
-
-      &__content {
+    &__content {
+      margin-left: 2%;
+      background-color: transparent;
+      h1 {
         background-color: transparent;
-        h1{
-          background-color:transparent;
-        }
       }
-    
-        h1 {
-          color: #fff;
-          font-family: Lora;
-          font-size: clamp(13px, 4vw, 64px);
-          font-style: normal;
-          font-weight: 600;
-          line-height: normal;
-          max-width: 620px;
-        }
-      button {
-        @include defaultButton();
-        padding: 3.979px 37.5px 4.021px 38.5px;
-        margin-top: 10px;
-      }
-    
+    }
+
+    h1 {
+      color: #fff;
+      font-family: Lora;
+      font-size: clamp(13px, 4vw, 64px);
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      max-width: 620px;
+    }
+    button {
+      @include defaultButton();
+      padding: 3.979px 37.5px 4.021px 38.5px;
+      margin-top: 10px;
+    }
   }
 
   &__genres {
@@ -51,20 +49,25 @@
   }
   &__genre {
     width: calc(106px + 20vw);
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(0.9);
+    }
   }
 }
- @media screen and (max-width:1054px) {
-  .main__hero{
-    max-width:1000px;
-    height:50vh;
+@media screen and (max-width: 1054px) {
+  .main__hero {
+    max-width: 1000px;
+    height: 50vh;
     background-size: 100qmax;
   }
- }
+}
 
- @media screen and (max-width:723px) {
-  .main__hero{
-    max-width:700px;
-    height:40vh;
+@media screen and (max-width: 723px) {
+  .main__hero {
+    max-width: 700px;
+    height: 40vh;
     background-size: 200qmax;
   }
- }
+}

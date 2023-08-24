@@ -4,10 +4,26 @@ import { BiSearchAlt2, BiMenu } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import { images } from "../../constants";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { BOOKS } from "../../api/api";
+import { useSearchBooksQuery } from "../../api/apiSlice";
+
 const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const navigate = useNavigate();
+  const [searchText, setSearchText] = useState("");
+  const searchBooksQuery = useSearchBooksQuery();
 
+  const handleSearch = async (e) => {
+    e.preventDefault();
+
+    try {
+      await searchBooksQuery.refetch({ searchQuery: searchText });
+    } catch (error) {
+      console.log(error);
+    }
+    navigate(`/submain-page?query=${searchText}`);
+  };
   return (
     <div className="header">
       <div className="header-container">
@@ -15,12 +31,14 @@ const Header = () => {
           <img src={images.logo} onClick={() => navigate("/")} />
         </div>
         <div className="header__search">
-          <form>
+          <form onSubmit={handleSearch}>
             <input
               type="text"
               placeholder="Поиск Книги по автору, названию или жанру"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
             />
-            <button type="header__search-button">
+            <button type="submit" className="header__search-button">
               <BiSearchAlt2 className="search-icon" />
             </button>
           </form>

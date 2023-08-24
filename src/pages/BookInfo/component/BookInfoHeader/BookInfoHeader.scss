@@ -1,6 +1,4 @@
-@use '../../../../style/global' as *;
-
-
+@use "../../../../style/global" as *;
 
 .book__info__header {
   margin-top: 32.5px;
@@ -9,9 +7,9 @@
   align-items: center;
 
   &-name {
-   @include title($textColor)
+    @include title($textColor);
   }
-  svg{
+  svg {
     cursor: pointer;
   }
 }

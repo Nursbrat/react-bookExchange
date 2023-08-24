@@ -1,5 +1,5 @@
 .footer {
-  padding: 1rem 2.5rem;
+  padding: 3rem 2.5rem 1rem;
   display: flex;
   justify-content: space-between;
   border-top: 1px solid #666666;
@@ -9,20 +9,31 @@
 .footer__blog {
   display: flex;
   flex-direction: column;
-
+  font-family: Lora;
   h3 {
     font-weight: 600;
+    padding-bottom: 0.8rem;
+    font-size: 25px;
   }
   li {
     padding-bottom: 0.7rem;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  img {
+    cursor: pointer;
   }
 }
 .phone {
   display: flex;
+  align-items: center;
   gap: 2rem;
-}
 
-.footer-logo {
+  p {
+    font-size: 20px;
+  }
+}
+.phone .footer-logo {
   padding-top: 2rem;
   width: 9rem;
 }

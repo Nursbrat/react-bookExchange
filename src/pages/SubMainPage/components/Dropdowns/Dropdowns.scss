@@ -10,6 +10,10 @@
     gap: clamp(9px, 4vw, 30px);
   }
 }
+.dropdowns__container {
+  padding: 0 20px;
+}
+
 @media screen and (max-width: 607px) {
   .dropdowns {
     &__content {
