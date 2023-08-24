@@ -1,0 +1,186 @@
+.addBook {
+  padding: 2.5rem 1rem 1rem;
+}
+
+.addBook-container {
+  width: 95%;
+  margin: 2rem auto 0;
+  padding: 0;
+}
+
+.addBook__form {
+  flex: 1;
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.addBook__form .add-file {
+  display: none;
+}
+.addBook__form input,
+.addBook__form select {
+  border-radius: 3rem;
+  padding: 0 1rem;
+  width: 40vw;
+  min-width: 40rem;
+  height: 5rem;
+  border: 1px solid #666666;
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+  font-size: 1.8rem;
+  outline: none;
+}
+.addBook__form select {
+  font-size: 1.8rem;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-image: url(../../../public/assets/icon/navigation/down.png);
+  background-repeat: no-repeat;
+  background-position: 97%;
+  background-size: scale-down;
+}
+
+.addBook__cover,
+.addBook__description {
+  width: 100%;
+  padding-bottom: 3rem;
+}
+
+.label {
+  font-size: 2rem;
+  font-weight: 400 !important;
+  line-height: 0.5rem;
+}
+
+.add-picture {
+  margin-top: 2rem;
+  text-align: center;
+  border-radius: 2rem;
+  width: 100%;
+  height: 35rem;
+  min-height: 15rem;
+  border: 3px solid #666;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.add-picture img {
+  width: 10rem;
+  height: 10rem;
+  cursor: pointer;
+}
+
+.add-picture:hover {
+  border-color: #551a8b;
+  transition: 0.2s;
+}
+
+.add-picture__descr {
+  margin-top: 1rem;
+  font-size: 1.8rem;
+}
+
+.addBook__description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+.addBook__description textarea {
+  height: 25rem;
+  border-radius: 2rem;
+  padding: 2rem;
+  font-size: 1.8rem;
+}
+
+.addBook2__description-input {
+  height: 21rem !important;
+  font-size: 1.6rem !important;
+}
+
+.addBook__form > label {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.addBook__form > input {
+  height: 4rem;
+  padding-left: 2rem;
+  font-size: 1.2rem;
+}
+
+.addBook__form > select {
+  height: 4rem;
+  padding-left: 2rem;
+  font-size: 1.2rem;
+}
+
+.select-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.next-link {
+  padding: 2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.6rem;
+  border: none;
+  background: var(--unnamed, #93f);
+  height: 1.8rem;
+  border-radius: 2rem;
+  color: #ffffff;
+}
+.next-link .next-icon {
+  color: #ffffff;
+  padding: 0.3rem;
+  font-size: 2.5rem;
+}
+
+.step-btn {
+  padding: 3rem 0;
+  display: flex;
+  justify-content: end;
+}
+
+@media screen and (max-width: 992px) {
+  .addBook-title,
+  .addBook-subtitle {
+    padding-left: 2.3rem;
+  }
+  .addBook__form input,
+  .addBook__form select {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .addBook-container {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    padding: 3rem;
+  }
+  .addBook__form input,
+  .addBook__form select {
+    height: 3.8rem;
+    font-size: 1.6rem;
+  }
+  .add-picture {
+    height: 20rem;
+  }
+  .add-picture img {
+    width: 5rem;
+    height: 5rem;
+  }
+  .addBook__description textarea {
+    height: 12rem;
+  }
+}/*# sourceMappingURL=Addbook.css.map */

@@ -1,0 +1,89 @@
+@use "../../../../style/global" as *;
+
+.dropdown {
+  cursor: pointer;
+  &__toggle__btn {
+    display: flex;
+    padding: 5px 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 60px;
+    border: 1px solid $borderColor;
+    font-size: 20px;
+  }
+  &__list {
+    position: relative;
+  }
+  &__items {
+    position: absolute;
+    bottom: 110;
+    max-height: 0;
+    overflow: hidden;
+    border-radius: 30px;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    &::-webkit-scrollbar {
+      width: 15px; // Ширина скролл-бара
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: gray; // Цвет ползунка скролл-бара
+      border-radius: 10px; // Скругление углов ползунка
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent; // Цвет трека скролл-бара
+    }
+  }
+
+  .open {
+    overflow: auto;
+    max-height: 800px;
+    opacity: 1;
+    box-shadow: 0 4px 10px $textColor;
+    cursor: pointer;
+  }
+
+  &__item {
+    width: auto;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    background-color: $background;
+    gap: 20px;
+    color: $textColor;
+    font-family: Lora;
+    font-size: clamp(17px, 3vw, 22px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 5%;
+      width: 90%;
+      height: 1px;
+      background-color: $borderColor;
+    }
+    &:last-child::after {
+      background-color: transparent;
+    }
+    &:hover {
+      color: red;
+    }
+  }
+
+  .rotated {
+    transform: rotate(180deg);
+  }
+}

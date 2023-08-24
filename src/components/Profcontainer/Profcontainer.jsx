@@ -1,16 +1,24 @@
 import React from "react";
 import { GrFormPrevious } from "react-icons/gr";
 import "./Profcontainer.scss";
+import { useNavigate } from "react-router-dom";
+
 const Profcontainer = ({
   pageTitle,
   children,
   addBookSubitle,
   addBookTitle,
 }) => {
+  const navigate = useNavigate();
+
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div className="Profcontainer">
       <div className="back-link">
-        <a>
+        <a onClick={() => handleGoBack()} title="Вернуться назад">
           <GrFormPrevious className="back-icon" />
         </a>
         <p>{pageTitle}</p>

@@ -1,0 +1,53 @@
+
+@use '../../style/global' as * ;
+.auth {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: calc(100vw - 0.1vw);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__content {
+    border-radius: 50px;
+    border: 5px solid rgba(102, 102, 102, 0.1);
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(9.5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: clamp(10px,4vw,20px);
+    padding: clamp(13px,4vw,14px) 30px;
+    width: auto;
+  }
+  &__nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:calc(50px + 5vw) ;
+    &__logo{
+      background-color: transparent;
+    }
+}
+nav{
+  background-color: transparent;
+  a{
+    font-size: clamp(16px,4vw,18px);
+    color: white;
+    
+  }
+   .active{
+    color: $buttonColor;
+    text-decoration: underline;
+    
+   }
+   a:hover{
+    color: $buttonColor;
+    text-decoration: underline;
+   }
+
+}
+}

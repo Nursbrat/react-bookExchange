@@ -1,0 +1,24 @@
+:root {
+  --text-color: #000;
+  --book-request-background: #d9d9d9;
+  --background: #f5f6fa;
+}
+
+[data-theme=dark] {
+  --text-color: #f5f6fa;
+  --book-request-background: #2e2e2e;
+  --background: #282728;
+}
+
+.dropdowns__content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(9px, 4vw, 30px);
+}
+
+@media screen and (max-width: 607px) {
+  .dropdowns__content {
+    align-items: center;
+    justify-content: center;
+  }
+}/*# sourceMappingURL=Dropdowns.css.map */

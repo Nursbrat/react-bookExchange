@@ -1,0 +1,23 @@
+$buttonColor: #93f;
+$supportInfoTextColor: #888;
+$borderColor: #666;
+$bookDetailsTextColor: #93f;
+$buttonTextColor: #fff;
+
+
+
+:root {
+  --text-color: #000;
+  --book-request-background: #d9d9d9;
+  --background: #f5f6fa;
+
+}
+[data-theme="dark"] {
+    --text-color: #f5f6fa;
+    --book-request-background: #2e2e2e;
+    --background: #282728;
+  }
+
+$textColor: var(--text-color);
+$bookRequestBackground: var(--book-request-background);
+$background: var(--background);

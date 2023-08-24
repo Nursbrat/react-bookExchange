@@ -1,0 +1,125 @@
+
+@use "../style/global.scss" as *;
+
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  font-family: "Lora", serif;
+}
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+footer,
+header,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+input,
+textarea,
+select {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 16px;
+  font-family: inherit;
+  vertical-align: baseline;
+
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+  font-family: "Lora", serif;
+  font-size: 1.6rem;
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  text-decoration: initial;
+}
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+
+
+img {
+  display: inline-flex;
+  vertical-align: middle;
+  border-style: none;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+button{
+  border: none;
+  cursor:pointer;
+  text-decoration: none;
+  background: none;
+}
+
+
+

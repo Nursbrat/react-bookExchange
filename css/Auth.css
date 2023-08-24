@@ -1,0 +1,60 @@
+:root {
+  --text-color: #000;
+  --book-request-background: #d9d9d9;
+  --background: #f5f6fa;
+}
+
+[data-theme=dark] {
+  --text-color: #f5f6fa;
+  --book-request-background: #2e2e2e;
+  --background: #282728;
+}
+
+.auth {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 99.9vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.auth__content {
+  border-radius: 50px;
+  border: 5px solid rgba(102, 102, 102, 0.1);
+  background: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(9.5px);
+          backdrop-filter: blur(9.5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: clamp(10px, 4vw, 20px);
+  padding: clamp(13px, 4vw, 14px) 30px;
+  width: auto;
+}
+.auth__nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(50px + 5vw);
+}
+.auth__nav__logo {
+  background-color: transparent;
+}
+.auth nav {
+  background-color: transparent;
+}
+.auth nav a {
+  font-size: clamp(16px, 4vw, 18px);
+  color: white;
+}
+.auth nav .active {
+  color: #93f;
+  text-decoration: underline;
+}
+.auth nav a:hover {
+  color: #93f;
+  text-decoration: underline;
+}/*# sourceMappingURL=Auth.css.map */
