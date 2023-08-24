@@ -7,7 +7,8 @@ const BookInfoHeader = () => {
     <div className="book__info__header">
       <h2 className="book__info__header-name">Богатый папа, Бедный Папа</h2>
     
-      {
+  <div className="book__info__header--icon">
+  {
         isAdded ? <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 40 40" fill="none" onClick={()=>{setIsAdded(false)}}>
           <path d="M28.3333 5H11.6666C9.83325 5 8.34992 6.5 8.34992 8.33333L8.33325 35L19.9999 30L31.6666 35V8.33333C31.6666 6.5 30.1666 5 28.3333 5Z" fill="#9933FF" />
         </svg> 
@@ -28,6 +29,8 @@ const BookInfoHeader = () => {
           />
         </svg>
       }
+  </div>
+     
 
 
     </div>

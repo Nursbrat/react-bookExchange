@@ -7,11 +7,11 @@ import { useSelector, useDispatch } from "react-redux";
 
 const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
   const dispatch = useDispatch();
-  const isDarkMode = useSelector((state) => state.theme);
+  const theme = useSelector((state) => state.theme);
 
   const handleChangeTheme = () => {
     dispatch(toggleTheme());
-    console.log(isDarkMode);
+    console.log(theme);
   };
 
   const { data: booksData, error, isLoading } = useGetBooksQuery();

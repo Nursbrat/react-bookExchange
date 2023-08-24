@@ -11,6 +11,7 @@ import "./pages/Auth/Auth.scss";
 import RequestModel from './pages/Requests/components/RequestModel/RequestModel';
 import MyRequestModel from './pages/Requests/components/MyRequestModel/MyRequestModel';
 
+
 const routeComponent = () => {
     const location = useLocation();
 
@@ -51,6 +52,7 @@ const routeComponent = () => {
                 <FakeAsyncComponent>
                     {isRouteExists && <Header />}
 
+                <main>
                     <Routes className={''}>
                         {ROUTES.map((page) =>
                             (page.link === "/auth") ? (
@@ -81,6 +83,7 @@ const routeComponent = () => {
                             )
                         )}
                     </Routes>
+                </main>
 
                     {isRouteExists && <Footer />}
                 </FakeAsyncComponent>

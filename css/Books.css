@@ -17,7 +17,7 @@
 .books__genere-text {
   color: var(--text-color);
   font-family: Lora;
-  font-size: 30px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -31,6 +31,9 @@
   -moz-column-gap: clamp(9px, 4vw, 20px);
        column-gap: clamp(9px, 4vw, 20px);
   row-gap: clamp(12px, 4vw, 30px);
+}
+.books__items > p {
+  font-size: 22px;
 }
 .books__item {
   display: flex;

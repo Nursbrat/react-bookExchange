@@ -21,6 +21,7 @@
   gap: 5px;
   border-radius: 60px;
   border: 1px solid #666;
+  font-size: 20px;
 }
 .dropdown__list {
   position: relative;
@@ -39,8 +40,19 @@
   z-index: 10;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+.dropdown__items::-webkit-scrollbar {
+  width: 15px;
+}
+.dropdown__items::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 10px;
+}
+.dropdown__items::-webkit-scrollbar-track {
+  background-color: transparent;
+}
 .dropdown .open {
-  max-height: 600px;
+  overflow: auto;
+  max-height: 800px;
   opacity: 1;
   box-shadow: 0 4px 10px var(--text-color);
   cursor: pointer;
@@ -54,7 +66,7 @@
   gap: 20px;
   color: var(--text-color);
   font-family: Lora;
-  font-size: clamp(18px, 4vw, 24px);
+  font-size: clamp(17px, 3vw, 22px);
   font-style: normal;
   font-weight: 500;
   line-height: normal;

@@ -13,6 +13,8 @@ const Header = () => {
       <div className="header-container">
         <div className="header__logo">
           <img src={images.logo} onClick={() => navigate("/")} />
+
+      
         </div>
         <div className="header__search">
           <form>
