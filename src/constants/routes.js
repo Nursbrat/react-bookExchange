@@ -29,6 +29,6 @@ export const ROUTES = [
   { link: "/submain-page", component: SubMainPage, id: 11 },
   { link: "/profile", component: Profile, id: 12 },
   { link: "*", component: NotFoundPage, id: 13 },
-  { link: "/requests-model", component: RequestModel, id: 14 }, 
-  { link: "/myrequests-model", component: MyRequestModel, id: 15 },
+  { link: "/request-model", component: RequestModel, id: 14 }, 
+  { link: "/myrequest-model", component: MyRequestModel, id: 15 },
 ];

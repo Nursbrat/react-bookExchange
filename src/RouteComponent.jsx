@@ -6,7 +6,6 @@ import { ROUTES } from "./constants/routes";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import PageLoader from "./components/PageLoader/PageLoader";
-import { useTheme } from "./hooks/useTheme";
 import { Route, Routes, useLocation } from "react-router-dom";
 import "./pages/Auth/Auth.scss";
 import RequestModel from './pages/Requests/components/RequestModel/RequestModel';
@@ -64,7 +63,7 @@ const routeComponent = () => {
                                     <Route path="sign-up" element={<SignUpForm />} />
                                 </Route>
                             ) :
-                            (page.link==='/reqeusts')?(
+                            (page.link==='/requests')?(
                                 <Route
                                     path={page.link}
                                     element={<page.component />}

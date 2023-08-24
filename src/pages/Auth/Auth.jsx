@@ -21,8 +21,8 @@ const Auth = () => {
         </div>
 
         <nav className="auth__nav">
-          <NavLink to="login">Войти</NavLink>
-          <NavLink to="sign-up">Регистрация</NavLink>
+          <NavLink to="login" className={({ isActive }) => isActive ? 'active' : ''}>Войти</NavLink>
+          <NavLink to="sign-up" className={({ isActive }) => isActive ? 'active' : ''}>Регистрация</NavLink>
         </nav>
 
         <Outlet />

@@ -28,6 +28,9 @@
   background: transparent;
   color: var(--text-color);
 }
-.requests__nav a .active-link {
+.requests__nav .active {
   background: #93f;
+}
+.requests__nav a:hover {
+  background-color: #93f;
 }/*# sourceMappingURL=Requests.css.map */

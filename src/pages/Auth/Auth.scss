@@ -1,3 +1,5 @@
+
+@use '../../style/global' as * ;
 .auth {
   background-size: cover;
   background-position: center;
@@ -27,7 +29,6 @@
     align-items: center;
     gap:calc(50px + 5vw) ;
     &__logo{
-
       background-color: transparent;
     }
 }
@@ -35,6 +36,18 @@ nav{
   background-color: transparent;
   a{
     font-size: clamp(16px,4vw,18px);
+    color: white;
+    
   }
+   .active{
+    color: $buttonColor;
+    text-decoration: underline;
+    
+   }
+   a:hover{
+    color: $buttonColor;
+    text-decoration: underline;
+   }
+
 }
 }

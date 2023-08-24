@@ -1,13 +1,11 @@
-
-@use '../../style/global' as *;
+@use "../../style/global" as *;
 .requests {
-   
   &__nav {
     margin-top: 10px;
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-left:clamp(40px,4vw,50px);
+    margin-left: clamp(40px, 4vw, 50px);
     a {
       display: inline-flex;
       padding: clamp(3px, 4vw, 5px) clamp(20px, 4vw, 40px);
@@ -16,12 +14,14 @@
       gap: 10px;
       border: 1px solid $borderColor;
       border-radius: 28.235px;
-      background:transparent;
-      color:$textColor;
+      background: transparent;
+      color: $textColor;
     }
-    a .active-link{
-        background:$buttonColor;
+    .active{
+      background: $buttonColor;
     }
-    
+    a:hover{
+        background-color: $buttonColor;
+    }
   }
 }
