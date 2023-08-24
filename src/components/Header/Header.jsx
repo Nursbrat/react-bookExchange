@@ -12,11 +12,7 @@ const Header = () => {
     <div className="header">
       <div className="header-container">
         <div className="header__logo">
-<<<<<<< HEAD
-          <img src={images.logo} alt="Logo" />
-=======
           <img src={images.logo} onClick={() => navigate("/")} />
->>>>>>> layout
         </div>
         <div className="header__search">
           <form>
