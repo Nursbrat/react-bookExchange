@@ -1,24 +1,28 @@
 @use "../../style/global" as *;
 
 .booktotransfer__popup {
-  // position: absolute;
+  // position: fixed;
   // left: 0;
   // top: 0;
   // width: 100%;
   // height: 100%;
   // background-color: rgba(0, 0, 0, 0.4);
-  // transition: all 0.5s ease-in-out;
+  // transition: all 1.5s ease-in-out;
   // opacity: 0;
   // visibility: hidden;
+  margin-top: 3%;
 
   &__books {
     display: flex;
     flex-wrap: wrap;
-    max-width: 1092px;
     gap: 20px;
     margin-top: clamp(9px, 6vw, 20px);
   }
   &__book {
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
     p {
       color: $textColor;
       font-family: Lora;
@@ -27,13 +31,22 @@
       font-weight: 500;
       line-height: normal;
       max-width: 256px;
+      text-align: center;
     }
   }
   &__img {
-    max-width: 258px;
-    max-height: 350px;
-    min-width: 106px;
-    min-height: 143px;
+    max-width: 230px;
+    max-height: 330px;
+    min-width: 230px;
+    min-height: 330px;
+
+    img {
+      max-width: 230px;
+      max-height: 330px;
+      min-width: 230px;
+      min-height: 330px;
+      border-radius: 20px;
+    }
   }
 
   .booktotransfer__popup__content {
@@ -59,8 +72,10 @@
       line-height: normal;
     }
   }
-  button{
+  button {
     @include defaultButton();
-    margin-top:clamp(28.41px,4vw,80px)
+    margin-top: clamp(28.41px, 4vw, 80px);
+    justify-self: center;
+    width: 100%;
   }
 }

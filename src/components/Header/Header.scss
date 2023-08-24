@@ -41,8 +41,15 @@
       width: 80%;
       border: none;
       padding-left: 1rem;
-      font-size: 1.6rem;
+      font-size: 1.4rem;
+      &::placeholder {
+        font-size: 1.4rem;
+      }
+      &:focus {
+        border: none;
+      }
     }
+
     button {
       height: 3rem;
       width: 3rem;

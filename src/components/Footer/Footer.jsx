@@ -1,22 +1,74 @@
 import React from "react";
 import "./Footer.scss";
 import { images } from "../../constants";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="footer">
       <div className="footer__blog">
-        <img src={images.logo} alt="logo" className="footer-logo" />
+        <img
+          src={images.logo}
+          alt="logo"
+          className="footer-logo"
+          onClick={() => navigate("/")}
+        />
       </div>
       <div className="footer__blog">
         <h3>Жанры:</h3>
-        <li>Роман:</li>
-        <li>Детектив / Триллер:</li>
-        <li>Фэнтези:</li>
-        <li>Научная фантастика:</li>
-        <li>Ужасы:</li>
-        <li>Поэзия:</li>
-        <li>Драма:</li>
+        <li
+          onClick={() =>
+            navigate(`/submain-page/${encodeURIComponent("Роман")}`)
+          }
+        >
+          Роман:
+        </li>
+        <li
+          onClick={() =>
+            navigate(`/submain-page/${encodeURIComponent("Детектив")}`)
+          }
+        >
+          Детектив / Триллер:
+        </li>
+        <li
+          onClick={() =>
+            navigate(`/submain-page/${encodeURIComponent("Фэнтези")}`)
+          }
+        >
+          Фэнтези:
+        </li>
+        <li
+          onClick={() =>
+            navigate(
+              `/submain-page/${encodeURIComponent("Научная фантастика")}`
+            )
+          }
+        >
+          Научная фантастика:
+        </li>
+        <li
+          onClick={() =>
+            navigate(`/submain-page/${encodeURIComponent("Ужасы")}`)
+          }
+        >
+          Ужасы:
+        </li>
+        <li
+          onClick={() =>
+            navigate(`/submain-page/${encodeURIComponent("Поэзия")}`)
+          }
+        >
+          Поэзия:
+        </li>
+        <li
+          onClick={() =>
+            navigate(`/submain-page/${encodeURIComponent("Драма")}`)
+          }
+        >
+          Драма:
+        </li>
       </div>
       <div className="footer__blog">
         <h3>Контакты:</h3>

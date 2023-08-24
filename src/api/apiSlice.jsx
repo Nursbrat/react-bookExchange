@@ -40,6 +40,18 @@ export const apiSlice = createApi({
       }),
       invalidatesTags: ["Books"],
     }),
+
+    // информация об одной книге
+    getBookById: builder.query({
+      query: (bookId) => `/books/${bookId}`,
+      providesTags: (result, error, bookId) => [{ type: "Books", id: bookId }],
+    }),
+
+    // Поиск книг по заданному поисковому запросу
+    searchBooks: builder.query({
+      query: (searchQuery) => `/books/?search=${searchQuery}`,
+      providesTags: ["Books"],
+    }),
   }),
 });
 
@@ -48,4 +60,6 @@ export const {
   useCreateBookMutation,
   useUpdateBookMutation,
   useDeleteBookMutation,
+  useGetBookByIdQuery,
+  useSearchBooksQuery,
 } = apiSlice;

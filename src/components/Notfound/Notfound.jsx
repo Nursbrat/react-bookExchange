@@ -5,12 +5,11 @@ import { images } from "../../constants";
 const Notfound = () => {
   return (
     <div className="not-found">
-      <div className="not-found-img">
-        <img
-          src={images.notfound}
-          alt="picture, illustration of page not found"
-        />
-      </div>
+      <img
+        src={images.notfound}
+        alt="picture, illustration of page not found"
+      />
+      <p>Книги по вашему запросу не найдены</p>
     </div>
   );
 };
