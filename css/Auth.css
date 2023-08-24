@@ -1,3 +1,15 @@
+:root {
+  --text-color: #000;
+  --book-request-background: #d9d9d9;
+  --background: #f5f6fa;
+}
+
+[data-theme=dark] {
+  --text-color: #f5f6fa;
+  --book-request-background: #2e2e2e;
+  --background: #282728;
+}
+
 .auth {
   background-size: cover;
   background-position: center;
@@ -36,4 +48,13 @@
 }
 .auth nav a {
   font-size: clamp(16px, 4vw, 18px);
+  color: white;
+}
+.auth nav .active {
+  color: #93f;
+  text-decoration: underline;
+}
+.auth nav a:hover {
+  color: #93f;
+  text-decoration: underline;
 }/*# sourceMappingURL=Auth.css.map */

@@ -6,7 +6,6 @@ import { ROUTES } from "./constants/routes";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import PageLoader from "./components/PageLoader/PageLoader";
-import { useTheme } from "./hooks/useTheme";
 import { Route, Routes, useLocation } from "react-router-dom";
 import "./pages/Auth/Auth.scss";
 import RequestModel from "./pages/Requests/components/RequestModel/RequestModel";
@@ -57,9 +56,9 @@ const routeComponent = () => {
         }
       >
         <FakeAsyncComponent>
-          {(shouldShowHeaderFooter && <Header />) ||
-            (isRouteExists && <Header />) ||
-            (shouldShow && <Header />)}
+          {shouldShowHeaderFooter || isRouteExists || shouldShow ? (
+            <Header />
+          ) : null}
 
           <Routes className={""}>
             {ROUTES.map((page) =>
@@ -72,7 +71,7 @@ const routeComponent = () => {
                   <Route path="login" element={<LoginForm />} />
                   <Route path="sign-up" element={<SignUpForm />} />
                 </Route>
-              ) : page.link === "/reqeusts" ? (
+              ) : page.link === "/requests" ? (
                 <Route
                   path={page.link}
                   element={<page.component />}
@@ -91,9 +90,9 @@ const routeComponent = () => {
             )}
           </Routes>
 
-          {(isRouteExists && <Footer />) ||
-            (shouldShowHeaderFooter && <Footer />) ||
-            (shouldShow && <Footer />)}
+          {shouldShowHeaderFooter || isRouteExists || shouldShow ? (
+            <Footer />
+          ) : null}
         </FakeAsyncComponent>
       </Suspense>
     </div>

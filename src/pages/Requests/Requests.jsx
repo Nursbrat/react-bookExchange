@@ -19,17 +19,18 @@ const Requests = () => {
         >
           <div className="requsts__list">
             <nav className="requests__nav">
-              <NavLink exact activeClassName="active-link" to="requests-model">Запросы</NavLink>
-              <NavLink activeClassName="active-link" to="myrequests-model">Мои запросы</NavLink>
+              <NavLink className={({ isActive }) => isActive ? 'active' : ''} to="request-model">Запросы</NavLink>
+              <NavLink className={({ isActive }) => isActive ? 'active' : ''} to="myrequest-model">Мои запросы</NavLink>
             </nav>
             <Outlet />
 
 
             {isEmpty ? <Notfound /> :
-             <Routes>
-              <Route path="/" element={<RequestModel />} />
-              <Route path="/myrequest" element={<MyRequestModel />} />
-            </Routes>}
+              <Routes>
+                <Route path="/" element={<RequestModel />} />
+                <Route path="/myrequest" element={<MyRequestModel />} />
+              </Routes>
+            }
           </div>
         </Profcontainer>
       </div>

@@ -44,8 +44,8 @@ export const ROUTES = [
   },
   { link: "/profile", component: Profile, name: "Профиль", id: 12 },
   { link: "*", component: NotFoundPage, name: "Не найден", id: 13 },
-  { link: "/requests-model", component: RequestModel, name: "", id: 14 },
-  { link: "/myrequests-model", component: MyRequestModel, name: "", id: 15 },
+  { link: "/request-model", component: RequestModel, name: "", id: 14 },
+  { link: "/myrequest-model", component: MyRequestModel, name: "", id: 15 },
 
   {
     link: "/submain-page/",
