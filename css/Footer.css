@@ -1,9 +1,13 @@
 .footer {
   padding: 1rem 2.5rem;
+  border-top: 1px solid #666666;
+}
+
+.footer-content {
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid #666666;
   font-size: 1.8rem;
+  padding-bottom: 2rem;
 }
 
 .footer__blog {
@@ -12,6 +16,8 @@
 }
 .footer__blog h3 {
   font-weight: 600;
+  padding-bottom: 0.7rem;
+  font-size: 1.5rem;
 }
 .footer__blog li {
   padding-bottom: 0.7rem;
@@ -24,20 +30,31 @@
 
 .footer-logo {
   padding-top: 2rem;
-  width: 9rem;
+  width: 7rem;
 }
 
 @media screen and (max-width: 768px) {
   .footer {
-    font-size: 1.5rem;
+    padding: 1rem;
+  }
+  .footer-content {
+    font-size: 0.8rem;
+    font-weight: 400;
   }
   .footer__blog li {
     padding-bottom: 0.5rem;
   }
   .footer-logo {
-    width: 7rem;
+    width: 4.5rem;
+    padding-right: 1rem;
   }
   .footer__blog h3 {
-    font-weight: 500;
+    font-size: 1.2rem;
+  }
+  .phone {
+    flex-direction: column;
+  }
+  .footer p {
+    font-size: 0.8rem;
   }
 }/*# sourceMappingURL=Footer.css.map */

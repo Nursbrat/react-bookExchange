@@ -10,7 +10,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import "./pages/Auth/Auth.scss";
 import RequestModel from './pages/Requests/components/RequestModel/RequestModel';
 import MyRequestModel from './pages/Requests/components/MyRequestModel/MyRequestModel';
-
+import './style/_tags.scss';
 
 const routeComponent = () => {
     const location = useLocation();

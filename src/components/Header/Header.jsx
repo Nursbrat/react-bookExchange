@@ -18,13 +18,13 @@ const Header = () => {
         </div>
         <div className="header__search">
           <form>
+            <button type="header__search-button">
+              <BiSearchAlt2 className="search-icon" />
+            </button>
             <input
               type="text"
               placeholder="Поиск Книги по автору, названию или жанру"
             />
-            <button type="header__search-button">
-              <BiSearchAlt2 className="search-icon" />
-            </button>
           </form>
         </div>
 

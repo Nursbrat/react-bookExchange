@@ -19,7 +19,7 @@ const Profile = () => {
           </div>
           <div className="user-name">
             <h4>Максим</h4>
-            <p>+996 (555) 55-55-55git</p>
+            <p>+996 (555) 55-55-55</p>
           </div>
         </div>
         <div className="profile-container">

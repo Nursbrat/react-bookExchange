@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import LoginForm from "./components/LoginForm/LoginForm";
 import images from "../../constants/images";
+import './Auth.scss'
 
 const Auth = () => {
   return (
