@@ -1,6 +1,7 @@
 import account from "../../public/assets/account.png";
 import addbook from "../../public/assets/addbook.png";
 import book from "../../public/assets/book.jpg";
+import book2 from "../../public/assets/book2.jpg";
 import cabinet from "../../public/assets/cabinet.png";
 import caret from "../../public/assets/icon/caret.svg";
 import drama from "../../public/assets/images/main-page/drama.png";
@@ -18,6 +19,8 @@ import profile from "../../public/assets/profile.png";
 import logo from "../../public/assets/logo.png";
 import authBackground from "../../public/assets/images/auth/darkacademia.png";
 import google from "../../public/assets/icon/google.svg";
+import arrow1 from "../../public/assets/icon/arrow1.png";
+import arrow2 from "../../public/assets/icon/arrow2.png";
 
 export default {
   notfound,
@@ -40,4 +43,7 @@ export default {
   logo,
   authBackground,
   google,
+  arrow1,
+  arrow2,
+  book2,
 };
