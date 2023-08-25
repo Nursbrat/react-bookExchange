@@ -4,6 +4,7 @@ import { BiSearchAlt2, BiMenu } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import { images } from "../../constants";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const navigate = useNavigate();
@@ -44,9 +45,25 @@ const Header = () => {
       {toggleMenu && (
         <div className="header__navbar">
           <ul>
-            <li>Home</li>
-            <li>Home</li>
-            <li>Home</li>
+            <Link to="/">
+              <li>Главная страница</li>
+            </Link>
+            <Link to="/profile">
+              <li>Личный кабинет</li>
+            </Link>
+            <Link to="/requests">
+              <li>Запросы на обмен</li>
+            </Link>
+            <Link to="/add-book">
+              <li>Добавить свою книгу</li>
+            </Link>
+
+            <Link to="/my-books">
+              <li>Мои книги</li>
+            </Link>
+            <Link to="/my-books">
+              <li> Библиотека</li>
+            </Link>
           </ul>
         </div>
       )}
