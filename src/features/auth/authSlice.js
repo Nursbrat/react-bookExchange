@@ -1,36 +1,61 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { BOOKS } from '../../api/api';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { AUTH } from '../../api/api';
 
-const authApi = createApi({
-  reducerPath: 'authApi',
-  baseQuery: fetchBaseQuery({ baseUrl: BOOKS }),
-  endpoints: (builder) => ({
-    loginUser: builder.mutation({
-      query: (credentials) => ({
-        url: '/auth/login',
-        method: 'POST',
-        body: credentials
+export const login = createAsyncThunk(
+  '/login',
+  async ({ email, password }) => {
+    const response = await AUTH.post('/login', { email, password });
+    return response.data;
+  }
+);
+
+export const signup = createAsyncThunk(
+  '/register',
+  async ({ name, email, password, confirmPassword }) => {
+    const response = await AUTH.post('/register', {
+      name,
+      email,
+      password,
+      confirmPassword,
+    });
+    return response.data;
+  }
+);
+
+const authSlice = createSlice({
+  name: 'auth',
+  initialState: {
+    user: null,
+    status: 'idle',
+    error: null,
+  },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(login.pending, (state) => {
+        state.status = 'loading';
       })
-    }),
-    signupUser: builder.mutation({
-      query: (user) => ({
-        url: '/auth/signup',
-        method: 'POST',
-        body: user
+      .addCase(login.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.user = action.payload;
       })
-    }),
-    googleSignin: builder.mutation({
-      query: (tokenId) => ({
-        url: '/auth/google',
-        method: 'POST',
-        body: { tokenId }
+      .addCase(login.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
       })
-    })
-  })
+      .addCase(signup.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(signup.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.user = action.payload;
+      })
+      .addCase(signup.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      });
+  },
 });
 
-export const { useLoginUserMutation, useSignupUserMutation, useGoogleSigninMutation } = authApi;
+export default authSlice.reducer;
 
-export const { reducer } = authApi;
-
-export const { loginUser, signupUser, googleSignin } = authApi.endpoints;
