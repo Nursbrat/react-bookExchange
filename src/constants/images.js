@@ -21,8 +21,10 @@ import authBackground from "../../public/assets/images/auth/darkacademia.png";
 import google from "../../public/assets/icon/google.svg";
 import arrow1 from "../../public/assets/icon/arrow1.png";
 import arrow2 from "../../public/assets/icon/arrow2.png";
+import notFound404 from "../../public/assets/notFound404.png";
 
 export default {
+  notFound404,
   notfound,
   book,
   account,

@@ -12,11 +12,17 @@ import { useState } from "react";
 
 const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
   const dispatch = useDispatch();
-  const theme = useSelector((state) => state.theme);
+  const isDarkMode = useSelector((state) => state.theme);
+
+  const navigate = useNavigate();
+
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const query = queryParams.get("query");
 
   const handleChangeTheme = () => {
     dispatch(toggleTheme());
-    console.log(theme);
+    console.log(isDarkMode);
   };
 
   const { data: booksData, error, isLoading } = useGetBooksQuery();
@@ -38,7 +44,19 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
   };
 
   if (isLoading) {
-    return <div>Пожалуйста, подождите...</div>;
+    return (
+      <div
+        style={{
+          fontSize: "20px",
+          height: "200px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        Пожалуйста, подождите...
+      </div>
+    );
   }
 
   if (error) {
@@ -47,9 +65,6 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
 
   const books = booksData || [];
 
-  console.log(books);
-
-  // const navigate = useNavigate();
   const filteredBooks = books.filter((book) => {
     const matchesLanguage =
       !selectedLanguage || book.language === selectedLanguage;
@@ -60,6 +75,27 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
     return matchesLanguage && matchesGenre && matchesCondition;
   });
 
+  const searchedBooks = filteredBooks.filter((book) => {
+    const lowerQuery = query ? query.toLowerCase() : "";
+
+    const matchesTitle =
+      book.title && book.title.toLowerCase().includes(lowerQuery);
+    const matchesAuthor =
+      book.author && book.author.toLowerCase().includes(lowerQuery);
+    const matchesGenre =
+      book.genre && book.genre.toLowerCase().includes(lowerQuery);
+
+    return matchesTitle || matchesAuthor || matchesGenre;
+  });
+
+  // Если результаты поиска по жанру успешны и есть соответствующий жанр, обновите selectedGenre
+  if (searchedBooks.length > 0 && searchedBooks.length < 2) {
+    const foundGenre = searchedBooks[0].genre;
+    if (foundGenre) {
+      selectedGenre = foundGenre;
+    }
+  }
+
   return (
     <div className="books">
       <div className="container books__container">
@@ -67,7 +103,7 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
           Успешно удалено!
         </div>
         <div className="books__genere-text">
-          Жанр: {selectedGenre ? selectedGenre : "не выбран"}
+          Жанр: {selectedGenre ? `“${selectedGenre}”` : "не выбран"}
         </div>
         <div className="books__content">
           <div className="books__items">
@@ -96,7 +132,7 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
                 </div>
               ))
             ) : (
-              <p>Нет доступных книг по выбранным критериям.</p>
+              <Notfound />
             )}
           </div>
         </div>
