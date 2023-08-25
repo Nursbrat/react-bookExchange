@@ -11,7 +11,7 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
 
   const handleChangeTheme = () => {
     dispatch(toggleTheme());
-   
+    console.log(theme);
   };
 
   const { data: booksData, error, isLoading } = useGetBooksQuery();

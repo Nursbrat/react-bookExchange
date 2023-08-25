@@ -13,6 +13,7 @@
 .footer__blog {
   display: flex;
   flex-direction: column;
+  font-family: Lora;
 }
 .footer__blog h3 {
   font-weight: 600;
@@ -21,14 +22,23 @@
 }
 .footer__blog li {
   padding-bottom: 0.7rem;
+  font-size: 20px;
+  cursor: pointer;
+}
+.footer__blog img {
+  cursor: pointer;
 }
 
 .phone {
   display: flex;
+  align-items: center;
   gap: 2rem;
 }
+.phone p {
+  font-size: 20px;
+}
 
-.footer-logo {
+.phone .footer-logo {
   padding-top: 2rem;
   width: 7rem;
 }

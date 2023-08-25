@@ -1,6 +1,7 @@
 @use "../../style/global.scss" as *;
-.bookinfo{
+.bookinfo {
   position: relative;
+  padding: 0 10px;
 }
 
 .bookinfo__button {

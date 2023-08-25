@@ -9,6 +9,7 @@ const Dropdowns = ({
   onLanguageChange,
   onGenreChange,
   onConditionChange,
+  genre,
 }) => {
   const genres = {
     options: [
@@ -24,7 +25,7 @@ const Dropdowns = ({
       "Драма",
       "Биография",
       "Саморазвитие",
-      "Фикшн",
+      "Поэзия",
     ],
     name: "Жанр",
   };
@@ -53,14 +54,19 @@ const Dropdowns = ({
     name: "Состояние",
   };
 
+  const handleGenreChange = (selectedGenre) => {
+    onGenreChange(selectedGenre); // Вызываем функцию переданную извне, чтобы обновить состояние в родительском компоненте
+  };
+
   return (
     <div className="dropdowns">
-      <div className="container">
+      <div className="container dropdowns__container">
         <div className="dropdowns__content">
           <Dropdown
             options={genres}
             selectedOption={selectedGenre}
-            onOptionSelect={onGenreChange}
+            onOptionSelect={handleGenreChange}
+            genre={genre}
           />
           <Dropdown
             options={languages}

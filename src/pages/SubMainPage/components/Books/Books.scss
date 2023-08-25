@@ -18,6 +18,7 @@
     flex-wrap: wrap;
     column-gap: clamp(9px, 4vw, 20px);
     row-gap: clamp(12px, 4vw, 30px);
+    padding-top: 5px;
   }
 
   &__items > p {
@@ -26,7 +27,7 @@
 
   &__item {
     display: flex;
-    width: clamp(161px, 4vw, 258px);
+    width: clamp(191px, 4vw, 258px);
     height: 316px;
     max-height: 316px;
     flex-direction: column;
@@ -34,6 +35,11 @@
     align-items: center;
     text-align: center;
     padding-bottom: 1rem;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+      transition: 0.2s;
+    }
 
     p {
       color: $textColor;
@@ -47,10 +53,15 @@
       line-height: normal;
     }
   }
+
+  .books__container {
+    padding: 0 20px 20px;
+  }
+
   img {
     border-radius: 15px;
-    height: 240px;
-    max-height: 240px;
+    height: 260px;
+    max-height: 260px;
     border-radius: 10px;
   }
 

@@ -1,50 +1,106 @@
-import '../MainPage/MainPage.scss';
+import "../MainPage/MainPage.scss";
 
-import React from 'react';
+import React from "react";
 
-import { images } from '../../constants';
+import { images } from "../../constants";
+import { useNavigate } from "react-router-dom";
 
 const MainPage = () => {
+  const navigate = useNavigate();
   return (
     <div className="main">
       <div className="container">
         <div className="main__content">
-
-          <div className="main__hero" style={{
-            backgroundImage: `url(${images.hero})`
-          }}>
+          <div
+            className="main__hero"
+            style={{
+              backgroundImage: `url(${images.hero})`,
+            }}
+          >
             <div className="main__hero__content">
-              <h1>Меняй свои книги с “Название”</h1>
-              <button>Начать поиск</button></div>
-
+              <h1>Обменивайся книгами с “BookShop”</h1>
+              <button onClick={() => navigate("/submain-page/")}>
+                Начать поиск
+              </button>
+            </div>
           </div>
 
-
-
           <div className="main__genres">
-            <div className="main__genre" >
-              <img src={images.romance} alt="romance" />
+            <div className="main__genre">
+              <img
+                src={images.romance}
+                alt="romance"
+                onClick={() =>
+                  navigate(`/submain-page/${encodeURIComponent("Роман")}`)
+                }
+              />
             </div>
             <div className="main__genre">
-              <img src={images.triller} alt="triller" />
+              <img
+                src={images.triller}
+                alt="triller"
+                onClick={() =>
+                  navigate(`/submain-page/${encodeURIComponent("Детектив")}`)
+                }
+              />
             </div>
             <div className="main__genre">
-              <img src={images.fantasy} alt="fantasy" />
+              <img
+                src={images.fantasy}
+                alt="fantasy"
+                onClick={() =>
+                  navigate(`/submain-page/${encodeURIComponent("Фэнтези")}`)
+                }
+              />
             </div>
             <div className="main__genre">
-              <img src={images.scifi} alt="scifi" />
+              <img
+                src={images.scifi}
+                alt="scifi"
+                onClick={() =>
+                  navigate(
+                    `/submain-page/${encodeURIComponent("Научная фантастика")}`
+                  )
+                }
+              />
             </div>
             <div className="main__genre">
-              <img src={images.horror} alt="horror" />
+              <img
+                src={images.horror}
+                alt="horror"
+                onClick={() =>
+                  navigate(`/submain-page/${encodeURIComponent("Ужасы")}`)
+                }
+              />
             </div>
             <div className="main__genre">
-              <img src={images.poem} alt="poem" />
+              <img
+                src={images.poem}
+                alt="poem"
+                onClick={() =>
+                  navigate(`/submain-page/${encodeURIComponent("Поэзия")}`)
+                }
+              />
             </div>
             <div className="main__genre">
-              <img src={images.drama} alt="drama" />
+              <img
+                src={images.drama}
+                alt="drama"
+                onClick={() =>
+                  navigate(`/submain-page/${encodeURIComponent("Драма")}`)
+                }
+              />
             </div>
             <div className="main__genre">
-              <img src={images.finance} alt="finance" />
+              <img
+                src={images.finance}
+                alt="finance"
+                onClick={() =>
+                  navigate(
+                    `/submain-page/${encodeURIComponent("Саморазвитие")}`
+                  )
+                }
+              />
             </div>
           </div>
         </div>

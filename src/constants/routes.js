@@ -4,7 +4,6 @@ import Auth from "../pages/Auth/Auth";
 import LoginForm from "../pages/Auth/components/LoginForm/LoginForm";
 import SignUpForm from "../pages/Auth/components/SignUpForm/SignUpForm";
 import BookInfo from "../pages/BookInfo/BookInfo";
-import Home from "../pages/Home/Home";
 import MainPage from "../pages/MainPage/MainPage";
 import MyBooks from "../pages/MyBooks/MyBooks";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
@@ -16,19 +15,42 @@ import MyRequestModel from "../pages/Requests/components/MyRequestModel/MyReques
 import SubMainPage from "../pages/SubMainPage/SubMainPage";
 
 export const ROUTES = [
-  { link: "/", component: MainPage, id: 1 },
-  { link: "/home", component: Home, id: 2 },
-  { link: "/auth", component: Auth, id: 3 },
-  { link: "/login", component: LoginForm, id: 4 },
-  { link: "/sign-up", component: SignUpForm, id: 5 },
-  { link: "/my-books", component: MyBooks, id: 6 },
-  { link: "/requests", component: Requests, id: 7 },
-  { link: "/account", component: Account, id: 8 },
-  { link: "/add-book", component: Addbook, id: 9 },
-  { link: "/book-info", component: BookInfo, id: 10 },
-  { link: "/submain-page", component: SubMainPage, id: 11 },
-  { link: "/profile", component: Profile, id: 12 },
-  { link: "*", component: NotFoundPage, id: 13 },
-  { link: "/request-model", component: RequestModel, id: 14 }, 
-  { link: "/myrequest-model", component: MyRequestModel, id: 15 },
+  { link: "/", component: MainPage, name: "Главная", id: 1 },
+
+  {
+    link: "/submain-page",
+    component: SubMainPage,
+    name: "Список книг",
+    id: 2,
+  },
+  { link: "/auth", component: Auth, name: "Авторизация", id: 3 },
+  { link: "/login", component: LoginForm, name: "Логин", id: 4 },
+  { link: "/sign-up", component: SignUpForm, name: "Регистрация", id: 5 },
+  { link: "/my-books", component: MyBooks, name: "Мои книги", id: 6 },
+  { link: "/requests", component: Requests, name: "Запросы", id: 7 },
+  { link: "/account", component: Account, name: "Аккаунт", id: 8 },
+  { link: "/add-book", component: Addbook, name: "Добавить книгу", id: 9 },
+  {
+    link: "/book-info/:id",
+    component: BookInfo,
+    name: "Информация о книге",
+    id: 10,
+  },
+  {
+    link: "/submain-page/:genre",
+    component: SubMainPage,
+    name: "Список книг",
+    id: 11,
+  },
+  { link: "/profile", component: Profile, name: "Профиль", id: 12 },
+  { link: "*", component: NotFoundPage, name: "Не найден", id: 13 },
+  { link: "/request-model", component: RequestModel, name: "", id: 14 },
+  { link: "/myrequest-model", component: MyRequestModel, name: "", id: 15 },
+
+  {
+    link: "/submain-page/",
+    component: SubMainPage,
+    name: "Список книг",
+    id: 16,
+  },
 ];

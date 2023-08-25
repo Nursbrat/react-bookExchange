@@ -4,9 +4,9 @@ import React, { useState } from "react";
 
 import images from "../../../../constants/images";
 
-const Dropdown = ({ options, selectOption, onOptionSelect }) => {
+const Dropdown = ({ options, selectOption, onOptionSelect, genre }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState(genre);
 
   const handleToggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -22,11 +22,15 @@ const Dropdown = ({ options, selectOption, onOptionSelect }) => {
     }
     setIsOpen(false);
   };
+  const truncatedOption =
+    selectedOption && selectedOption.length > 7
+      ? selectedOption.substring(0, 7) + "..."
+      : selectedOption;
 
   return (
     <div className="dropdown">
       <div className="dropdown__toggle__btn" onClick={handleToggleDropdown}>
-        {selectedOption || options.name}
+        {truncatedOption || options.name}
         <img
           src={images.caret}
           alt=""
