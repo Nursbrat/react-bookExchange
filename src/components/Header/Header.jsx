@@ -5,9 +5,19 @@ import { AiOutlineClose } from "react-icons/ai";
 import { images } from "../../constants";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "../../features/themeToggle/themeToggleSlice";
+import { BsSun, BsMoon } from "react-icons/bs";
+
 const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+  const theme = useSelector((state) => state.themeToggle);
+  const handleThemeToggle = () => {
+    dispatch(toggleTheme());
+  };
 
   return (
     <div className="header">
@@ -64,9 +74,24 @@ const Header = () => {
             <Link to="/my-books">
               <li> Библиотека</li>
             </Link>
+            <button className="mode-btn" onClick={handleThemeToggle}>
+              <input
+                type="checkbox"
+                id="darkmode-toggle"
+                className="mode-input"
+              />
+              <label className="mode-label" for="darkmode-toggle">
+                <BsSun className="darkmode-toggle-icon sun" />
+                <BsMoon className="darkmode-toggle-icon moon" />
+              </label>
+              {theme}
+            </button>
           </ul>
         </div>
       )}
+      <div className={`navbar ${theme === "dark" ? "dark-mode" : ""}`}>
+        {/* ... */}
+      </div>
     </div>
   );
 };
