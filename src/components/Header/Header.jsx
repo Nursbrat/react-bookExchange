@@ -28,12 +28,10 @@ const Header = () => {
       <div className="header-container">
         <div className="header__logo">
           <img src={images.logo} onClick={() => navigate("/")} />
-
-      
         </div>
         <div className="header__search">
           <form>
-            <button type="header__search-button">
+            <button onClick={handleSearch} type="header__search-button">
               <BiSearchAlt2 className="search-icon" />
             </button>
             <input

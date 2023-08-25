@@ -1,23 +1,62 @@
 import "./Books.scss";
 import images from "../../../../constants/images";
-import { useGetBooksQuery } from "../../../../api/apiSlice";
+import {
+  useDeleteBookMutation,
+  useGetBooksQuery,
+} from "../../../../api/apiSlice";
 import { toggleTheme } from "../../../../features/themeToggle/themeToggleSlice";
 import { useSelector, useDispatch } from "react-redux";
-// import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import Notfound from "../../../../components/Notfound/Notfound";
+import { useState } from "react";
 
 const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
   const dispatch = useDispatch();
-  const theme = useSelector((state) => state.theme);
+  const isDarkMode = useSelector((state) => state.theme);
+
+  const navigate = useNavigate();
+
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const query = queryParams.get("query");
 
   const handleChangeTheme = () => {
     dispatch(toggleTheme());
-    console.log(theme);
+    console.log(isDarkMode);
   };
 
   const { data: booksData, error, isLoading } = useGetBooksQuery();
+  const [deleteBookMutation] = useDeleteBookMutation();
+
+  const [isDeleteSuccessful, setIsDeleteSuccessful] = useState(false);
+
+  const handleDeleteBook = (bookId) => {
+    deleteBookMutation(bookId)
+      .then(() => {
+        setIsDeleteSuccessful(true);
+        setTimeout(() => {
+          setIsDeleteSuccessful(false);
+        }, 2000);
+      })
+      .catch((error) => {
+        console.error("Ошибка при удалении книги:", error);
+      });
+  };
 
   if (isLoading) {
-    return <div>Пожалуйста, подождите...</div>;
+    return (
+      <div
+        style={{
+          fontSize: "20px",
+          height: "200px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        Пожалуйста, подождите...
+      </div>
+    );
   }
 
   if (error) {
@@ -26,9 +65,6 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
 
   const books = booksData || [];
 
-  console.log(books);
-
-  // const navigate = useNavigate();
   const filteredBooks = books.filter((book) => {
     const matchesLanguage =
       !selectedLanguage || book.language === selectedLanguage;
@@ -39,17 +75,41 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
     return matchesLanguage && matchesGenre && matchesCondition;
   });
 
+  const searchedBooks = filteredBooks.filter((book) => {
+    const lowerQuery = query ? query.toLowerCase() : "";
+
+    const matchesTitle =
+      book.title && book.title.toLowerCase().includes(lowerQuery);
+    const matchesAuthor =
+      book.author && book.author.toLowerCase().includes(lowerQuery);
+    const matchesGenre =
+      book.genre && book.genre.toLowerCase().includes(lowerQuery);
+
+    return matchesTitle || matchesAuthor || matchesGenre;
+  });
+
+  // Если результаты поиска по жанру успешны и есть соответствующий жанр, обновите selectedGenre
+  if (searchedBooks.length > 0 && searchedBooks.length < 2) {
+    const foundGenre = searchedBooks[0].genre;
+    if (foundGenre) {
+      selectedGenre = foundGenre;
+    }
+  }
+
   return (
     <div className="books">
-      <div className="container">
+      <div className="container books__container">
+        <div className={`delete-complete ${isDeleteSuccessful ? "show" : ""}`}>
+          Успешно удалено!
+        </div>
         <div className="books__genere-text">
-          Жанр: {selectedGenre ? selectedGenre : "не выбран"}
+          Жанр: {selectedGenre ? `“${selectedGenre}”` : "не выбран"}
         </div>
         <div className="books__content">
           <div className="books__items">
-            {filteredBooks.length > 0 ? (
-              filteredBooks.map((book, index) => (
-                <div key={index} className="books__item">
+            {searchedBooks.length > 0 ? (
+              searchedBooks.map((book, index) => (
+                <div key={index} className="books__item" title={book.title}>
                   <img
                     src={
                       book.covers[0]
@@ -57,12 +117,22 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
                         : images.book
                     }
                     alt={book.title}
+                    onClick={() => navigate(`/book-info/${book.id}`)}
                   />
-                  <p>{book.title}</p>
+                  <p onClick={() => navigate(`/book-info/${book.id}`)}>
+                    {book.title}
+                  </p>
+                  <p
+                    className="delete-tooltip"
+                    onClick={() => handleDeleteBook(book.id)}
+                    title={`Удалить "${book.title}"`}
+                  >
+                    УДАЛИТЬ
+                  </p>
                 </div>
               ))
             ) : (
-              <p>Нет доступных книг по выбранным критериям.</p>
+              <Notfound />
             )}
           </div>
         </div>
