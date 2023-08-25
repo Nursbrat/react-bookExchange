@@ -27,7 +27,6 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
 
   const { data: booksData, error, isLoading } = useGetBooksQuery();
   const [deleteBookMutation] = useDeleteBookMutation();
-  console.log(deleteBookMutation);
 
   const [isDeleteSuccessful, setIsDeleteSuccessful] = useState(false);
 
