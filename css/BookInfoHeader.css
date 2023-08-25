@@ -16,6 +16,9 @@
   justify-content: space-between;
   align-items: center;
 }
+.book__info__header--icon {
+  width: clamp(20px, 4vw, 40px);
+}
 .book__info__header-name {
   color: var(--text-color);
   font-family: "Lora";

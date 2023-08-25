@@ -4,7 +4,6 @@ import { BiSearchAlt2, BiMenu } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import { images } from "../../constants";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { BOOKS } from "../../api/api";
 import { useSearchBooksQuery } from "../../api/apiSlice";
 
@@ -29,18 +28,20 @@ const Header = () => {
       <div className="header-container">
         <div className="header__logo">
           <img src={images.logo} onClick={() => navigate("/")} />
+
+      
         </div>
         <div className="header__search">
-          <form onSubmit={handleSearch}>
+          <form>
+            <button type="header__search-button">
+              <BiSearchAlt2 className="search-icon" />
+            </button>
             <input
               type="text"
               placeholder="Поиск Книги по автору, названию или жанру"
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
             />
-            <button type="submit" className="header__search-button">
-              <BiSearchAlt2 className="search-icon" />
-            </button>
           </form>
         </div>
 

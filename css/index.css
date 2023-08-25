@@ -221,6 +221,10 @@ img {
   background-color: transparent;
 }
 
+main {
+  min-height: calc(100vh - 50px);
+}
+
 :root {
   --text-color: #000;
   --book-request-background: #d9d9d9;
