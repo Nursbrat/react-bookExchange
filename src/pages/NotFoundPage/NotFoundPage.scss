@@ -1,18 +1,29 @@
 @use "../../style/global.scss" as *;
-.no
 .not-found__container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 80px;
-  background-color: transparent;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  p {
+    font-size: 24px;
+    padding-bottom: 2%;
+  }
 }
 .not-found__btn {
   background-color: transparent;
+}
 
+.not-found__img {
+  width: 25%;
+  object-fit: none;
 }
 
 button {
   @include defaultButton();
-
 }
