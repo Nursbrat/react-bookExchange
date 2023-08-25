@@ -36,9 +36,35 @@
     text-align: center;
     padding-bottom: 1rem;
     cursor: pointer;
+    position: relative;
+    z-index: 5;
+
+    .delete-tooltip {
+      position: absolute;
+      top: 2%;
+      right: 2%;
+      background-color: red;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 10;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: #cb0000;
+        transition: 0.5s;
+      }
+    }
+
     &:hover {
       transform: scale(1.1);
       transition: 0.2s;
+    }
+    &:hover .delete-tooltip {
+      opacity: 1;
     }
 
     p {
@@ -52,6 +78,25 @@
       font-weight: 500;
       line-height: normal;
     }
+  }
+
+  .delete-complete {
+    background-color: red;
+    font-size: 27px;
+    font-weight: 600;
+    position: fixed;
+    padding: 10px 20px;
+    left: 50%;
+    border-radius: 10px;
+    z-index: 20;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .delete-complete.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10px);
   }
 
   .books__container {
