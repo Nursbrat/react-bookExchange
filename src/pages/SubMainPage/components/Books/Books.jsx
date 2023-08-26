@@ -12,8 +12,37 @@ import { useState } from "react";
 
 const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
   const dispatch = useDispatch();
-   const isDarkMode = useSelector((state) => state.theme);
+  const isDarkMode = useSelector((state) => state.theme);
 
+  // delete
+
+  // const [isDeleteSuccessful, setIsDeleteSuccessful] = useState(false);
+
+  // const handleDeleteBook = (bookId) => {
+  //   deleteBookMutation(bookId)
+  //     .then(() => {
+  //       setIsDeleteSuccessful(true);
+  //       setTimeout(() => {
+  //         setIsDeleteSuccessful(false);
+  //       }, 2000);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Ошибка при удалении книги:", error);
+  //     });
+  // };
+
+  // <div className={`delete-complete ${isDeleteSuccessful ? "show" : ""}`}>
+  //         Успешно удалено!
+  //       </div>
+
+  // <p
+  //   className="delete-tooltip"
+  //   onClick={() => handleDeleteBook(book.id)}
+  //   title={`Удалить "${book.title}"`}
+  // >
+  //   УДАЛИТЬ
+  // </p>;
+  // delete
   const navigate = useNavigate();
 
   const location = useLocation();
@@ -22,25 +51,18 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
 
   const handleChangeTheme = () => {
     dispatch(toggleTheme());
-    console.log(isDarkMode);
   };
 
   const { data: booksData, error, isLoading } = useGetBooksQuery();
   const [deleteBookMutation] = useDeleteBookMutation();
 
-  const [isDeleteSuccessful, setIsDeleteSuccessful] = useState(false);
+  const [isAddedToFavorites, setIsAddedToFavoritesSuccessful] = useState(false);
 
-  const handleDeleteBook = (bookId) => {
-    deleteBookMutation(bookId)
-      .then(() => {
-        setIsDeleteSuccessful(true);
-        setTimeout(() => {
-          setIsDeleteSuccessful(false);
-        }, 2000);
-      })
-      .catch((error) => {
-        console.error("Ошибка при удалении книги:", error);
-      });
+  const handleAddToFavorites = () => {
+    setIsAddedToFavoritesSuccessful(true);
+    setTimeout(() => {
+      setIsAddedToFavoritesSuccessful(false);
+    }, 2000);
   };
 
   if (isLoading) {
@@ -99,8 +121,8 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
   return (
     <div className="books">
       <div className="container books__container">
-        <div className={`delete-complete ${isDeleteSuccessful ? "show" : ""}`}>
-          Успешно удалено!
+        <div className={`added-complete ${isAddedToFavorites ? "show" : ""}`}>
+          Успешно добавлено в библиотеку!
         </div>
         <div className="books__genere-text">
           Жанр: {selectedGenre ? `“${selectedGenre}”` : "не выбран"}
@@ -122,13 +144,39 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
                   <p onClick={() => navigate(`/book-info/${book.id}`)}>
                     {book.title}
                   </p>
-                  <p
-                    className="delete-tooltip"
-                    onClick={() => handleDeleteBook(book.id)}
-                    title={`Удалить "${book.title}"`}
+                  <div
+                    title={`Добавить "${book.title}" в избранное`}
+                    className="add-to-favorites__tooltip"
+                    onClick={handleAddToFavorites}
                   >
-                    УДАЛИТЬ
-                  </p>
+                    {isAddedToFavorites ? (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="46"
+                        height="46"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                      >
+                        <path
+                          d="M28.3333 5H11.6666C9.83325 5 8.34992 6.5 8.34992 8.33333L8.33325 35L19.9999 30L31.6666 35V8.33333C31.6666 6.5 30.1666 5 28.3333 5Z"
+                          fill="#9933FF"
+                        />
+                      </svg>
+                    ) : (
+                      <svg
+                        width="46"
+                        height="46"
+                        viewBox="0 0 46 46"
+                        fill="#9933FF"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M32.584 5.75H13.4173C11.309 5.75 9.60315 7.475 9.60315 9.58333L9.58398 40.25L23.0007 34.5L36.4173 40.25V9.58333C36.4173 7.475 34.6923 5.75 32.584 5.75ZM32.584 34.5L23.0007 30.3217L13.4173 34.5V9.58333H32.584V34.5Z"
+                          fill="#9933FF"
+                        />
+                      </svg>
+                    )}
+                  </div>
                 </div>
               ))
             ) : (

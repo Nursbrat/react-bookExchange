@@ -3,6 +3,7 @@ import "./BookInfoHeader.scss";
 
 const BookInfoHeader = ({ book }) => {
   const [isAdded, setIsAdded] = useState(false);
+
   return (
     <div className="book__info__header">
       <h2 className="book__info__header-name">{book ? book.title : ""}</h2>
