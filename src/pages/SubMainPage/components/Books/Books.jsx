@@ -12,7 +12,7 @@ import { useState } from "react";
 
 const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
   const dispatch = useDispatch();
-  const isDarkMode = useSelector((state) => state.theme);
+   const isDarkMode = useSelector((state) => state.theme);
 
   const navigate = useNavigate();
 
