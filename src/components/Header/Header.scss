@@ -46,6 +46,7 @@
       text-align: left;
       font-size: 1.2rem;
       outline: none;
+      padding-left: 1rem;
     }
     button {
       height: 2.5rem;
@@ -108,13 +109,13 @@
   border-radius: 1.875rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   width: 21rem;
- 
+
   .active li {
     color: $buttonColor;
   }
   li {
     font-family: Lora;
-    font-size: clamp(16px,4vw,20px);
+    font-size: clamp(16px, 4vw, 20px);
     font-style: normal;
     font-weight: 500;
     line-height: normal;
