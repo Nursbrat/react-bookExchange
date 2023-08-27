@@ -7,16 +7,18 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../../features/themeToggle/themeToggleSlice";
-import { BsSun, BsMoon } from "react-icons/bs";
 
 const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
+
+  const [switched, setSwitched] = useState(false);
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.themeToggle);
   const handleThemeToggle = () => {
     dispatch(toggleTheme());
+    setSwitched(!switched);
   };
 
   return (
@@ -74,18 +76,18 @@ const Header = () => {
             <Link to="/my-books">
               <li> Библиотека</li>
             </Link>
-            <button className="mode-btn" onClick={handleThemeToggle}>
+
+            <label className="switch" for="darkmode-toggle">
               <input
                 type="checkbox"
                 id="darkmode-toggle"
                 className="mode-input"
+                checked={switched}
+                onChange={handleThemeToggle}
               />
-              <label className="mode-label" for="darkmode-toggle">
-                <BsSun className="darkmode-toggle-icon sun" />
-                <BsMoon className="darkmode-toggle-icon moon" />
-              </label>
+              <span className="slider"></span>
               {theme}
-            </button>
+            </label>
           </ul>
         </div>
       )}
