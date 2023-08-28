@@ -1,7 +1,17 @@
 .routes__name-info {
   font-family: Lora;
-  font-size: 30px;
+  font-size: clamp(12px, 4vw, 24px);
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+}
+.routes__name-info span {
+  font-size: clamp(12px, 4vw, 24px);
+  font-style: normal;
+  font-weight: 500;
+  transition: 0.2s;
+}
+.routes__name-info span:hover {
+  color: gray;
+  transition: 0.2s;
 }/*# sourceMappingURL=RoutesName.css.map */

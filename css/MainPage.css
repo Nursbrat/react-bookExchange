@@ -24,6 +24,7 @@
   gap: 10px;
 }
 .main__hero__content {
+  margin-left: 2%;
   background-color: transparent;
 }
 .main__hero__content h1 {
@@ -66,6 +67,10 @@
 }
 .main__genre {
   width: calc(106px + 20vw);
+  cursor: pointer;
+}
+.main__genre:hover {
+  transform: scale(0.9);
 }
 
 @media screen and (max-width: 1054px) {

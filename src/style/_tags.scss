@@ -1,6 +1,6 @@
 @use "./global.scss" as *;
 
-html,
+
 body,
 div,
 span,
@@ -30,15 +30,11 @@ th,
 td,
 article,
 aside,
-canvas,
-details,
-embed,
 footer,
 header,
 menu,
 nav,
 output,
-ruby,
 section,
 summary,
 input,
@@ -68,11 +64,9 @@ input:hover,
 textarea:hover {
   border: 1px solid $buttonColor;
 }
-img{
+img,svg{
   background-color: transparent;
 }
-
-
 
 main{
   min-height: calc(100vh - 50px);

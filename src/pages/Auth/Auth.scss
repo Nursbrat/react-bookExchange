@@ -5,7 +5,7 @@
   background-position: center;
   background-repeat: no-repeat;
   width: calc(100vw - 2vw);
-  height: 100vh;
+  height:100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,6 +48,11 @@ nav{
     color: $buttonColor;
     text-decoration: underline;
    }
+  
 
 }
+&__logo{
+  background-color:transparent;
+}
+
 }

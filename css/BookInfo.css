@@ -12,6 +12,7 @@
 
 .bookinfo {
   position: relative;
+  padding: 0 10px;
 }
 
 .bookinfo__button {
