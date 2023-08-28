@@ -13,6 +13,7 @@ import RequestModel from "../pages/Requests/components/RequestModel/RequestModel
 import MyRequestModel from "../pages/Requests/components/MyRequestModel/MyRequestModel";
 
 import SubMainPage from "../pages/SubMainPage/SubMainPage";
+import EditPage from "../pages/EditPage/EditPage";
 
 export const ROUTES = [
   { link: "/", component: MainPage, name: "Главная", id: 1 },
@@ -52,5 +53,12 @@ export const ROUTES = [
     component: SubMainPage,
     name: "Список книг",
     id: 16,
+  },
+
+  {
+    link: "/edit-book/:id",
+    component: EditPage,
+    name: "Редактировать книгу",
+    id: 17,
   },
 ];

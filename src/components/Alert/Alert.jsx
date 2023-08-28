@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Alert.scss";
 
-const Alert = ({ showAlert }) => {
+const Alert = ({ showAlert, title }) => {
   return (
     <div className={`alert ${showAlert ? "show" : ""}`}>
       <div className="success-svg">
@@ -25,7 +25,7 @@ const Alert = ({ showAlert }) => {
         </svg>
       </div>
       <div className="alert-info">
-        <p className="alert-title">Успешно добавлено!</p>
+        <p className="alert-title">{title}</p>
         <p className="alert-descr">Проверьте в каталоге</p>
       </div>
     </div>

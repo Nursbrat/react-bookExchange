@@ -46,6 +46,9 @@ const routeComponent = () => {
   const isSubMainPageRoute = /^\/submain-page\/[^/]+$/;
   const shouldShow = isSubMainPageRoute.test(location.pathname);
 
+  const isBookEditRoute = /^\/edit-book\/\d+$/;
+  const showHeaderFooter = isBookEditRoute.test(location.pathname);
+
   return (
     <div>
       <Suspense
@@ -56,7 +59,10 @@ const routeComponent = () => {
         }
       >
         <FakeAsyncComponent>
-          {shouldShowHeaderFooter || isRouteExists || shouldShow ? (
+          {shouldShowHeaderFooter ||
+          isRouteExists ||
+          shouldShow ||
+          showHeaderFooter ? (
             <Header />
           ) : null}
 
@@ -90,7 +96,10 @@ const routeComponent = () => {
             )}
           </Routes>
 
-          {shouldShowHeaderFooter || isRouteExists || shouldShow ? (
+          {shouldShowHeaderFooter ||
+          isRouteExists ||
+          shouldShow ||
+          showHeaderFooter ? (
             <Footer />
           ) : null}
         </FakeAsyncComponent>

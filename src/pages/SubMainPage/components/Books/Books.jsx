@@ -14,35 +14,6 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
   const dispatch = useDispatch();
   const isDarkMode = useSelector((state) => state.theme);
 
-  // delete
-
-  // const [isDeleteSuccessful, setIsDeleteSuccessful] = useState(false);
-
-  // const handleDeleteBook = (bookId) => {
-  //   deleteBookMutation(bookId)
-  //     .then(() => {
-  //       setIsDeleteSuccessful(true);
-  //       setTimeout(() => {
-  //         setIsDeleteSuccessful(false);
-  //       }, 2000);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Ошибка при удалении книги:", error);
-  //     });
-  // };
-
-  // <div className={`delete-complete ${isDeleteSuccessful ? "show" : ""}`}>
-  //         Успешно удалено!
-  //       </div>
-
-  // <p
-  //   className="delete-tooltip"
-  //   onClick={() => handleDeleteBook(book.id)}
-  //   title={`Удалить "${book.title}"`}
-  // >
-  //   УДАЛИТЬ
-  // </p>;
-  // delete
   const navigate = useNavigate();
 
   const location = useLocation();
@@ -54,7 +25,6 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
   };
 
   const { data: booksData, error, isLoading } = useGetBooksQuery();
-  const [deleteBookMutation] = useDeleteBookMutation();
 
   const [isAddedToFavorites, setIsAddedToFavoritesSuccessful] = useState(false);
 
@@ -180,7 +150,7 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
                 </div>
               ))
             ) : (
-              <Notfound />
+              <Notfound title={"Книги по вашему запросу не найдены"} />
             )}
           </div>
         </div>
