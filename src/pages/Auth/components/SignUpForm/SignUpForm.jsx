@@ -2,17 +2,16 @@
 import React from "react";
 import "../SignUpForm/SignUpForm.scss";
 import images from "../../../../constants/images";
+import { Form } from "react-router-dom";
 
 const SignUpForm = () => {
   return (
     <div className="signup">
       <div className="signup__content">
-        <form>
-          <input type="text" placeholder="Имя" required />
-          <input type="email" placeholder="Введите эл. почту" required />
+        <Form>
+          <input type="text" name="name" placeholder="Имя" required />
+          <input type="email"  placeholder="Введите эл. почту" required />
           <input type="password" placeholder="Пароль" required />
-          <input type="password" placeholder="Потвердить пароль" required />
-
           <div className="signup__divider">
             <p>Или</p>
           </div>
@@ -22,7 +21,7 @@ const SignUpForm = () => {
           </div>
 
           <button type="submit">Войти</button>
-        </form>
+        </Form>
       </div>
     </div>
   );

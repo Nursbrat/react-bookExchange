@@ -21,19 +21,19 @@
     max-width: 1648px;
   }
   .bookinfo__extrainfo__block {
-    margin-top: (17px, 4vw, 40px);
+    margin-top: (27px, 4vw, 40px);
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     column-gap: 50px;
-    margin-top: 10px;
+    margin-top: 45px;
 
     .bookinfo__description__user-info {
       display: inline-flex;
       padding: 20px clamp(116px, 4vw, 150px) 20px 50px;
       flex-direction: column;
       align-items: flex-start;
-      gap: clamp(5px,4vw,12px);
+      gap: clamp(5px, 4vw, 12px);
       border-radius: 30px;
       border: 1px solid $borderColor;
       background: $background;
@@ -42,7 +42,7 @@
     .bookinfo__description__user-info__title {
       color: $textColor;
       font-family: Lora;
-      font-size: clamp(20px,4vw,30px);
+      font-size: clamp(20px, 4vw, 30px);
 
       font-style: normal;
       font-weight: 400;
@@ -98,7 +98,6 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 10px;
-      padding-left: 50px;
 
       .bookinfo__description__data__cell {
         display: flex;

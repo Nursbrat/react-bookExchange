@@ -1,8 +1,20 @@
+:root {
+  --text-color: #000;
+  --book-request-background: #d9d9d9;
+  --background: #f5f6fa;
+}
+
+[data-theme=dark] {
+  --text-color: #f5f6fa;
+  --book-request-background: #2e2e2e;
+  --background: #282728;
+}
+
 .bookinfo__description {
   margin-top: 2.5rem;
 }
 .bookinfo__description .bookinfo__description__title {
-  color: #000;
+  color: var(--text-color);
   font-family: Lora;
   font-size: clamp(14px, 4vw, 36px);
   font-style: normal;
@@ -11,7 +23,7 @@
 }
 .bookinfo__description .bookinfo__description__details {
   margin-top: clamp(9px, 4vw, 20px);
-  color: #000;
+  color: var(--text-color);
   font-family: Montserrat;
   font-size: clamp(14px, 4vw, 32px);
   font-style: normal;
@@ -36,11 +48,11 @@
   gap: clamp(5px, 4vw, 12px);
   border-radius: 30px;
   border: 1px solid #666;
-  background: #FFF;
+  background: var(--background);
   margin-top: 10px;
 }
 .bookinfo__description .bookinfo__extrainfo__block .bookinfo__description__user-info__title {
-  color: #000;
+  color: var(--text-color);
   font-family: Lora;
   font-size: clamp(20px, 4vw, 30px);
   font-style: normal;
@@ -53,7 +65,7 @@
   align-items: center;
 }
 .bookinfo__description .bookinfo__extrainfo__block .bookinfo__description__user-info__name h6 {
-  color: #000;
+  color: var(--text-color);
   font-family: Lora;
   font-size: clamp(14px, 4vw, 24px);
   font-style: normal;
@@ -61,7 +73,7 @@
   line-height: normal;
 }
 .bookinfo__description .bookinfo__extrainfo__block .bookinfo__description__user-info__name p {
-  color: #000;
+  color: var(--text-color);
   font-family: Lora;
   font-size: clamp(14px, 4vw, 24px);
   font-style: normal;
@@ -74,7 +86,7 @@
   align-items: center;
 }
 .bookinfo__description .bookinfo__extrainfo__block .bookinfo__description__user-info__rate h6 {
-  color: #000;
+  color: var(--text-color);
   font-family: Lora;
   font-size: clamp(14px, 4vw, 24px);
   font-style: normal;
@@ -82,7 +94,7 @@
   line-height: normal;
 }
 .bookinfo__description .bookinfo__extrainfo__block .bookinfo__description__user-info__rate p {
-  color: #000;
+  color: var(--text-color);
   font-family: Lora;
   font-size: clamp(14px, 4vw, 24px);
   font-style: normal;
@@ -101,7 +113,7 @@
   align-items: center;
 }
 .bookinfo__description .bookinfo__extrainfo__block .bookinfo__description__data .bookinfo__description__data__cell h6 {
-  color: #000;
+  color: var(--text-color);
   font-family: Lora;
   font-size: clamp(14px, 4vw, 24px);
   font-style: normal;
@@ -109,7 +121,7 @@
   line-height: normal;
 }
 .bookinfo__description .bookinfo__extrainfo__block .bookinfo__description__data .bookinfo__description__data__cell p {
-  color: #93F;
+  color: #93f;
   font-family: Lora;
   font-size: clamp(14px, 4vw, 24px);
   font-style: normal;

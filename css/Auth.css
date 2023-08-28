@@ -1,8 +1,20 @@
+:root {
+  --text-color: #000;
+  --book-request-background: #d9d9d9;
+  --background: #f5f6fa;
+}
+
+[data-theme=dark] {
+  --text-color: #f5f6fa;
+  --book-request-background: #2e2e2e;
+  --background: #282728;
+}
+
 .auth {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 100vw;
+  width: 98vw;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -19,7 +31,7 @@
   align-items: center;
   flex-direction: column;
   gap: clamp(10px, 4vw, 20px);
-  padding: clmap(10px, 4vw, 22px) 30px;
+  padding: clamp(13px, 4vw, 14px) 30px;
   width: auto;
 }
 .auth__nav {
@@ -27,4 +39,22 @@
   justify-content: center;
   align-items: center;
   gap: calc(50px + 5vw);
+}
+.auth__nav__logo {
+  background-color: transparent;
+}
+.auth nav {
+  background-color: transparent;
+}
+.auth nav a {
+  font-size: clamp(16px, 4vw, 18px);
+  color: white;
+}
+.auth nav .active {
+  color: #93f;
+  text-decoration: underline;
+}
+.auth nav a:hover {
+  color: #93f;
+  text-decoration: underline;
 }/*# sourceMappingURL=Auth.css.map */

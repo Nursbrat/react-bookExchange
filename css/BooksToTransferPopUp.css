@@ -1,3 +1,15 @@
+:root {
+  --text-color: #000;
+  --book-request-background: #d9d9d9;
+  --background: #f5f6fa;
+}
+
+[data-theme=dark] {
+  --text-color: #f5f6fa;
+  --book-request-background: #2e2e2e;
+  --background: #282728;
+}
+
 .booktotransfer__popup__books {
   display: flex;
   flex-wrap: wrap;
@@ -6,7 +18,7 @@
   margin-top: clamp(9px, 6vw, 20px);
 }
 .booktotransfer__popup__book p {
-  color: #000;
+  color: var(--text-color);
   font-family: Lora;
   font-size: clamp(9.039px, 4vw, 22px);
   font-style: normal;
@@ -21,7 +33,7 @@
   min-height: 143px;
 }
 .booktotransfer__popup .booktotransfer__popup__content h2 {
-  color: #000;
+  color: var(--text-color);
   font-family: Lora;
   font-size: clamp(11px, 4vw, 36px);
   font-style: normal;
@@ -30,14 +42,14 @@
 }
 .booktotransfer__popup button {
   border-radius: 90px;
-  background: #93F;
+  background: #93f;
   display: flex;
   justify-content: center;
   align-items: center;
   width: calc(190px + 10vw);
   height: calc(50px + 1vw);
   padding: clamp(13px, 4vw, 19px) 0;
-  color: #FFF;
+  color: #fff;
   text-align: center;
   font-family: Lora;
   font-size: clamp(15px, 5vw, 24px);

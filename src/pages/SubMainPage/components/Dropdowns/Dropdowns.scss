@@ -1,19 +1,24 @@
 @use "../../../../style/global" as *;
 
-.dropdowns{
-    &__content{
-        display: flex;
-        // align-items: center;
-        flex-wrap: wrap;
-        gap: clamp(9px,4vw,30px);
-    }
+.dropdowns {
+  &__content {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    font-size: 1rem;
+    gap: clamp(9px, 4vw, 30px);
+  }
 }
-@media screen and (max-width:607px) {
-    .dropdowns{
-        &__content{
-            align-items: center;
-            justify-content: center;
+.dropdowns__container {
+  padding: 0 20px;
+}
 
-        }
+@media screen and (max-width: 607px) {
+  .dropdowns {
+    &__content {
+      align-items: center;
+      justify-content: center;
     }
+  }
 }

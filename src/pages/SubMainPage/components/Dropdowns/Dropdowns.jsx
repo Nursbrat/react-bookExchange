@@ -1,34 +1,87 @@
-import '../Dropdowns/Dropdowns.scss';
+import React, { useState } from "react";
+import Dropdown from "../DropDown/DropDown";
+import "../Dropdowns/Dropdowns.scss";
 
-import React from 'react';
+const Dropdowns = ({
+  selectedLanguage,
+  selectedGenre,
+  selectedCondition,
+  onLanguageChange,
+  onGenreChange,
+  onConditionChange,
+  genre,
+}) => {
+  const genres = {
+    options: [
+      null,
+      "Роман",
+      "Фэнтези",
+      "Приключение",
+      "Детектив",
+      "Научная фантастика",
+      "Ужасы",
+      "Исторический",
+      "Комедия",
+      "Драма",
+      "Биография",
+      "Саморазвитие",
+      "Поэзия",
+    ],
+    name: "Жанр",
+  };
 
-import Dropdown from '../DropDown/DropDown';
+  const languages = {
+    options: [
+      null, // Значение для сброса фильтрации
+      "Английский",
+      "Русский",
+      "Кыргызский",
+      "Турецкий",
+      "Казахский",
+      "Итальянский",
+      "Немецкий",
+    ],
+    name: "Язык",
+  };
 
-const Dropdowns = () => {
-    const genres = {
-        options: ['Option 1A', 'Option 1B', 'Option 1C'],
-        name: 'Жанр'
-    };
-    const languages = {
-        options: ['Option 1A', 'Option 1B', 'Option 1C'],
-        name: 'Язык'
-    }
-    const conditions = {
-        options: ['Option 1A', 'Option 1B', 'Option 1C'],
-        name: 'Состояние'
-    }
-    return (
-        <div className="dropdowns">
-            <div className="container">
-                <div className="dropdowns__content">
-                    <Dropdown options={genres} />
-                    <Dropdown options={languages} />
-                    <Dropdown options={conditions} />
-                </div>
-            </div>
+  const conditions = {
+    options: [
+      null, // Значение для сброса фильтрации
+      "Хорошее",
+      "Среднее",
+      "Плохое",
+    ],
+    name: "Состояние",
+  };
+
+  const handleGenreChange = (selectedGenre) => {
+    onGenreChange(selectedGenre); // Вызываем функцию переданную извне, чтобы обновить состояние в родительском компоненте
+  };
+
+  return (
+    <div className="dropdowns">
+      <div className="container dropdowns__container">
+        <div className="dropdowns__content">
+          <Dropdown
+            options={genres}
+            selectedOption={selectedGenre}
+            onOptionSelect={handleGenreChange}
+            genre={genre}
+          />
+          <Dropdown
+            options={languages}
+            selectedOption={selectedLanguage}
+            onOptionSelect={onLanguageChange}
+          />
+          <Dropdown
+            options={conditions}
+            selectOption={selectedCondition}
+            onOptionSelect={onConditionChange}
+          />
         </div>
+      </div>
+    </div>
+  );
+};
 
-    );
-}
-
-export default Dropdowns
+export default Dropdowns;

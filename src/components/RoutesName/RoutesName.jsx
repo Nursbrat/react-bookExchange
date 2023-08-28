@@ -1,30 +1,36 @@
 import React from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import "./RoutesName.scss";
 
-const RoutesName = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+const RoutesName = ({ book }) => {
+  // const [searchParams, setSearchParams] = useSearchParams();
 
-  const sort = searchParams.get("sort") || "asc";
-  const search = searchParams.get("search") || "";
+  // const sort = searchParams.get("sort") || "asc";
+  // const search = searchParams.get("search") || "";
 
-  function handleFilterChange(key, value) {
-    setSearchParams((prevParams) => {
-      if (value === null) {
-        prevParams.delete(key);
-      } else {
-        prevParams.set(key, value);
-      }
-      return prevParams;
-    });
-  }
+  // function handleFilterChange(key, value) {
+  //   setSearchParams((prevParams) => {
+  //     if (value === null) {
+  //       prevParams.delete(key);
+  //     } else {
+  //       prevParams.set(key, value);
+  //     }
+  //     return prevParams;
+  //   });
+  // }
+
+  const navigate = useNavigate();
 
   return (
     <div className="routes__name">
       <h3 className="routes__name-info">
-        Главная {">"} Богатый папа, Бедный папа
+        <span style={{ cursor: "pointer" }} onClick={() => navigate(-1)}>
+          Вернуться назад
+        </span>{" "}
+        {">"} {book ? book.title : ""}
       </h3>
 
-      {/* search */}
+      {/* search
       <div className="search-sort">
         <input
           type="text"
@@ -39,7 +45,7 @@ const RoutesName = () => {
           <option value="asc">По возрастанию</option>
           <option value="desc">По убыванию</option>
         </select>
-      </div>
+      </div> */}
     </div>
   );
 };

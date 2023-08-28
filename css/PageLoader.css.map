@@ -1,1 +1,1 @@
-{"version":3,"sources":["../src/components/PageLoader/PageLoader.scss","PageLoader.css"],"names":[],"mappings":"AAGA;EACE,aAAA;EACA,uBAAA;EACA,qBAAA;EACA,mBAAA;ACFF;;ADKA;EACE,YAAA;EACA,aAAA;ACFF","file":"PageLoader.css"}
+{"version":3,"sources":["../src/components/PageLoader/PageLoader.scss","PageLoader.css"],"names":[],"mappings":"AAAA;EACE,eAAA;EACA,MAAA;EACA,OAAA;EACA,QAAA;EACA,SAAA;EACA,aAAA;EACA,aAAA;EACA,uBAAA;EACA,mBAAA;ACCF;;ADGA;EACE,YAAA;EACA,aAAA;ACAF","file":"PageLoader.css"}

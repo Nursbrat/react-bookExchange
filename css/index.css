@@ -1,5 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lora:wght@500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap");
+:root {
+  --text-color: #000;
+  --book-request-background: #d9d9d9;
+  --background: #f5f6fa;
+}
+
+[data-theme=dark] {
+  --text-color: #f5f6fa;
+  --book-request-background: #2e2e2e;
+  --background: #282728;
+}
+
 html {
   box-sizing: border-box;
   font-size: 62.5%;
@@ -46,7 +58,10 @@ nav,
 output,
 ruby,
 section,
-summary {
+summary,
+input,
+textarea,
+select {
   margin: 0;
   padding: 0;
   border: 0;
@@ -77,12 +92,14 @@ body {
 }
 
 ol,
-ul {
+ul,
+li {
   list-style: none;
 }
 
 a {
   text-decoration: none;
+  text-decoration: initial;
 }
 
 blockquote,
@@ -96,11 +113,6 @@ q:before,
 q:after {
   content: "";
   content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
 }
 
 img {
@@ -124,4 +136,103 @@ button {
   max-width: 1650px;
   margin: 0 auto;
   padding: 20px;
+}
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+footer,
+header,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+input,
+textarea,
+select,
+option {
+  background-color: var(--background);
+  color: var(--text-color);
+  transition: 0.3s;
+}
+
+::-moz-selection {
+  background-color: #93f;
+  color: var(--text-color);
+}
+
+::selection {
+  background-color: #93f;
+  color: var(--text-color);
+}
+
+::-moz-placeholder {
+  font-size: clamp(10px, 4vw, 16px);
+}
+
+::placeholder {
+  font-size: clamp(10px, 4vw, 16px);
+}
+
+textarea {
+  border: 2px solid #666;
+}
+
+button:hover,
+select:hover,
+input:hover,
+textarea:hover {
+  border: 1px solid #93f;
+}
+
+img {
+  background-color: transparent;
+}
+
+main {
+  min-height: calc(100vh - 50px);
+}
+
+:root {
+  --text-color: #000;
+  --book-request-background: #d9d9d9;
+  --background: #f5f6fa;
+}
+
+[data-theme=dark] {
+  --text-color: #f5f6fa;
+  --book-request-background: #2e2e2e;
+  --background: #282728;
 }/*# sourceMappingURL=index.css.map */
