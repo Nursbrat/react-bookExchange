@@ -6,9 +6,9 @@ const BookInfoSwiper = ({ book }) => {
   const [activeOption, setActiveOption] = useState(0);
   const options = [
     {
-      backgroundUrl: book
+      backgroundUrl: book.covers[0]
         ? `data:${book.covers[0].type};base64,${book.covers[0].content}`
-        : "",
+        : "https://www.newarab.com/sites/default/files/media/images/15FB6C3F-ED4B-4157-8B01-B7247D468CC2.jpg",
     },
     {
       backgroundUrl: book.covers[1]

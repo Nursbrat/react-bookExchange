@@ -2,9 +2,7 @@ import React from "react";
 import "./Notfound.scss";
 import { images } from "../../constants";
 
-const Notfound = () => {
-  const pathName = window.location.pathname;
-
+const Notfound = ({ title }) => {
   return (
     <div className="not-found">
       <img
@@ -12,11 +10,7 @@ const Notfound = () => {
         alt="picture, illustration of page not found"
       />
 
-      {pathName === "/my-books" ? (
-        <p>Запросов пока нет</p>
-      ) : (
-        <p>Книги по вашему запросу не найдены</p>
-      )}
+      <p>{title}</p>
     </div>
   );
 };
