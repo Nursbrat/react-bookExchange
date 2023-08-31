@@ -1,12 +1,12 @@
-import { React, useState } from "react";
-import "./MyBooks.scss";
-import ProfContainer from "../../components/Profcontainer/Profcontainer";
-import Book from "../../components/Book/Book";
+import React from "react";
+import "./Favorites.scss";
 import Notfound from "../../components/Notfound/Notfound";
-import { useGetBooksQuery } from "../../api/apiSlice";
+import BookCard from "./components/BookCard";
+import Profcontainer from "../../components/Profcontainer/Profcontainer";
+import { useGetFavoriteBooksQuery } from "../../api/apiSlice";
 
-const MyBooks = () => {
-  const { data: booksData, error, isLoading } = useGetBooksQuery();
+const Favorites = () => {
+  const { data: booksData, error, isLoading } = useGetFavoriteBooksQuery();
 
   if (isLoading) {
     return (
@@ -44,23 +44,23 @@ const MyBooks = () => {
 
   return (
     <div className="mybooks">
-      <ProfContainer
-        pageTitle="Мои книги"
-        addBookTitle="Мои книги"
-        addBookSubitle="Здесь хранятся книги которые вы добавили для обмена"
+      <Profcontainer
+        pageTitle="Избранные"
+        addBookTitle="Избранные"
+        addBookSubitle="Здесь хранятся ваши сохраненные книги"
       >
         <div className="book">
           <div className="book-container">
             {books.length > 0 ? (
-              books.map((book) => <Book book={book} key={book.id} />)
+              books.map((book) => <BookCard book={book} key={book.id} />)
             ) : (
               <Notfound title={"Запросов пока нет"} />
             )}
           </div>
         </div>
-      </ProfContainer>
+      </Profcontainer>
     </div>
   );
 };
 
-export default MyBooks;
+export default Favorites;

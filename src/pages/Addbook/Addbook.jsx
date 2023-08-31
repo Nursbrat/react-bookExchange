@@ -3,41 +3,30 @@ import Profcontainer from "../../components/Profcontainer/Profcontainer";
 import { images } from "../../constants";
 import "./Addbook.scss";
 import { PiCaretRightBold } from "react-icons/pi";
-import { useCreateBookMutation } from "../../api/apiSlice";
-import Alert from "../../components/Alert/Alert";
+import {
+  useCreateBookMutation,
+  // useCreateGenreMutation,
+  // useGetGenresQuery,
+} from "../../api/apiSlice";
+import { useNavigate } from "react-router-dom";
+import { Toaster, toast } from "react-hot-toast";
 
 const Addbook = () => {
   const [createBook, { isLoading }] = useCreateBookMutation();
-
-  const [showAlert, setShowAlert] = useState(false);
-
-  useEffect(() => {
-    let timer;
-    if (showAlert) {
-      timer = setTimeout(() => {
-        setShowAlert(false);
-      }, 5000);
-
-      return () => {
-        clearTimeout(timer);
-      };
-    }
-  }, [showAlert]);
-
-  const closeAlert = () => {
-    setShowAlert(false);
-  };
+  const navigate = useNavigate();
 
   const [bookData, setBookData] = useState({
-    covers: [],
+    images: [],
     description: "",
     title: "",
     author: "",
-    genre: "",
     publishedYear: "",
+    genre: "",
     language: "",
     condition: "",
   });
+
+  console.log(bookData.images);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -55,45 +44,34 @@ const Addbook = () => {
     }));
   };
 
-  const handleFileChange = async (e) => {
+  const handleFileChange = (e) => {
     const files = e.target.files;
 
     if (files) {
       const filesArray = [];
 
       for (const file of files) {
-        const reader = new FileReader();
-
-        reader.onload = async () => {
-          // Прочитать содержимое файла как base64 строку
-          const fileContentBase64 = reader.result.split(",")[1];
-
-          filesArray.push({
-            name: file.name,
-            size: file.size,
-            type: file.type,
-            content: fileContentBase64,
-          });
-
-          // Если все файлы обработаны, обновить состояние
-          if (filesArray.length === files.length) {
-            setBookData((prevData) => ({
-              ...prevData,
-              covers: filesArray,
-            }));
-          }
-        };
-
-        reader.readAsDataURL(file);
+        filesArray.push(file);
       }
+
+      setBookData((prevData) => ({
+        ...prevData,
+        images: filesArray,
+      }));
     }
+  };
+
+  const handleNavigateAfterDelay = () => {
+    setTimeout(() => {
+      navigate("/submain-page");
+    }, 4000);
   };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
     if (
-      !bookData.covers.length ||
+      !bookData.images.length ||
       !bookData.description ||
       !bookData.title ||
       !bookData.author ||
@@ -102,12 +80,12 @@ const Addbook = () => {
       !bookData.language ||
       !bookData.condition
     ) {
-      alert("Заполните все поля!");
+      toast.error("Заполните все поля!");
       return;
     }
 
     const newBook = {
-      covers: bookData.covers,
+      images: bookData.images,
       description: bookData.description,
       title: bookData.title,
       author: bookData.author,
@@ -118,19 +96,30 @@ const Addbook = () => {
     };
 
     try {
-      const response = await createBook(newBook).unwrap();
-      console.log("Книга успешно добавлена:", response);
-      setShowAlert(true);
+      toast
+        .promise(createBook(newBook).unwrap(), {
+          loading: "Загрузка...",
+          success: () => {
+            return <b>Книга успешно добавлена!</b>;
+          },
+          error: <b>Ошибка при добавлении книги!</b>,
+        })
+        .then(() => {
+          toast("Вас перенаправит на главную страницу!", {
+            icon: "🔄",
+          });
+          handleNavigateAfterDelay();
+        });
+
       setBookData({
-        covers: [],
+        images: [],
         description: "",
         title: "",
         author: "",
-        genre: "",
         publishedYear: "",
+        genre: "",
         language: "",
         condition: "",
-        // user: "",
       });
     } catch (error) {
       alert("Ошибка при добавлении книги!");
@@ -140,7 +129,7 @@ const Addbook = () => {
 
   return (
     <div>
-      {showAlert && <Alert onClose={closeAlert} title={"Успешно добавлено!"} />}
+      <Toaster containerStyle={{ backgroundColor: "transparent" }} />
       <Profcontainer
         pageTitle="Добавить книги"
         addBookTitle="Добавьте Книгу"
@@ -152,22 +141,18 @@ const Addbook = () => {
               <div className="addBook__cover">
                 <p className="label">
                   Добавьте фото (не более 7){" "}
-                  {bookData.covers.length > 0 ? (
+                  {bookData.images.length > 0 ? (
                     <span style={{ fontSize: "1.3rem" }}>
-                      ДОБАВЛЕНО ({bookData.covers.length})
+                      ДОБАВЛЕНО ({bookData.images.length})
                     </span>
                   ) : null}
                 </p>
-
-                {/* {bookData.covers.length > 0 && (
-                  <img src={URL.createObjectURL(bookData.covers[0])} alt="" />
-                )} */}
                 <label htmlFor="add-picture">
                   <div className="add-picture">
                     <img src={images.img} />
                     <p className="add-picture__descr">Загрузите фотографии</p>
                     <input
-                      name="covers"
+                      name="images"
                       type="file"
                       id="add-picture"
                       className="add-file"
