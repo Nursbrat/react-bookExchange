@@ -40,7 +40,7 @@ const BookInfo = () => {
       <div className="container">
         <RoutesName book={book} />
         <BookInfoHeader book={book} />
-        <BookInfoSwiper book={book} />
+        {book.images ? <BookInfoSwiper book={book} /> : null}
         <BookInfoDescription book={book} />
         <button
           type="button"

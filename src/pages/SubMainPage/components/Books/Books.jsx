@@ -1,7 +1,7 @@
 import "./Books.scss";
 import images from "../../../../constants/images";
 import {
-  useDeleteBookMutation,
+  useAddToFavoriteMutation,
   useGetBooksQuery,
 } from "../../../../api/apiSlice";
 import { toggleTheme } from "../../../../features/themeToggle/themeToggleSlice";
@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import Notfound from "../../../../components/Notfound/Notfound";
 import { useState } from "react";
+import { Toaster, toast } from "react-hot-toast";
 
 const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
   const dispatch = useDispatch();
@@ -25,14 +26,16 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
   };
 
   const { data: booksData, error, isLoading } = useGetBooksQuery();
+  const [addToFavoriteMutation] = useAddToFavoriteMutation();
 
-  const [isAddedToFavorites, setIsAddedToFavoritesSuccessful] = useState(false);
-
-  const handleAddToFavorites = () => {
-    setIsAddedToFavoritesSuccessful(true);
-    setTimeout(() => {
-      setIsAddedToFavoritesSuccessful(false);
-    }, 2000);
+  const handleAddToFavorites = (bookId) => {
+    toast.promise(addToFavoriteMutation(bookId).unwrap(), {
+      loading: "Загрузка...",
+      success: () => {
+        return <b>Книга успешно добавлена в избранное!</b>;
+      },
+      error: <b>Ошибка при добавлении книги!</b>,
+    });
   };
 
   if (isLoading) {
@@ -55,7 +58,7 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
     return <div>Ошибка: {error.message}</div>;
   }
 
-  const books = booksData || [];
+  const books = booksData.data || [];
 
   const filteredBooks = books.filter((book) => {
     const matchesLanguage =
@@ -91,9 +94,7 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
   return (
     <div className="books">
       <div className="container books__container">
-        <div className={`added-complete ${isAddedToFavorites ? "show" : ""}`}>
-          Успешно добавлено в библиотеку!
-        </div>
+        <Toaster containerStyle={{ backgroundColor: "transparent" }} />
         <div className="books__genere-text">
           Жанр: {selectedGenre ? `“${selectedGenre}”` : "не выбран"}
         </div>
@@ -103,11 +104,7 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
               searchedBooks.map((book, index) => (
                 <div key={index} className="books__item" title={book.title}>
                   <img
-                    src={
-                      book.covers[0]
-                        ? `data:${book.covers[0].type};base64,${book.covers[0].content}`
-                        : images.book
-                    }
+                    src={images.book}
                     alt={book.title}
                     onClick={() => navigate(`/book-info/${book.id}`)}
                   />
@@ -117,35 +114,20 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
                   <div
                     title={`Добавить "${book.title}" в избранное`}
                     className="add-to-favorites__tooltip"
-                    onClick={handleAddToFavorites}
+                    onClick={() => handleAddToFavorites(book.id)}
                   >
-                    {isAddedToFavorites ? (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="46"
-                        height="46"
-                        viewBox="0 0 40 40"
-                        fill="none"
-                      >
-                        <path
-                          d="M28.3333 5H11.6666C9.83325 5 8.34992 6.5 8.34992 8.33333L8.33325 35L19.9999 30L31.6666 35V8.33333C31.6666 6.5 30.1666 5 28.3333 5Z"
-                          fill="#9933FF"
-                        />
-                      </svg>
-                    ) : (
-                      <svg
-                        width="46"
-                        height="46"
-                        viewBox="0 0 46 46"
+                    <svg
+                      width="46"
+                      height="46"
+                      viewBox="0 0 46 46"
+                      fill="#9933FF"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M32.584 5.75H13.4173C11.309 5.75 9.60315 7.475 9.60315 9.58333L9.58398 40.25L23.0007 34.5L36.4173 40.25V9.58333C36.4173 7.475 34.6923 5.75 32.584 5.75ZM32.584 34.5L23.0007 30.3217L13.4173 34.5V9.58333H32.584V34.5Z"
                         fill="#9933FF"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M32.584 5.75H13.4173C11.309 5.75 9.60315 7.475 9.60315 9.58333L9.58398 40.25L23.0007 34.5L36.4173 40.25V9.58333C36.4173 7.475 34.6923 5.75 32.584 5.75ZM32.584 34.5L23.0007 30.3217L13.4173 34.5V9.58333H32.584V34.5Z"
-                          fill="#9933FF"
-                        />
-                      </svg>
-                    )}
+                      />
+                    </svg>
                   </div>
                 </div>
               ))

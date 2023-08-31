@@ -108,7 +108,7 @@ const Header = () => {
               <li>Мои книги</li>
             </NavLink>
             <NavLink
-              to="/my-books"
+              to="/favorites"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
               <li> Библиотека</li>
