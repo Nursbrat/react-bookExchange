@@ -1,22 +1,27 @@
 import React, { useEffect, useState } from "react";
 import Profcontainer from "../../components/Profcontainer/Profcontainer";
-import { images } from "../../constants";
-import "./Addbook.scss";
+import { useParams, useNavigate } from "react-router-dom";
+import { useGetBookByIdQuery, useUpdateBookMutation } from "../../api/apiSlice";
 import { PiCaretRightBold } from "react-icons/pi";
-import { useCreateBookMutation } from "../../api/apiSlice";
 import Alert from "../../components/Alert/Alert";
+import { images } from "../../constants";
 
-const Addbook = () => {
-  const [createBook, { isLoading }] = useCreateBookMutation();
+const EditPage = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
 
+  // Получение информации об одной книге
+  const { data: book } = useGetBookByIdQuery(id);
+  const [updateBook, { isLoading }] = useUpdateBookMutation();
+
+  // alert
   const [showAlert, setShowAlert] = useState(false);
-
   useEffect(() => {
     let timer;
     if (showAlert) {
       timer = setTimeout(() => {
         setShowAlert(false);
-      }, 5000);
+      }, 3000);
 
       return () => {
         clearTimeout(timer);
@@ -28,7 +33,8 @@ const Addbook = () => {
     setShowAlert(false);
   };
 
-  const [bookData, setBookData] = useState({
+  // alert
+  const [newBookData, setNewBookData] = useState({
     covers: [],
     description: "",
     title: "",
@@ -39,9 +45,32 @@ const Addbook = () => {
     condition: "",
   });
 
+  useEffect(() => {
+    if (book) {
+      setNewBookData({
+        id: book.id,
+        covers: book.covers,
+        description: book.description,
+        title: book.title,
+        author: book.author,
+        genre: book.genre,
+        publishedYear: book.publishedYear,
+        language: book.language,
+        condition: book.condition,
+      });
+    }
+  }, [book]);
+
+  const handleNavigateAfterDelay = () => {
+    setTimeout(() => {
+      navigate(-1);
+    }, 3000);
+  };
+
+  // inputs
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setBookData((prevData) => ({
+    setNewBookData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
@@ -49,7 +78,7 @@ const Addbook = () => {
 
   const handleSelectChange = (e) => {
     const { name, value } = e.target;
-    setBookData((prevData) => ({
+    setNewBookData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
@@ -77,7 +106,7 @@ const Addbook = () => {
 
           // Если все файлы обработаны, обновить состояние
           if (filesArray.length === files.length) {
-            setBookData((prevData) => ({
+            setNewBookData((prevData) => ({
               ...prevData,
               covers: filesArray,
             }));
@@ -89,62 +118,54 @@ const Addbook = () => {
     }
   };
 
+  // submit
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
     if (
-      !bookData.covers.length ||
-      !bookData.description ||
-      !bookData.title ||
-      !bookData.author ||
-      !bookData.genre ||
-      !bookData.publishedYear ||
-      !bookData.language ||
-      !bookData.condition
+      !newBookData.covers.length ||
+      !newBookData.description ||
+      !newBookData.title ||
+      !newBookData.author ||
+      !newBookData.genre ||
+      !newBookData.publishedYear ||
+      !newBookData.language ||
+      !newBookData.condition
     ) {
       alert("Заполните все поля!");
       return;
     }
 
-    const newBook = {
-      covers: bookData.covers,
-      description: bookData.description,
-      title: bookData.title,
-      author: bookData.author,
-      genre: bookData.genre,
-      publishedYear: bookData.publishedYear,
-      language: bookData.language,
-      condition: bookData.condition,
+    const updatedBook = {
+      id: newBookData.id,
+      covers: newBookData.covers,
+      description: newBookData.description,
+      title: newBookData.title,
+      author: newBookData.author,
+      genre: newBookData.genre,
+      publishedYear: newBookData.publishedYear,
+      language: newBookData.language,
+      condition: newBookData.condition,
     };
 
     try {
-      const response = await createBook(newBook).unwrap();
-      console.log("Книга успешно добавлена:", response);
+      const response = await updateBook(updatedBook).unwrap();
+      console.log("Книга успешно обновлена:", response);
       setShowAlert(true);
-      setBookData({
-        covers: [],
-        description: "",
-        title: "",
-        author: "",
-        genre: "",
-        publishedYear: "",
-        language: "",
-        condition: "",
-        // user: "",
-      });
+      handleNavigateAfterDelay();
     } catch (error) {
-      alert("Ошибка при добавлении книги!");
-      console.log("Ошибка при добавлении книги!", error);
+      alert("Ошибка при обновлении книги!");
+      console.log("Ошибка при обновлении книги!", error);
     }
   };
 
   return (
     <div>
-      {showAlert && <Alert onClose={closeAlert} title={"Успешно добавлено!"} />}
+      {showAlert && <Alert onClose={closeAlert} title={"Успешно изменено!"} />}
       <Profcontainer
-        pageTitle="Добавить книги"
-        addBookTitle="Добавьте Книгу"
-        addBookSubitle="Добавьте подробную информацию книги"
+        pageTitle="Редактировать книгу"
+        addBookTitle="Редактировать Книгу"
+        addBookSubitle="Измените подробную информацию книги"
       >
         <div className="addBook">
           <div className="addBook-container">
@@ -152,9 +173,9 @@ const Addbook = () => {
               <div className="addBook__cover">
                 <p className="label">
                   Добавьте фото (не более 7){" "}
-                  {bookData.covers.length > 0 ? (
+                  {newBookData.covers.length > 0 ? (
                     <span style={{ fontSize: "1.3rem" }}>
-                      ДОБАВЛЕНО ({bookData.covers.length})
+                      ДОБАВЛЕНО ({newBookData.covers.length})
                     </span>
                   ) : null}
                 </p>
@@ -184,7 +205,7 @@ const Addbook = () => {
                   placeholder="Введите описание книги"
                   className="addBook2__description-input"
                   name="description"
-                  value={bookData.description}
+                  value={newBookData.description}
                   onChange={handleInputChange}
                 ></textarea>
               </div>
@@ -195,7 +216,7 @@ const Addbook = () => {
                 id="book-name"
                 placeholder="Введите название книги"
                 name="title"
-                value={bookData.title}
+                value={newBookData.title}
                 onChange={handleInputChange}
                 required
               />
@@ -205,7 +226,7 @@ const Addbook = () => {
                 id="book-author"
                 placeholder="Введите имя автора книги"
                 name="author"
-                value={bookData.author}
+                value={newBookData.author}
                 onChange={handleInputChange}
                 required
               />
@@ -215,7 +236,7 @@ const Addbook = () => {
                 id="book-published-year"
                 placeholder="Введите год издания книги"
                 name="publishedYear"
-                value={bookData.publishedYear}
+                value={newBookData.publishedYear}
                 onChange={handleInputChange}
                 required
               />
@@ -224,7 +245,7 @@ const Addbook = () => {
               <select
                 id="book-language"
                 name="language"
-                value={bookData.language}
+                value={newBookData.language}
                 onChange={handleInputChange}
               >
                 <option value="">Выберите язык</option>
@@ -241,7 +262,7 @@ const Addbook = () => {
               <select
                 id="book-genre"
                 name="genre"
-                value={bookData.genre}
+                value={newBookData.genre}
                 onChange={handleSelectChange}
               >
                 <option value="">Выберите жанр</option>
@@ -262,7 +283,7 @@ const Addbook = () => {
               <select
                 id="book-condition"
                 name="condition"
-                value={bookData.condition}
+                value={newBookData.condition}
                 onChange={handleSelectChange}
               >
                 <option value="">Выберите состояние</option>
@@ -290,4 +311,4 @@ const Addbook = () => {
   );
 };
 
-export default Addbook;
+export default EditPage;

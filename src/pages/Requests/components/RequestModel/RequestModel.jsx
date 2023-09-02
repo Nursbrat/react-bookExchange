@@ -43,7 +43,7 @@ const RequestModel = () => {
     <div className="request-model">
       {requests.map((request, index) => (
         <div key={index} className="request-model-card">
-          <div className="request-mofdel-img__container">
+          <div className="request-moodel-img__container">
             <div className="request-model__img">
               <img
                 src={request.img}

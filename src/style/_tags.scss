@@ -46,8 +46,8 @@ option{
   transition: 0.3s;
 }
 ::selection {
-  background-color: $buttonColor;
-  color: $textColor;
+  background-color: $violetTextColor;
+  // color: $textColor;
 }
 
 ::placeholder{
@@ -62,7 +62,7 @@ button:hover,
 select:hover,
 input:hover,
 textarea:hover {
-  border: 1px solid $buttonColor;
+  border: 1px solid $violetTextColor;
 }
 img,svg{
   background-color: transparent;

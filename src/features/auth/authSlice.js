@@ -1,26 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { AUTH } from '../../api/api';
 
-export const login = createAsyncThunk(
-  '/login',
-  async ({ email, password }) => {
-    const response = await AUTH.post('/login', { email, password });
-    return response.data;
-  }
-);
 
-export const signup = createAsyncThunk(
-  '/register',
-  async ({ name, email, password, confirmPassword }) => {
-    const response = await AUTH.post('/register', {
-      name,
-      email,
-      password,
-      confirmPassword,
-    });
-    return response.data;
-  }
-);
+
+
 
 const authSlice = createSlice({
   name: 'auth',

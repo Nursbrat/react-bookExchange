@@ -32,12 +32,13 @@
   border-radius: 49.2px;
   border: 0.547px solid #666;
   background: transparent;
+  overflow: visible;
 }
 .login__content form input::-moz-placeholder {
-  color: var(--text-color);
+  color: #282728;
 }
 .login__content form input::placeholder {
-  color: var(--text-color);
+  color: #282728;
 }
 .login__content form button {
   border-radius: 90px;
@@ -102,4 +103,23 @@
 }
 .login__img img {
   width: 20%;
-}/*# sourceMappingURL=LoginForm.css.map */
+}
+.login .login__password-inputs {
+  background-color: transparent;
+  position: relative;
+}
+.login .login__password-inputs span {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  background-color: transparent;
+}
+.login input {
+  color: #282728;
+  width: 90%;
+}
+.login input {
+  background-color: transparent;
+}/*# sourceMappingURL=loginForm.css.map */

@@ -2,14 +2,15 @@ import React from "react";
 import "./Notfound.scss";
 import { images } from "../../constants";
 
-const Notfound = () => {
+const Notfound = ({ title }) => {
   return (
     <div className="not-found">
       <img
         src={images.notfound}
         alt="picture, illustration of page not found"
       />
-      <p>Книги по вашему запросу не найдены</p>
+
+      <p>{title}</p>
     </div>
   );
 };

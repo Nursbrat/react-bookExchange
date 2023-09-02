@@ -19,6 +19,7 @@
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 0.5rem;
   justify-content: space-between;
+  background-color: transparent;
 }
 
 .request-model-card {
@@ -67,10 +68,12 @@
 .request-title {
   display: flex;
   align-items: center;
+  background-color: transparent;
 }
 .request-title span {
   color: #93f;
   font-size: 0.7rem;
+  background-color: transparent;
 }
 
 .request-model__content {
@@ -124,6 +127,17 @@
   font-weight: 400;
   line-height: normal;
   padding-bottom: 0.5rem;
+}
+.request-model__content-text__img {
+  background-color: red;
+}
+.request-model__content-text-img__container {
+  background-color: red;
+}
+
+.request-moodel-img__container {
+  background-color: transparent;
+  background: inherit;
 }
 
 @media screen and (max-width: 1100px) {

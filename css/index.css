@@ -185,12 +185,10 @@ option {
 
 ::-moz-selection {
   background-color: #93f;
-  color: var(--text-color);
 }
 
 ::selection {
   background-color: #93f;
-  color: var(--text-color);
 }
 
 ::-moz-placeholder {

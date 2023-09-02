@@ -1,8 +1,7 @@
 
 import { useSelector } from "react-redux";
-import "./App.scss";
-import RouteComponent from "./routeComponent";
 
+ import RouteComponent  from './components/RouteComponent'
 
 
 

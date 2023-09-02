@@ -22,7 +22,7 @@
         border: 0.547px solid $borderColor;
         background: transparent;
         &::placeholder {
-          color: $textColor;
+          color: $authTextColor;
         }
       }
 
@@ -31,7 +31,8 @@
       }
     }
   }
-  &__divider {    background-color: transparent;
+  &__divider {
+    background-color: transparent;
 
     display: flex;
     justify-content: center;
@@ -39,7 +40,7 @@
 
     p {
       background-color: transparent;
-      color: $textColor;
+      color: $authTextColor;
       text-align: center;
       font-family: Lora;
       font-size: clamp(10px, 4vw, 16px);
@@ -54,7 +55,7 @@
       &::after {
         content: "";
         background-color: $borderColor;
-        width:calc(100px + 2.5vw);
+        width: calc(100px + 2.5vw);
         height: 1.5px;
         position: absolute;
         z-index: 2;
@@ -72,11 +73,30 @@
       }
     }
   }
-  &__img{
+  &__img {
     background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+  }
+  span {
+    background-color: transparent;
+  }
+
+  .signup__password-inputs {
+    background-color: transparent;
+    position: relative;
+    span {
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  }
+  input {
+    color: $authTextColor;
+
   }
 }

@@ -2,28 +2,63 @@ import { React, useEffect, useState } from "react";
 import "./MyBooks.scss";
 import ProfContainer from "../../components/Profcontainer/Profcontainer";
 import Book from "../../components/Book/Book";
+import Notfound from "../../components/Notfound/Notfound";
+import { useGetBooksQuery } from "../../api/apiSlice";
 
 const MyBooks = () => {
-  const [books, setBooks] = useState([]);
+  const { data: booksData, error, isLoading } = useGetBooksQuery();
 
-  useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/books/')
-      .then((response) => response.json())
-      .then((data) => setBooks(data.data));
-  }, []);
+  if (isLoading) {
+    return (
+      <div
+        style={{
+          fontSize: "20px",
+          height: "200px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        Пожалуйста, подождите...
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div
+        style={{
+          fontSize: "20px",
+          height: "200px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        Ошибка: {error.message}
+      </div>
+    );
+  }
+
+  const books = booksData || [];
 
   return (
-    <div>
-      <h2>Books List</h2>
-      <ul>
-        {books.map((book) => (
-          <li key={book.id}>
-            <h3>{book.title}</h3>
-            <p>Author: {book.author}</p>
-            <p>Description: {book.description}</p>
-          </li>
-        ))}
-      </ul>
+    <div className="mybooks">
+      <ProfContainer
+        pageTitle="Мои книги"
+        addBookTitle="Мои книги"
+        addBookSubitle="Здесь хранится книги которые вы добавили для обмена"
+      >
+        <div className="book">
+          <div className="book-container">
+            {books.length > 0 ? (
+              books.map((book) => <Book book={book} key={book.id} />)
+            ) : (
+              <Notfound title={"Запросов пока нет"} />
+            )}
+          </div>
+        </div>
+      </ProfContainer>
     </div>
   );
 };
