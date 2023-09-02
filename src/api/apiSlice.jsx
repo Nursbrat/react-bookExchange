@@ -20,12 +20,15 @@ export const apiSlice = createApi({
         body: newBook,
       }),
       invalidatesTags: ["Books"],
+      onError: (error) => {
+        console.error("Error creating book:", error);
+      },
     }),
 
     // Обновление существующей книги
     updateBook: builder.mutation({
       query: (updatedBook) => ({
-        url: `/books/${updatedBook.id}`,
+        url: `/books/${updatedBook.id}/`,
         method: "PUT",
         body: updatedBook,
       }),
@@ -52,12 +55,42 @@ export const apiSlice = createApi({
       query: (searchQuery) => `/books/?search=${searchQuery}`,
       providesTags: ["Books"],
     }),
+
+    // Добавление книги в избранное
+    addToFavorite: builder.mutation({
+      query: (bookId) => ({
+        url: `/books/favorite/${bookId}/`,
+        method: "POST",
+      }),
+      invalidatesTags: ["Books"],
+      onError: (error) => {
+        console.error("Error adding to favorite:", error);
+      },
+    }),
+
+    // Получение списка избранных книг
+    getFavoriteBooks: builder.query({
+      query: () => "/books/favorite/",
+      providesTags: ["Books"],
+    }),
+
+    // Удаление книги
+    deleteBookFromFavorites: builder.mutation({
+      query: (bookId) => ({
+        url: `/books/favorite/remove/${bookId}/`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Books"],
+    }),
   }),
 });
 
 export const {
   useGetBooksQuery,
   useCreateBookMutation,
+  useGetFavoriteBooksQuery,
+  useAddToFavoriteMutation,
+  useDeleteBookFromFavoritesMutation,
   useUpdateBookMutation,
   useDeleteBookMutation,
   useGetBookByIdQuery,

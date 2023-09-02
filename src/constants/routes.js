@@ -14,6 +14,7 @@ import MyRequestModel from "../pages/Requests/components/MyRequestModel/MyReques
 
 import SubMainPage from "../pages/SubMainPage/SubMainPage";
 import EditPage from "../pages/EditPage/EditPage";
+import Favorites from "../pages/Favorites/Favorites";
 
 export const ROUTES = [
   { link: "/", component: MainPage, name: "Главная", id: 1 },
@@ -60,5 +61,11 @@ export const ROUTES = [
     component: EditPage,
     name: "Редактировать книгу",
     id: 17,
+  },
+  {
+    link: "/favorites",
+    component: Favorites,
+    name: "Избранное",
+    id: 18,
   },
 ];

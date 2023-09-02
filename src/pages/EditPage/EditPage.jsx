@@ -3,8 +3,9 @@ import Profcontainer from "../../components/Profcontainer/Profcontainer";
 import { useParams, useNavigate } from "react-router-dom";
 import { useGetBookByIdQuery, useUpdateBookMutation } from "../../api/apiSlice";
 import { PiCaretRightBold } from "react-icons/pi";
-import Alert from "../../components/Alert/Alert";
 import { images } from "../../constants";
+import { Toaster, toast } from "react-hot-toast";
+import "./EditPage.scss";
 
 const EditPage = () => {
   const { id } = useParams();
@@ -14,28 +15,8 @@ const EditPage = () => {
   const { data: book } = useGetBookByIdQuery(id);
   const [updateBook, { isLoading }] = useUpdateBookMutation();
 
-  // alert
-  const [showAlert, setShowAlert] = useState(false);
-  useEffect(() => {
-    let timer;
-    if (showAlert) {
-      timer = setTimeout(() => {
-        setShowAlert(false);
-      }, 3000);
-
-      return () => {
-        clearTimeout(timer);
-      };
-    }
-  }, [showAlert]);
-
-  const closeAlert = () => {
-    setShowAlert(false);
-  };
-
-  // alert
   const [newBookData, setNewBookData] = useState({
-    covers: [],
+    images: [],
     description: "",
     title: "",
     author: "",
@@ -49,7 +30,7 @@ const EditPage = () => {
     if (book) {
       setNewBookData({
         id: book.id,
-        covers: book.covers,
+        images: book.covers,
         description: book.description,
         title: book.title,
         author: book.author,
@@ -64,7 +45,7 @@ const EditPage = () => {
   const handleNavigateAfterDelay = () => {
     setTimeout(() => {
       navigate(-1);
-    }, 3000);
+    }, 4000);
   };
 
   // inputs
@@ -86,35 +67,17 @@ const EditPage = () => {
 
   const handleFileChange = async (e) => {
     const files = e.target.files;
-
     if (files) {
       const filesArray = [];
 
       for (const file of files) {
-        const reader = new FileReader();
-
-        reader.onload = async () => {
-          // Прочитать содержимое файла как base64 строку
-          const fileContentBase64 = reader.result.split(",")[1];
-
-          filesArray.push({
-            name: file.name,
-            size: file.size,
-            type: file.type,
-            content: fileContentBase64,
-          });
-
-          // Если все файлы обработаны, обновить состояние
-          if (filesArray.length === files.length) {
-            setNewBookData((prevData) => ({
-              ...prevData,
-              covers: filesArray,
-            }));
-          }
-        };
-
-        reader.readAsDataURL(file);
+        filesArray.push(file);
       }
+
+      setNewBookData((prevData) => ({
+        ...prevData,
+        images: filesArray,
+      }));
     }
   };
 
@@ -123,7 +86,7 @@ const EditPage = () => {
     e.preventDefault();
 
     if (
-      !newBookData.covers.length ||
+      !newBookData.images.length ||
       !newBookData.description ||
       !newBookData.title ||
       !newBookData.author ||
@@ -132,13 +95,13 @@ const EditPage = () => {
       !newBookData.language ||
       !newBookData.condition
     ) {
-      alert("Заполните все поля!");
+      toast.error("Заполните все поля!");
       return;
     }
 
     const updatedBook = {
       id: newBookData.id,
-      covers: newBookData.covers,
+      images: newBookData.images,
       description: newBookData.description,
       title: newBookData.title,
       author: newBookData.author,
@@ -147,21 +110,25 @@ const EditPage = () => {
       language: newBookData.language,
       condition: newBookData.condition,
     };
-
-    try {
-      const response = await updateBook(updatedBook).unwrap();
-      console.log("Книга успешно обновлена:", response);
-      setShowAlert(true);
-      handleNavigateAfterDelay();
-    } catch (error) {
-      alert("Ошибка при обновлении книги!");
-      console.log("Ошибка при обновлении книги!", error);
-    }
+    toast
+      .promise(updateBook(updatedBook).unwrap(), {
+        loading: "Загрузка...",
+        success: () => {
+          return <b>Книга успешно обновлена!</b>;
+        },
+        error: <b>Ошибка при обновлении книги!</b>,
+      })
+      .then(() => {
+        toast("Вас перенаправит на предыдущую страницу!", {
+          icon: "🔄",
+        });
+        handleNavigateAfterDelay();
+      });
   };
 
   return (
     <div>
-      {showAlert && <Alert onClose={closeAlert} title={"Успешно изменено!"} />}
+      <Toaster containerStyle={{ backgroundColor: "transparent" }} />
       <Profcontainer
         pageTitle="Редактировать книгу"
         addBookTitle="Редактировать Книгу"
@@ -173,22 +140,18 @@ const EditPage = () => {
               <div className="addBook__cover">
                 <p className="label">
                   Добавьте фото (не более 7){" "}
-                  {newBookData.covers.length > 0 ? (
+                  {newBookData.images?.length > 0 ? (
                     <span style={{ fontSize: "1.3rem" }}>
-                      ДОБАВЛЕНО ({newBookData.covers.length})
+                      ДОБАВЛЕНО ({newBookData.images.length})
                     </span>
                   ) : null}
                 </p>
-
-                {/* {bookData.covers.length > 0 && (
-                  <img src={URL.createObjectURL(bookData.covers[0])} alt="" />
-                )} */}
                 <label htmlFor="add-picture">
                   <div className="add-picture">
                     <img src={images.img} />
                     <p className="add-picture__descr">Загрузите фотографии</p>
                     <input
-                      name="covers"
+                      name="images"
                       type="file"
                       id="add-picture"
                       className="add-file"

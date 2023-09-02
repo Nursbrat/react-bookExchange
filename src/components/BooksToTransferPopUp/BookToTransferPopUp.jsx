@@ -28,7 +28,7 @@ const BookToTransferPopUp = () => {
     return <div>Ошибка: {error.message}</div>;
   }
 
-  const books = booksData || [];
+  const books = booksData.data || [];
 
   const filteredBooks = books.slice(0, 5);
 
@@ -46,14 +46,7 @@ const BookToTransferPopUp = () => {
               onClick={() => navigate(`/book-info/${books.id}`)}
             >
               <div className="booktotransfer__popup__img">
-                <img
-                  src={
-                    books.covers[0]
-                      ? `data:${books.covers[0].type};base64,${books.covers[0].content}`
-                      : book
-                  }
-                  alt={books.title}
-                />
+                <img src={book} alt={books.title} />
               </div>
               <p>{books.title}</p>
             </div>

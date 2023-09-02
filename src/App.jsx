@@ -1,20 +1,14 @@
-
 import { useSelector } from "react-redux";
 import "./App.scss";
 import RouteComponent from "./routeComponent";
 
-
-
-
-
 const App = () => {
-
- const theme=useSelector(state=>state.theme)
+  const theme = useSelector((state) => state.theme);
   return (
-   <div data-theme={theme}>
-    <RouteComponent/>
-   </div>
-  )
+    <div data-theme={theme}>
+      <RouteComponent />
+    </div>
+  );
 };
 
 export default App;
