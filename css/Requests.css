@@ -10,6 +10,10 @@
   --background: #282728;
 }
 
+.requests {
+  margin: 0 auto;
+  display: flex;
+}
 .requests__nav {
   margin-top: 10px;
   display: flex;

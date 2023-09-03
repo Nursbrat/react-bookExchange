@@ -1,15 +1,15 @@
 import React from "react";
-import SignUpForm from "./pages/Auth/components/SignUpForm/SignUpForm";
-import LoginForm from "./pages/Auth/components/LoginForm/LoginForm";
+import SignUpForm from "../pages/Auth/components/SignUpForm/SignUpForm";
+import LoginForm from "../pages/Auth/components/LoginForm/LoginForm";
 import { Suspense, useEffect, useState } from "react";
-import { ROUTES } from "./constants/routes";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import PageLoader from "./components/PageLoader/PageLoader";
+import { ROUTES } from "../constants/routes";
+import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
+import PageLoader from "./PageLoader/PageLoader";
 import { Route, Routes, useLocation } from "react-router-dom";
-import "./pages/Auth/Auth.scss";
-import RequestModel from "./pages/Requests/components/RequestModel/RequestModel";
-import MyRequestModel from "./pages/Requests/components/MyRequestModel/MyRequestModel";
+// import "./pages/Auth/Auth.scss";
+import RequestModel from "../pages/Requests/components/RequestModel/RequestModel";
+import MyRequestModel from "../pages/Requests/components/MyRequestModel/MyRequestModel";
 
 const routeComponent = () => {
   const location = useLocation();

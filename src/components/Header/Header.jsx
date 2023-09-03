@@ -14,9 +14,10 @@ import { BsSun, BsMoon } from "react-icons/bs";
 const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const dispatch = useDispatch();
-  const theme = useSelector((state) => state.themeToggle);
 
-  const handleThemeToggle = () => {
+
+  const handleThemeToggle = (e) => {
+   
     dispatch(toggleTheme());
   };
 
