@@ -57,4 +57,7 @@
 .auth nav a:hover {
   color: #93f;
   text-decoration: underline;
+}
+.auth__logo {
+  background-color: transparent;
 }/*# sourceMappingURL=Auth.css.map */

@@ -29,16 +29,19 @@
 .alert-info {
   margin-left: 5%;
   font-family: "Roboto", sans-serif;
-  color: #fff;
   background-color: transparent;
 }
 
 .alert-title {
+  color: #fff;
   padding-bottom: 1rem;
   font-size: 2rem;
   font-weight: 500;
+  background-color: transparent;
 }
 
 .alert-descr {
+  color: #fff;
   font-size: 1.5rem;
+  background-color: transparent;
 }/*# sourceMappingURL=Alert.css.map */

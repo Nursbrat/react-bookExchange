@@ -21,7 +21,7 @@ const NotFoundPage = () => {
       <p>
         <b>404</b>: Пропавшая Страница Книги
       </p>
-      <button onClick={() => navigate("/")}>Вернуться на главную</button>
+      <button onClick={() => navigate(-1)}>Вернуться на главную</button>
     </div>
   );
 };

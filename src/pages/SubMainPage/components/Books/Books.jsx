@@ -4,26 +4,16 @@ import {
   useAddToFavoriteMutation,
   useGetBooksQuery,
 } from "../../../../api/apiSlice";
-import { toggleTheme } from "../../../../features/themeToggle/themeToggleSlice";
-import { useSelector, useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import Notfound from "../../../../components/Notfound/Notfound";
-import { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 
 const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
-  const dispatch = useDispatch();
-  const isDarkMode = useSelector((state) => state.theme);
-
   const navigate = useNavigate();
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const query = queryParams.get("query");
-
-  const handleChangeTheme = () => {
-    dispatch(toggleTheme());
-  };
 
   const { data: booksData, error, isLoading } = useGetBooksQuery();
   const [addToFavoriteMutation] = useAddToFavoriteMutation();
@@ -34,7 +24,7 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
       success: () => {
         return <b>Книга успешно добавлена в избранное!</b>;
       },
-      error: <b>Ошибка при добавлении книги!</b>,
+      error: <b>Ошибка при добавлении книги в избранное!</b>,
     });
   };
 
@@ -137,7 +127,6 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
           </div>
         </div>
       </div>
-      <button onClick={handleChangeTheme}>tochageColor</button>
     </div>
   );
 };
