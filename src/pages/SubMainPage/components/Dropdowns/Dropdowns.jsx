@@ -28,6 +28,7 @@ const Dropdowns = ({
       "Поэзия",
     ],
     name: "Жанр",
+    all: "Не выбирать",
   };
 
   const languages = {
@@ -42,6 +43,7 @@ const Dropdowns = ({
       "Немецкий",
     ],
     name: "Язык",
+    all: "Не выбирать",
   };
 
   const conditions = {
@@ -52,6 +54,7 @@ const Dropdowns = ({
       "Плохое",
     ],
     name: "Состояние",
+    all: "Не выбирать",
   };
 
   const handleGenreChange = (selectedGenre) => {

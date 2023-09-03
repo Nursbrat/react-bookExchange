@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import "./Header.scss";
 import { BiSearchAlt2, BiMenu } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
@@ -24,16 +24,24 @@ const Header = () => {
   const [searchText, setSearchText] = useState("");
   const searchBooksQuery = useSearchBooksQuery();
 
+  useEffect(() => {
+    const savedSearchText = localStorage.getItem("searchText");
+    if (savedSearchText) {
+      setSearchText(savedSearchText);
+    }
+  }, []);
+
   const handleSearch = async (e) => {
     e.preventDefault();
-
     try {
       await searchBooksQuery.refetch({ searchQuery: searchText });
     } catch (error) {
       console.log(error);
     }
     navigate(`/submain-page?query=${searchText}`);
+    localStorage.setItem("searchText", searchText);
   };
+
   return (
     <div className="header">
       <div className="header-container">
