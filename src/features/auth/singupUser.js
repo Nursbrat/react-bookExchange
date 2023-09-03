@@ -5,7 +5,7 @@ export const signupUser = createAsyncThunk(
   "users/signup",
   async ({ name, email, password, confirmPassword, phoneNumber }, thunkAPI) => {
     try {
-      const response = await fetch(AUTH, {
+      const response = await fetch(`${AUTH}/register/`, {
         method: "POST",
         headers: {
           Accept: "application/json",

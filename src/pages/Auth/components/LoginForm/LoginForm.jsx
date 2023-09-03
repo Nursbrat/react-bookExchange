@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import '../LoginForm/LoginForm.scss'
+import "../LoginForm/LoginForm.scss";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-
 import images from "../../../../constants/images";
 
 const loginForm = () => {
@@ -20,15 +19,8 @@ const loginForm = () => {
               placeholder="Пароль"
               required
             />
-            <span
-              onClick={togglePasswordVisibility}
-            >
-              {!passwordVisible ? (
-                <FaEyeSlash />
-              ) : (
-                <FaEye />
-              )}
-              
+            <span onClick={togglePasswordVisibility}>
+              {!passwordVisible ? <FaEyeSlash /> : <FaEye />}
             </span>
           </div>
 
