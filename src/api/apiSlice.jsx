@@ -28,7 +28,7 @@ export const apiSlice = createApi({
     // Обновление существующей книги
     updateBook: builder.mutation({
       query: (updatedBook) => ({
-        url: `/books/${updatedBook.id}/`,
+        url: `/books/${updatedBook.id}/update/`,
         method: "PUT",
         body: updatedBook,
       }),

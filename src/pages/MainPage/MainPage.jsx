@@ -1,16 +1,13 @@
 import "../MainPage/MainPage.scss";
 
 import React, { useEffect } from "react";
-
 import { images } from "../../constants";
 import { useNavigate } from "react-router-dom";
-import { Toaster, toast } from "react-hot-toast";
 
 const MainPage = () => {
   const navigate = useNavigate();
   return (
-    <div className="main"> 
-      
+    <div className="main">
       <div className="container">
         <div className="main__content">
           <div
