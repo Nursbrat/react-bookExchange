@@ -10,11 +10,11 @@ import {
 } from "../../api/apiSlice";
 import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
+import { useSelector } from "react-redux";
 
 const Addbook = () => {
   const [createBook, { isLoading }] = useCreateBookMutation();
   const navigate = useNavigate();
-
   const [bookData, setBookData] = useState({
     images: [],
     description: "",
@@ -95,6 +95,13 @@ const Addbook = () => {
       condition: bookData.condition,
     };
 
+    const user = localStorage.getItem("user");
+
+    if (user) {
+      newBook.user_temp = user;
+    }
+
+    console.log(newBook);
     try {
       toast
         .promise(createBook(newBook).unwrap(), {

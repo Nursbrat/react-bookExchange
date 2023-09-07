@@ -1,9 +1,31 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { BOOKS } from "./api";
 
+const getTokens = () => {
+  const access = localStorage.getItem("access"); // Замените "access" на ключ, под которым хранится access token в localStorage
+  const refresh = localStorage.getItem("refresh"); // Замените "refresh" на ключ, под которым хранится refresh token в localStorage
+
+  return {
+    access,
+    refresh,
+  };
+};
+const baseQueryWithAuth = fetchBaseQuery({
+  baseUrl: BOOKS,
+  // Функция для добавления токенов в заголовки запросов
+  prepareHeaders: (headers, { getState }) => {
+    const { access, refresh } = getTokens(getState()); // Получите токены из состояния Redux
+    if (access) {
+      headers.set("Authorization", `Bearer ${access}`);
+    }
+    // Добавьте другие заголовки, если необходимо
+    return headers;
+  },
+});
+
 export const apiSlice = createApi({
   reducerPath: "apiSlice",
-  baseQuery: fetchBaseQuery({ baseUrl: BOOKS }),
+  baseQuery: baseQueryWithAuth,
   tagTypes: ["Books", "User"],
   endpoints: (builder) => ({
     // Получение списка книг
