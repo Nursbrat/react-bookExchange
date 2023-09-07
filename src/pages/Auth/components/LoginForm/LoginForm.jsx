@@ -30,9 +30,6 @@ const loginForm = () => {
       const response = await loginUser(credentials,dispatch);
 
       toast.success(response)
-      console.log(response)
-
-
     } catch (error) {
       toast.error(`${response}`)
       console.error(`error:${error}`)

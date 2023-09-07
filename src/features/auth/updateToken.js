@@ -4,6 +4,8 @@ import { setTokens, setUser } from "./authSlice";
 const dispatch = useDispatch();
 
 export const updateToken = async () => {
+
+  
   const response = await fetch("http://127.0.0.1:8000/api/token/refresh/", {
     method: "POST",
     headers: {

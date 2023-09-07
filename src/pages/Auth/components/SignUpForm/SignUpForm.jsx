@@ -4,40 +4,45 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import images from "../../../../constants/images";
 import { useDispatch } from "react-redux";
 import { signupUser } from "../../../../features/auth/singupUser";
-import { toast } from "react-hot-toast";
-import { debounce } from "lodash";
+import { Toaster, toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+
 
 const SignUpForm = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [phoneNumber, setPhoneNumber] = useState("+996");
+  const [phoneNumber, setPhoneNumber] = useState("+996")
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [passwordMatchError, setPasswordMatchError] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-  const dispatch = useDispatch();
+  const navigate = useNavigate()
 
-  const handleSubmit = () => {
-    
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
     const userData = {
-      name,
-      email,
-      phoneNumber,
-      password,
-      confirmPassword,
+      email: email,
+      password: password,
+      password_confirm: confirmPassword,
+      phone_number: phoneNumber,
+      first_name: name, 
+      last_name: "",
+      city: 1,
     };
-    dispatch(signupUser(userData))
-      .unwrap()
-      .then((result) => {
-        console.log(result)
-        toast.success(`Успешно`);
-      })
-      .catch((error) => {
-        toast.error(`${error}`);
-      });
-  };
 
+    try {
+      await signupUser(userData);
+      toast.success("На Почту было отправлено сообщение");
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+      toast.error("Аккаунт существует");
+    }
+  };
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
@@ -63,9 +68,6 @@ const SignUpForm = () => {
   const handleInputChange = (event, setValue) => {
     const { value } = event.target;
     setValue(value);
-    // if (event.target.name === "confirmPassword" || event.target.name === 'password') {
-    //   handlePasswordMatch();
-    // }
   };
 
   useEffect(() => {
@@ -73,13 +75,14 @@ const SignUpForm = () => {
   }, [password, confirmPassword])
 
   const formattedPhoneNumber = phoneNumber
-    .replace(/(\d{3})(\d{3})(\d{3})(\d{3})/, "$1 $2 $3 $4")
+    .replace(/(\d{4})(\d{3})(\d{3})(\d{3})/, "$1 $2 $3 $4")
     .trim();
 
   return (
     <div className="signup">
+      <Toaster containerStyle={{ backgroundColor: 'transparent' }} />
       <div className="signup__content">
-        <form onSubmit={(e) => { e.preventDefault(); handleSubmit()}}>
+        <form onSubmit={handleSubmit}>
 
           <input
             type="text"
