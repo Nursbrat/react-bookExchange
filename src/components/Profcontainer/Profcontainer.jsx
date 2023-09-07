@@ -21,7 +21,7 @@ const Profcontainer = ({
         <a onClick={() => handleGoBack()} title="Вернуться назад">
           <GrFormPrevious className="back-icon" />
         </a>
-        <p>{pageTitle}</p>
+        <p className="page-title">{pageTitle}</p>
       </div>
 
       <div>

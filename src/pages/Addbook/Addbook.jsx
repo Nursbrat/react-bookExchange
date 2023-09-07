@@ -165,7 +165,7 @@ const Addbook = () => {
                 <label htmlFor="add-picture">
                   <div className="add-picture">
                     <img src={images.img} />
-                    <p className="add-picture__descr">Загрузите фотографии</p>
+                    <p className="add-picture__desc">Загрузите фотографии</p>
                     <input
                       name="covers"
                       type="file"
@@ -197,6 +197,7 @@ const Addbook = () => {
                 name="title"
                 value={bookData.title}
                 onChange={handleInputChange}
+                className="addbook-input input"
                 required
               />
               <label htmlFor="book-author">Автор</label>
@@ -207,6 +208,7 @@ const Addbook = () => {
                 name="author"
                 value={bookData.author}
                 onChange={handleInputChange}
+                className="addbook-input input"
                 required
               />
               <label htmlFor="book-published-year">Год издания</label>
@@ -217,6 +219,7 @@ const Addbook = () => {
                 name="publishedYear"
                 value={bookData.publishedYear}
                 onChange={handleInputChange}
+                className="addbook-input input"
                 required
               />
               <label htmlFor="book-language">Язык</label>
@@ -226,6 +229,7 @@ const Addbook = () => {
                 name="language"
                 value={bookData.language}
                 onChange={handleInputChange}
+                className="addbook-input"
               >
                 <option value="">Выберите язык</option>
                 <option value="Английский">Английский</option>
@@ -243,6 +247,7 @@ const Addbook = () => {
                 name="genre"
                 value={bookData.genre}
                 onChange={handleSelectChange}
+                className="addbook-input"
               >
                 <option value="">Выберите жанр</option>
                 <option value="Роман">Роман</option>
@@ -264,6 +269,7 @@ const Addbook = () => {
                 name="condition"
                 value={bookData.condition}
                 onChange={handleSelectChange}
+                className="addbook-input"
               >
                 <option value="">Выберите состояние</option>
                 <option value="Хорошее">Хорошее состояние</option>

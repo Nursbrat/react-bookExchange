@@ -17,8 +17,8 @@ const Header = () => {
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.themeToggle);
   const handleThemeToggle = () => {
-    dispatch(toggleTheme());
     setSwitched(!switched);
+    dispatch(toggleTheme());
   };
 
   return (
@@ -85,8 +85,9 @@ const Header = () => {
                 checked={switched}
                 onChange={handleThemeToggle}
               />
-              <span className="slider"></span>
+
               {theme}
+              <span className="slider"></span>
             </label>
           </ul>
         </div>

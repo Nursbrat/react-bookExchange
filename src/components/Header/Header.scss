@@ -126,9 +126,9 @@
   border-radius: 2.5rem;
 }
 .switch input {
-  display: none;
+  opacity: 0;
 }
-.slider::before {
+.slider:before {
   position: absolute;
   content: " ";
   height: 1.6rem;
@@ -141,7 +141,7 @@
 }
 
 input:checked + .slider {
-  background-color: pink;
+  background-color: rgb(238, 145, 14);
 }
 input:checked + .slider::before {
   transform: translateX(1.7rem);
