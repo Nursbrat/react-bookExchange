@@ -7,6 +7,7 @@ import {
 import { useLocation, useNavigate } from "react-router-dom";
 import Notfound from "../../../../components/Notfound/Notfound";
 import { Toaster, toast } from "react-hot-toast";
+import { ColorRing } from "react-loader-spinner";
 
 const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
   const navigate = useNavigate();
@@ -32,20 +33,39 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
     return (
       <div
         style={{
-          fontSize: "20px",
-          height: "200px",
+          height: "400px",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
         }}
       >
-        Пожалуйста, подождите...
+        <ColorRing
+          visible={true}
+          height="90"
+          width="90"
+          ariaLabel="blocks-loading"
+          wrapperStyle={{}}
+          wrapperClass="blocks-wrapper"
+          colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+        />
       </div>
     );
   }
 
   if (error) {
-    return <div>Ошибка: {error.message}</div>;
+    return (
+      <div
+        style={{
+          fontSize: "20px",
+          height: "400px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        {`Ошибка при загрузке :(`}
+      </div>
+    );
   }
 
   const books = booksData.data || [];
@@ -81,6 +101,8 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
     }
   }
 
+  console.log(searchedBooks);
+
   return (
     <div className="books">
       <div className="container books__container">
@@ -94,8 +116,8 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
               searchedBooks.map((book, index) => (
                 <div key={index} className="books__item" title={book.title}>
                   <img
-                    src={images.book}
-                    alt={book.title}
+                    src={book.images[0] ? book.images[0] : images.book}
+                    alt=""
                     onClick={() => navigate(`/book-info/${book.id}`)}
                   />
                   <p onClick={() => navigate(`/book-info/${book.id}`)}>

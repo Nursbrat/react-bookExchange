@@ -1,32 +1,30 @@
-export const loginUser = createAsyncThunk(
-    "users/login",
-    async ({ email, password }, thunkAPI) => {
-      try {
-        const response = await fetch(
-          "https://mock-user-auth-server.herokuapp.com/api/v1/auth",
-          {
-            method: "POST",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              email,
-              password,
-            }),
-          }
-        );
-        let data = await response.json();
-        console.log("response", data);
-        if (response.status === 200) {
-          localStorage.setItem("token", data.token);
-          return data;
-        } else {
-          return thunkAPI.rejectWithValue(data);
-        }
-      } catch (e) {
-        console.log("Error", e.response.data);
-        thunkAPI.rejectWithValue(e.response.data);
-      }
+// features/auth/loginUser.js
+import { AUTH } from "../../api/api";
+import { setTokens, setUser } from "./authSlice";
+import jwtDecode from "jwt-decode";
+
+export const loginUser = async (credentials, dispatch) => {
+  try {
+    const response = await fetch(`${AUTH}/login/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(credentials),
+    });
+    const data = await response.json();
+    if (!response.ok) {
+      console.error("login is failed");
+      const loginError = "Неправильная почта или пароль";
+      return loginError;
     }
-  )
+    const loginSuccess = "Успешно";
+    const { access, refresh } = data;
+    dispatch(setUser(jwtDecode(access).user_id));
+    dispatch(setTokens({ access, refresh }));
+    return loginSuccess;
+  } catch (error) {
+    console.error("Error:", error);
+    throw error;
+  }
+};

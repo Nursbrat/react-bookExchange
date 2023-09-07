@@ -99,4 +99,16 @@
     color: $authTextColor;
 
   }
+  .signup_error--password{
+    background-color: transparent;
+    color: red;
+    text-align: center;
+    font-family: Lora;
+    font-size: clamp(10px, 4vw, 16px);
+    font-style: normal;
+    // font-weight: 500;
+    // line-height: normal;
+    // padding-right: 19px;
+    // padding-left: 19px;
+  }
 }
