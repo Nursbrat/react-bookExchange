@@ -4,13 +4,21 @@
   cursor: pointer;
   &__toggle__btn {
     display: flex;
-    padding: 5px 40px;
+    padding: 5px 25px;
     justify-content: center;
     align-items: center;
     gap: 5px;
     border-radius: 60px;
     border: 1px solid $borderColor;
-    font-size: 20px;
+
+    p {
+      font-size: 20px;
+      width: 95%;
+    }
+    img {
+      width: 26px;
+      height: 26px;
+    }
   }
   &__list {
     position: relative;

@@ -1,6 +1,6 @@
 @use "./global.scss" as *;
 
-html,
+
 body,
 div,
 span,
@@ -30,15 +30,11 @@ th,
 td,
 article,
 aside,
-canvas,
-details,
-embed,
 footer,
 header,
 menu,
 nav,
 output,
-ruby,
 section,
 summary,
 input,
@@ -50,8 +46,8 @@ option{
   transition: 0.3s;
 }
 ::selection {
-  background-color: $buttonColor;
-  color: $textColor;
+  background-color: $violetTextColor;
+  // color: $textColor;
 }
 
 ::placeholder{
@@ -66,13 +62,11 @@ button:hover,
 select:hover,
 input:hover,
 textarea:hover {
-  border: 1px solid $buttonColor;
+  border: 1px solid $violetTextColor;
 }
-img{
+img,svg{
   background-color: transparent;
 }
-
-
 
 main{
   min-height: calc(100vh - 50px);

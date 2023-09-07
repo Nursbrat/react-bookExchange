@@ -135,10 +135,9 @@ button {
 .container {
   max-width: 1650px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
-html,
 body,
 div,
 span,
@@ -168,15 +167,11 @@ th,
 td,
 article,
 aside,
-canvas,
-details,
-embed,
 footer,
 header,
 menu,
 nav,
 output,
-ruby,
 section,
 summary,
 input,
@@ -190,12 +185,10 @@ option {
 
 ::-moz-selection {
   background-color: #93f;
-  color: var(--text-color);
 }
 
 ::selection {
   background-color: #93f;
-  color: var(--text-color);
 }
 
 ::-moz-placeholder {
@@ -217,7 +210,7 @@ textarea:hover {
   border: 1px solid #93f;
 }
 
-img {
+img, svg {
   background-color: transparent;
 }
 

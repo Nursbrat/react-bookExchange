@@ -123,6 +123,8 @@ const Book = ({ book }) => {
         </svg>
       </div>
     </div>
+
+    
   );
 };
 

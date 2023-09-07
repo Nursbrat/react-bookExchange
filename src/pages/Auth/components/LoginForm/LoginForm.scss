@@ -20,8 +20,10 @@
         border-radius: 49.2px;
         border: 0.547px solid $borderColor;
         background: transparent;
+        overflow: visible;
         &::placeholder {
-          color: $textColor;
+          color: $authTextColor;
+          
         }
       }
 
@@ -81,4 +83,27 @@
       width: 20%;
     }
   }
+  .login__password-inputs {
+    background-color: transparent;
+    position: relative;
+ 
+    span {
+      position: absolute;
+      top: 50%;
+      right: 16px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      background-color: transparent;
+    }
+  }
+  input {
+    color: $authTextColor;
+    width: 90%;
+
+  }
+  input{
+    background-color: transparent;
+    
+  }
+  
 }

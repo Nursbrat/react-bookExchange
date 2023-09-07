@@ -8,6 +8,7 @@
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 0.5rem;
   justify-content: space-between;
+  background-color: transparent;
 }
 .request-model-card {
   display: flex;
@@ -49,9 +50,11 @@
 .request-title {
   display: flex;
   align-items: center;
+  background-color: transparent;
   span {
-    color: #93f;
+    color:$violetTextColor ;
     font-size: 0.7rem;
+    background-color: transparent;
   }
 }
 .request-model__content {
@@ -102,6 +105,18 @@
     line-height: normal;
     padding-bottom: 0.5rem;
   }
+  &__img{
+    background-color: red;
+  }
+  &-img__container{
+    background-color: red;
+
+}
+}
+
+.request-moodel-img__container{
+  background-color: transparent;
+  background:inherit
 }
 
 @media screen and (max-width: 1100px) {

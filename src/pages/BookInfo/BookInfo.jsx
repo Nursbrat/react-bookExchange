@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./BookInfo.scss";
 import RoutesName from "../../components/RoutesName/RoutesName.jsx";
 import BookInfoHeader from "./component/BookInfoHeader/BookInfoHeader";
@@ -34,6 +34,9 @@ const BookInfo = () => {
   if (isError) {
     return <div>Ошибка: {isError.message}</div>;
   }
+ 
+    console.log(book)
+
 
   return (
     <div className="bookinfo">

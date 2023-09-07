@@ -1,1 +1,1 @@
-{"version":3,"sources":["../src/components/RoutesName/RoutesName.scss","RoutesName.css"],"names":[],"mappings":"AAAA;EACE,iBAAA;EACA,eAAA;EACA,kBAAA;EACA,gBAAA;EACA,mBAAA;ACCF","file":"RoutesName.css"}
+{"version":3,"sources":["../src/components/RoutesName/RoutesName.scss","RoutesName.css"],"names":[],"mappings":"AAAA;EACE,iBAAA;EACA,iCAAA;EACA,kBAAA;EACA,gBAAA;EACA,mBAAA;ACCF;ADAE;EACE,iCAAA;EACA,kBAAA;EACA,gBAAA;EACA,gBAAA;ACEJ;ADDI;EACE,WAAA;EACA,gBAAA;ACGN","file":"RoutesName.css"}

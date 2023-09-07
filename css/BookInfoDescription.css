@@ -32,13 +32,13 @@
   max-width: 1648px;
 }
 .bookinfo__description .bookinfo__extrainfo__block {
-  margin-top: 17px, 4vw, 40px;
+  margin-top: 27px, 4vw, 40px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   -moz-column-gap: 50px;
        column-gap: 50px;
-  margin-top: 10px;
+  margin-top: 45px;
 }
 .bookinfo__description .bookinfo__extrainfo__block .bookinfo__description__user-info {
   display: inline-flex;
@@ -106,7 +106,6 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
-  padding-left: 50px;
 }
 .bookinfo__description .bookinfo__extrainfo__block .bookinfo__description__data .bookinfo__description__data__cell {
   display: flex;

@@ -36,10 +36,10 @@
   background: transparent;
 }
 .signup__content form input::-moz-placeholder {
-  color: var(--text-color);
+  color: #282728;
 }
 .signup__content form input::placeholder {
-  color: var(--text-color);
+  color: #282728;
 }
 .signup__content form button {
   border-radius: 90px;
@@ -66,7 +66,7 @@
 }
 .signup__divider p {
   background-color: transparent;
-  color: var(--text-color);
+  color: #282728;
   text-align: center;
   font-family: Lora;
   font-size: clamp(10px, 4vw, 16px);
@@ -101,4 +101,21 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+.signup span {
+  background-color: transparent;
+}
+.signup .signup__password-inputs {
+  background-color: transparent;
+  position: relative;
+}
+.signup .signup__password-inputs span {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.signup input {
+  color: #282728;
 }/*# sourceMappingURL=SignUpForm.css.map */

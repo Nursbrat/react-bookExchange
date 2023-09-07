@@ -30,7 +30,11 @@ const Dropdown = ({ options, selectOption, onOptionSelect, genre }) => {
   return (
     <div className="dropdown">
       <div className="dropdown__toggle__btn" onClick={handleToggleDropdown}>
-        {truncatedOption || options.name}
+        <p>
+          {truncatedOption
+            ? `${options.name}: ${truncatedOption}`
+            : options.name}
+        </p>
         <img
           src={images.caret}
           alt=""
@@ -50,7 +54,7 @@ const Dropdown = ({ options, selectOption, onOptionSelect, genre }) => {
                 onOptionSelect(option);
               }}
             >
-              {option === null ? options.name : option}
+              {option === null ? options.all : option}
             </li>
           ))}
         </ul>
