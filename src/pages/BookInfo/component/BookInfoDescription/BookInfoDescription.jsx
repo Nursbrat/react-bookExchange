@@ -20,10 +20,13 @@ const BookInfoDescription = ({ book }) => {
               <h6>Жанр: </h6>
               <p>{book ? book.genre : ""}</p>
             </div>
-            <div className="bookinfo__description__data__cell published-date">
-              <h6>Дата издания: </h6>
-              <p>{book ? book.publishedYear : ""}</p>
-            </div>
+            {book.publishedYear ? (
+              <div className="bookinfo__description__data__cell published-date">
+                <h6>Дата издания: </h6>
+                <p>{book ? book.publishedYear : ""}</p>
+              </div>
+            ) : null}
+
             <div className="bookinfo__description__data__cell language">
               <h6>Язык: </h6>
               <p> {book ? book.language : ""}</p>

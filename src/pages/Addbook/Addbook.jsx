@@ -76,7 +76,6 @@ const Addbook = () => {
       !bookData.title ||
       !bookData.author ||
       !bookData.genre ||
-      !bookData.publishedYear ||
       !bookData.language ||
       !bookData.condition
     ) {
