@@ -29,8 +29,7 @@ const EditPage = () => {
   useEffect(() => {
     if (book) {
       setNewBookData({
-        id: book.id,
-        images: book.covers,
+        images: book.images,
         description: book.description,
         title: book.title,
         author: book.author,
@@ -91,7 +90,6 @@ const EditPage = () => {
       !newBookData.title ||
       !newBookData.author ||
       !newBookData.genre ||
-      !newBookData.publishedYear ||
       !newBookData.language ||
       !newBookData.condition
     ) {
