@@ -19,13 +19,9 @@ export const updateToken = async () => {
   if (response.status === 200) {
     dispatch(setTokens(data));
     dispatch(setUser(jwt_decode(data.access)));
-    localStorage.setItem("refreshToken", JSON.stringify(data));
+    // localStorage.setItem("refreshToken", JSON.stringify(data));
   } else {
     logoutUser();
-  }
-
-  if (loading) {
-    setLoading(false);
   }
 };
 

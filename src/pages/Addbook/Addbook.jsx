@@ -11,6 +11,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 import { useSelector } from "react-redux";
+import { BOOKS } from "../../api/api";
 
 const Addbook = () => {
   const [createBook, { isLoading }] = useCreateBookMutation();
@@ -20,13 +21,12 @@ const Addbook = () => {
     description: "",
     title: "",
     author: "",
-    publishedYear: "",
     genre: "",
-    language: "",
-    condition: "",
+    language: 1,
+    condition: 7,
+    user_temp: localStorage.getItem('user')
   });
 
-  console.log(bookData.images);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -61,6 +61,28 @@ const Addbook = () => {
     }
   };
 
+  // const addBook = async (bookData) => {
+  //   try {
+  //     const response = await fetch(`${BOOKS}/books/`, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(bookData),
+  //     });
+  //     let data = await response.json();
+
+  //     if (!response.ok) {
+  //       const errorData = await response.json();
+  //       throw new Error(errorData.message);
+  //     }
+  //     return await response.json();
+  //   } catch (e) {
+  //     console.error("Error", e);
+  //     throw e;
+  //   }
+  // };
+
   const handleNavigateAfterDelay = () => {
     setTimeout(() => {
       navigate("/submain-page");
@@ -70,67 +92,110 @@ const Addbook = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    if (
-      !bookData.images.length ||
-      !bookData.description ||
-      !bookData.title ||
-      !bookData.author ||
-      !bookData.genre ||
-      !bookData.publishedYear ||
-      !bookData.language ||
-      !bookData.condition
-    ) {
-      toast.error("Заполните все поля!");
-      return;
-    }
-
-    const newBook = {
-      images: bookData.images,
-      description: bookData.description,
-      title: bookData.title,
-      author: bookData.author,
-      genre: bookData.genre,
-      publishedYear: bookData.publishedYear,
-      language: bookData.language,
-      condition: bookData.condition,
-    };
-
     const user = localStorage.getItem("user");
 
-    if (user) {
-      newBook.user_temp = user;
-    }
+    let formField = new FormData();
+    // formField.append('images', bookData.images);
+    formField.append('description', bookData.description);
+    formField.append('title', bookData.title);
+    formField.append('author', bookData.author);
+    formField.append('genre', bookData.genre);
+    // formField.append('publishedYear', bookData.publishedYear);
+    formField.append('language', bookData.language);
+    formField.append('condition', bookData.condition);
+    formField.append('user_temp', user);
 
-    console.log(newBook);
+
+    // if (
+    //   !bookData.images.length ||
+    //   !bookData.description ||
+    //   !bookData.title ||
+    //   !bookData.author ||
+    //   !bookData.genre ||
+    //   !bookData.publishedYear ||
+    //   !bookData.language ||
+    //   !bookData.condition
+    // ) {
+    //   toast.error("Заполните все поля!");
+    //   return;
+    // }
+
+    // const newBook = {
+    //   images: bookData.images,
+    //   description: bookData.description,
+    //   title: bookData.title,
+    //   author: bookData.author,
+    //   genre: bookData.genre,
+    //   // publishedYear: bookData.publishedYear,
+    //   language: bookData.language,
+    //   condition: bookData.condition,
+    //   user_temp: user
+    // };
+
+
+
+    // if (user) {
+    //   newBook.user_temp = user;
+    // }
+
+
+    // try {
+    //   // toast
+    //   //   .promise(addBook(formField).unwrap(), {
+    //   //     loading: "Загрузка...",
+    //   //     success: () => {
+    //   //       return <b>Книга успешно добавлена!</b>;
+    //   //     },
+    //   //     error: <b>Ошибка при добавлении книги!</b>,
+    //   //   })
+    //   //   .then(() => {
+    //   //     toast("Вас перенаправит на главную страницу!", {
+    //   //       icon: "🔄",
+    //   //     });
+    //   //     handleNavigateAfterDelay();
+    //   //   });
+    //   const data = await addBook(formField)
+
+
+    //   toast('Success ', data)
+
+    //   console.log(data)
+
+    //   // setBookData({
+    //   //   images: [],
+    //   //   description: "",
+    //   //   title: "",
+    //   //   author: "",
+    //   //   genre: 3,
+    //   //   language: 2,
+    //   //   condition: 7,
+    //   //   user_temp: localStorage.getItem('user')
+    //   // });
+    // } catch (error) {
+    //   alert("Ошибка при добавлении книги!");
+    //   console.log("Ошибка при добавлении книги!", error);
+    // }
+
     try {
-      toast
-        .promise(createBook(newBook).unwrap(), {
-          loading: "Загрузка...",
-          success: () => {
-            return <b>Книга успешно добавлена!</b>;
-          },
-          error: <b>Ошибка при добавлении книги!</b>,
-        })
-        .then(() => {
-          toast("Вас перенаправит на главную страницу!", {
-            icon: "🔄",
-          });
-          handleNavigateAfterDelay();
-        });
-
-      setBookData({
-        images: [],
-        description: "",
-        title: "",
-        author: "",
-        publishedYear: "",
-        genre: "",
-        language: "",
-        condition: "",
+      const response = await fetch(`${BOOKS}/books/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(bookData),
       });
-    } catch (error) {
-      alert("Ошибка при добавлении книги!");
-      console.log("Ошибка при добавлении книги!", error);
+      console.log(bookData)
+      let data = await response.json();
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message);
+      }
+      console.log(data)
+      return data 
+    } catch (e) {
+      console.error("Error", e);
+      throw e;
     }
   };
 
@@ -145,7 +210,7 @@ const Addbook = () => {
         <div className="addBook">
           <div className="addBook-container">
             <div className="addBook__form">
-              <div className="addBook__cover">
+              {/* <div className="addBook__cover">
                 <p className="label">
                   Добавьте фото (не более 7){" "}
                   {bookData.images.length > 0 ? (
@@ -169,7 +234,7 @@ const Addbook = () => {
                     />
                   </div>
                 </label>
-              </div>
+              </div> */}
               <div className="addBook__description">
                 <label className="label">Добавьте описание</label>
                 <textarea
@@ -201,7 +266,7 @@ const Addbook = () => {
                 onChange={handleInputChange}
                 required
               />
-              <label htmlFor="book-published-year">Год издания</label>
+              {/* <label htmlFor="book-published-year">Год издания</label>
               <input
                 type="text"
                 id="book-published-year"
@@ -210,10 +275,10 @@ const Addbook = () => {
                 value={bookData.publishedYear}
                 onChange={handleInputChange}
                 required
-              />
-              <label htmlFor="book-language">Язык</label>
+              /> */}
+              {/* <label htmlFor="book-language">Язык</label> */}
 
-              <select
+              {/* <select
                 id="book-language"
                 name="language"
                 value={bookData.language}
@@ -261,13 +326,13 @@ const Addbook = () => {
                 <option value="Хорошее">Хорошее состояние</option>
                 <option value="Среднее">Среднее состояние</option>
                 <option value="Плохое">Плохое состояние</option>
-              </select>
+              </select> */}
 
               <div className="step-btn">
                 <button
                   type="button"
                   className="next-link"
-                  disabled={isLoading}
+                  // disabled={isLoading}
                   onClick={handleFormSubmit}
                 >
                   {isLoading ? "Загрузка..." : "Продолжить"}

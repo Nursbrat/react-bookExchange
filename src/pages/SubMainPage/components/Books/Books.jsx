@@ -88,7 +88,7 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
     const matchesAuthor =
       book.author && book.author.toLowerCase().includes(lowerQuery);
     const matchesGenre =
-      book.genre && book.genre.toLowerCase().includes(lowerQuery);
+      !book.genre && book.genre && book.genre.toLowerCase().includes(lowerQuery);
 
     return matchesTitle || matchesAuthor || matchesGenre;
   });

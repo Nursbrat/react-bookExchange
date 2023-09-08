@@ -98,7 +98,7 @@ const Header = () => {
               <li>Личный кабинет</li>
             </NavLink>
             <NavLink
-              to="/requests"
+              to="/requests/request-model"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
               <li>Запросы на обмен</li>
