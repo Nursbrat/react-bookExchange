@@ -1,7 +1,7 @@
 import "./Books.scss";
 import images from "../../../../constants/images";
 import {
-  useAddToFavoriteMutation,
+  // useAddToFavoriteMutation,
   useGetBooksQuery,
 } from "../../../../api/apiSlice";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -17,17 +17,17 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
   const query = queryParams.get("query");
 
   const { data: booksData, error, isLoading } = useGetBooksQuery();
-  const [addToFavoriteMutation] = useAddToFavoriteMutation();
+  // const [addToFavoriteMutation] = useAddToFavoriteMutation();
 
-  const handleAddToFavorites = (bookId) => {
-    toast.promise(addToFavoriteMutation(bookId).unwrap(), {
-      loading: "Загрузка...",
-      success: () => {
-        return <b>Книга успешно добавлена в избранное!</b>;
-      },
-      error: <b>Ошибка при добавлении книги в избранное!</b>,
-    });
-  };
+  // const handleAddToFavorites = (bookId) => {
+  //   toast.promise(addToFavoriteMutation(bookId).unwrap(), {
+  //     loading: "Загрузка...",
+  //     success: () => {
+  //       return <b>Книга успешно добавлена в избранное!</b>;
+  //     },
+  //     error: <b>Ошибка при добавлении книги в избранное!</b>,
+  //   });
+  // };
 
   if (isLoading) {
     return (
@@ -101,7 +101,26 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
     }
   }
 
-  console.log(searchedBooks);
+  // favorites local storage
+  const addToFavorites = (book) => {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || {};
+
+    if (!favorites[book.id]) {
+      favorites[book.id] = book;
+
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+
+      toast.success(`Книга "${book.title}" успешно добавлена в избранное!`);
+    } else {
+      toast.error(`Книга "${book.title}" уже добавлена в избранное!`);
+    }
+  };
+
+  const handleAddToFavorites = (book) => {
+    addToFavorites(book);
+  };
+
+  // favorites local storage
 
   return (
     <div className="books">
@@ -126,7 +145,7 @@ const Books = ({ selectedLanguage, selectedGenre, selectedCondition }) => {
                   <div
                     title={`Добавить "${book.title}" в избранное`}
                     className="add-to-favorites__tooltip"
-                    onClick={() => handleAddToFavorites(book.id)}
+                    onClick={() => handleAddToFavorites(book)}
                   >
                     <svg
                       width="46"

@@ -34,7 +34,7 @@ const Book = ({ book }) => {
       <Toaster containerStyle={{ backgroundColor: "transparent" }} />
       <div className="book-img">
         <img
-          src={images.book}
+          src={book.images[0]}
           alt={book.title}
           onClick={() => navigate(`/book-info/${book.id}`)}
         />
@@ -123,8 +123,6 @@ const Book = ({ book }) => {
         </svg>
       </div>
     </div>
-
-    
   );
 };
 
